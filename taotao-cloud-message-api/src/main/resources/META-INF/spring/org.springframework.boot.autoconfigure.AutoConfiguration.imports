@@ -1,12 +1,2 @@
-com.taotao.cloud.message.api.feign.fallback.DictApiFallback
-com.taotao.cloud.message.api.feign.fallback.FileApiFallback
-com.taotao.cloud.message.api.feign.fallback.LogisticsApiFallback
-com.taotao.cloud.message.api.feign.fallback.MenuApiFallback
-com.taotao.cloud.message.api.feign.fallback.QuartzJobApiFallback
-com.taotao.cloud.message.api.feign.fallback.RoleApiFallback
-com.taotao.cloud.message.api.feign.fallback.SettingApiFallback
-com.taotao.cloud.message.api.feign.fallback.SysLogApiFallback
-com.taotao.cloud.message.api.feign.fallback.SysLogLoginApiFallback
-com.taotao.cloud.message.api.feign.fallback.UserApiFallback
-
-
+com.taotao.cloud.message.api.feign.fallback.NoticeMessageApiFallback
+com.taotao.cloud.message.api.feign.fallback.StoreMessageApiFallback
