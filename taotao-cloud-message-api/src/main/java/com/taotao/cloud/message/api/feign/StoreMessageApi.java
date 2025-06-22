@@ -30,7 +30,9 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@FeignClient(value = ServiceNameConstants.TAOTAO_CLOUD_MESSAGE, fallbackFactory = StoreMessageApiFallback.class)
+@FeignClient(value = ServiceNameConstants.TAOTAO_CLOUD_MESSAGE,
+	contextId = "StoreMessageApi",
+	fallbackFactory = StoreMessageApiFallback.class)
 public interface StoreMessageApi {
 
     @GetMapping(value = "/message/getPage")
