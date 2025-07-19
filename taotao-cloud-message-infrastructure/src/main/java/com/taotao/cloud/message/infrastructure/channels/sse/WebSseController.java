@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.taotao.cloud.message.infrastructure.channels.sse;
 
 import com.taotao.boot.common.exception.BusinessException;
@@ -10,6 +26,11 @@ import com.taotao.cloud.sys.infrastructure.channels.sse.WebSSEUser;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import jakarta.servlet.http.HttpServletRequest;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.util.concurrent.CompletableFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +38,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
-import java.util.concurrent.CompletableFuture;
-
 
 /**
  * SseEmitter 的功能和用途
@@ -47,121 +61,133 @@ import java.util.concurrent.CompletableFuture;
 @RestController
 @RequestMapping("/sse")
 public class WebSseController {
-	protected Logger logger = LoggerFactory.getLogger(getClass());
+    protected Logger logger = LoggerFactory.getLogger(getClass());
 
-	@Autowired
-	private SseService sseService;
+    @Autowired private SseService sseService;
 
-	@RequestMapping(value = "/send")
-	public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel send(@RequestBody com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO<String> messageDTO, HttpServletRequest request) {
-		logger.info("收到发往用户[{}]的文本请求;", messageDTO.getTargetUserName());
-		Object userName = request.getSession().getAttribute("userName");
-		if (userName == null)
-			return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.error("无用户");
-		messageDTO.setFromUserName((String) userName);
-		messageDTO.setMessageType(com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO.Type.TYPE_TEXT.getMessageType());
-		com.taotao.cloud.sys.infrastructure.channels.sse.Chater chater = com.taotao.cloud.sys.infrastructure.channels.sse.WebSSEUser.getChater(messageDTO.getTargetUserName());
-		chater.addMsg(messageDTO);
-		return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.ok();
-	}
+    @RequestMapping(value = "/send")
+    public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel send(
+            @RequestBody
+                    com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO<String> messageDTO,
+            HttpServletRequest request) {
+        logger.info("收到发往用户[{}]的文本请求;", messageDTO.getTargetUserName());
+        Object userName = request.getSession().getAttribute("userName");
+        if (userName == null)
+            return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.error("无用户");
+        messageDTO.setFromUserName((String) userName);
+        messageDTO.setMessageType(
+                com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO.Type.TYPE_TEXT
+                        .getMessageType());
+        com.taotao.cloud.sys.infrastructure.channels.sse.Chater chater =
+                com.taotao.cloud.sys.infrastructure.channels.sse.WebSSEUser.getChater(
+                        messageDTO.getTargetUserName());
+        chater.addMsg(messageDTO);
+        return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.ok();
+    }
 
-	@GetMapping(value = "/subscribe", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-	public SseEmitter to(HttpServletRequest request) {
-		String userName = (String) request.getSession().getAttribute("userName");
-		// 超时时间设置为3分钟
-		SseEmitter sseEmitter = new SseEmitter(180000L);
-		com.taotao.cloud.sys.infrastructure.channels.sse.Chater chater = com.taotao.cloud.sys.infrastructure.channels.sse.WebSSEUser.getChater(userName);
-		sseEmitter.onTimeout(() -> chater.setSseEmitter(null));
-		sseEmitter.onCompletion(() -> LogUtils.info("完成！！！"));
-		chater.setSseEmitter(sseEmitter);
-		return sseEmitter;
-	}
+    @GetMapping(value = "/subscribe", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public SseEmitter to(HttpServletRequest request) {
+        String userName = (String) request.getSession().getAttribute("userName");
+        // 超时时间设置为3分钟
+        SseEmitter sseEmitter = new SseEmitter(180000L);
+        com.taotao.cloud.sys.infrastructure.channels.sse.Chater chater =
+                com.taotao.cloud.sys.infrastructure.channels.sse.WebSSEUser.getChater(userName);
+        sseEmitter.onTimeout(() -> chater.setSseEmitter(null));
+        sseEmitter.onCompletion(() -> LogUtils.info("完成！！！"));
+        chater.setSseEmitter(sseEmitter);
+        return sseEmitter;
+    }
 
-	@RequestMapping(value = "/setUser")
-	public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel setUser(@RequestParam("userName") String userName, HttpServletRequest request) {
-		logger.info("设置用户[{}]", userName);
-		request.getSession().setAttribute("userName", userName);
-		com.taotao.cloud.sys.infrastructure.channels.sse.Chater chater = new com.taotao.cloud.sys.infrastructure.channels.sse.Chater();
-		chater.setUserName(userName);
-		com.taotao.cloud.sys.infrastructure.channels.sse.WebSSEUser.add(userName, chater);
-		return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.ok();
-	}
+    @RequestMapping(value = "/setUser")
+    public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel setUser(
+            @RequestParam("userName") String userName, HttpServletRequest request) {
+        logger.info("设置用户[{}]", userName);
+        request.getSession().setAttribute("userName", userName);
+        com.taotao.cloud.sys.infrastructure.channels.sse.Chater chater =
+                new com.taotao.cloud.sys.infrastructure.channels.sse.Chater();
+        chater.setUserName(userName);
+        com.taotao.cloud.sys.infrastructure.channels.sse.WebSSEUser.add(userName, chater);
+        return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.ok();
+    }
 
-	@RequestMapping(value = "/user")
-	public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel user(HttpServletRequest request) {
-		Object userName = request.getSession().getAttribute("userName");
-		if (userName == null) {
-			return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.error("无用户");
-		}
-		return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.ok(userName);
-	}
+    @RequestMapping(value = "/user")
+    public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel user(
+            HttpServletRequest request) {
+        Object userName = request.getSession().getAttribute("userName");
+        if (userName == null) {
+            return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.error("无用户");
+        }
+        return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.ok(userName);
+    }
 
-	@RequestMapping(value = "/userList")
-	public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel userList() {
-		return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.ok(com.taotao.cloud.sys.infrastructure.channels.sse.WebSSEUser.getUserList());
-	}
+    @RequestMapping(value = "/userList")
+    public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel userList() {
+        return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.ok(
+                com.taotao.cloud.sys.infrastructure.channels.sse.WebSSEUser.getUserList());
+    }
 
-	@RequestMapping(value = "/fileUpload")
-	public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel fileUpload(@RequestParam("userName") String userName, @RequestParam MultipartFile[] myfiles,
-                                                                                   HttpServletRequest request) {
-		logger.info("收到发往用户[{}]的文件上传请求;文件数量:{}", userName, myfiles.length);
+    @RequestMapping(value = "/fileUpload")
+    public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel fileUpload(
+            @RequestParam("userName") String userName,
+            @RequestParam MultipartFile[] myfiles,
+            HttpServletRequest request) {
+        logger.info("收到发往用户[{}]的文件上传请求;文件数量:{}", userName, myfiles.length);
 
-		int count = 0;
-		for (MultipartFile myfile : myfiles) {
-			if (myfile.isEmpty()) {
-				count++;
-			}
-			logger.info("文件原名:{};文件类型:", myfile.getOriginalFilename(), myfile.getContentType());
-			try (ByteArrayOutputStream swapStream = new ByteArrayOutputStream();
-				 InputStream is = myfile.getInputStream();) {
-				byte[] buff = new byte[100]; // buff用于存放循环读取的临时数据
-				int rc = 0;
-				while ((rc = is.read(buff, 0, 100)) > 0) {
-					swapStream.write(buff, 0, rc);
-				}
-				byte[] in_b = swapStream.toByteArray(); // in_b为转换之后的结果
-				logger.info("正在发送文件: ");
-				com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO<ByteBuffer> messageDTO = new com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO<>();
-				messageDTO.setFromUserName(userName);
-				messageDTO.setMessage(ByteBuffer.wrap(in_b, 0, in_b.length));
-				messageDTO.setMessageType(MessageDTO.Type.TYPE_BYTE.getMessageType());
-				Chater chater = WebSSEUser.getChater(messageDTO.getTargetUserName());
-				chater.addMsg(messageDTO);
-			} catch (IOException e) {
-				logger.error("文件原名:{}", myfile.getOriginalFilename(), e);
-				LogUtils.error(e);
-				count++;
-				continue;
-			}
-		}
-		return ResultModel.ok(count);
-	}
+        int count = 0;
+        for (MultipartFile myfile : myfiles) {
+            if (myfile.isEmpty()) {
+                count++;
+            }
+            logger.info("文件原名:{};文件类型:", myfile.getOriginalFilename(), myfile.getContentType());
+            try (ByteArrayOutputStream swapStream = new ByteArrayOutputStream();
+                    InputStream is = myfile.getInputStream(); ) {
+                byte[] buff = new byte[100]; // buff用于存放循环读取的临时数据
+                int rc = 0;
+                while ((rc = is.read(buff, 0, 100)) > 0) {
+                    swapStream.write(buff, 0, rc);
+                }
+                byte[] in_b = swapStream.toByteArray(); // in_b为转换之后的结果
+                logger.info("正在发送文件: ");
+                com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO<ByteBuffer> messageDTO =
+                        new com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO<>();
+                messageDTO.setFromUserName(userName);
+                messageDTO.setMessage(ByteBuffer.wrap(in_b, 0, in_b.length));
+                messageDTO.setMessageType(MessageDTO.Type.TYPE_BYTE.getMessageType());
+                Chater chater = WebSSEUser.getChater(messageDTO.getTargetUserName());
+                chater.addMsg(messageDTO);
+            } catch (IOException e) {
+                logger.error("文件原名:{}", myfile.getOriginalFilename(), e);
+                LogUtils.error(e);
+                count++;
+                continue;
+            }
+        }
+        return ResultModel.ok(count);
+    }
 
-	//*****************************other***************
-	@GetMapping(value = "test/{clientId}", produces = {MediaType.TEXT_EVENT_STREAM_VALUE})
-	@ApiOperation(value = " 建立连接")
-	public SseEmitter test(@PathVariable("clientId") @ApiParam("客户端 id") String clientId) {
-		final SseEmitter emitter = sseService.getConn(clientId);
-		CompletableFuture.runAsync(() -> {
-			try {
-				sseService.send(clientId);
-			} catch (Exception e) {
-				throw new BusinessException("推送数据异常");
-			}
-		});
+    // *****************************other***************
+    @GetMapping(
+            value = "test/{clientId}",
+            produces = {MediaType.TEXT_EVENT_STREAM_VALUE})
+    @ApiOperation(value = " 建立连接")
+    public SseEmitter test(@PathVariable("clientId") @ApiParam("客户端 id") String clientId) {
+        final SseEmitter emitter = sseService.getConn(clientId);
+        CompletableFuture.runAsync(
+                () -> {
+                    try {
+                        sseService.send(clientId);
+                    } catch (Exception e) {
+                        throw new BusinessException("推送数据异常");
+                    }
+                });
 
-		return emitter;
-	}
+        return emitter;
+    }
 
-	@GetMapping("closeConn/{clientId}")
-	@ApiOperation(value = " 关闭连接")
-	public Result<String> closeConn(@PathVariable("clientId") @ApiParam("客户端 id") String clientId) {
-		sseService.closeDialogueConn(clientId);
-		return Result.success("连接已关闭");
-	}
-
-
-
-
-
+    @GetMapping("closeConn/{clientId}")
+    @ApiOperation(value = " 关闭连接")
+    public Result<String> closeConn(@PathVariable("clientId") @ApiParam("客户端 id") String clientId) {
+        sseService.closeDialogueConn(clientId);
+        return Result.success("连接已关闭");
+    }
 }

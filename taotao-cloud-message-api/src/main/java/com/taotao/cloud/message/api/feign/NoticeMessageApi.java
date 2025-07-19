@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.message.api.feign;
 
- import com.taotao.boot.common.constant.ServiceNameConstants;
+import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.cloud.message.api.feign.fallback.NoticeMessageApiFallback;
 import com.taotao.cloud.message.api.feign.request.NoticeMessageApiRequest;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -28,34 +28,35 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@FeignClient(value = ServiceNameConstants.TAOTAO_CLOUD_MESSAGE,
-	contextId = "NoticeMessageApi",
-	fallbackFactory = NoticeMessageApiFallback.class)
+@FeignClient(
+        value = ServiceNameConstants.TAOTAO_CLOUD_MESSAGE,
+        contextId = "NoticeMessageApi",
+        fallbackFactory = NoticeMessageApiFallback.class)
 public interface NoticeMessageApi {
 
-	@GetMapping(value = "/noticeMessage/sms")
-	void noticeMessage(NoticeMessageApiRequest noticeMessageDTO);
+    @GetMapping(value = "/noticeMessage/sms")
+    void noticeMessage(NoticeMessageApiRequest noticeMessageDTO);
 
-	@GetMapping(value = "/message/sms")
-	boolean sendSms();
+    @GetMapping(value = "/message/sms")
+    boolean sendSms();
 
-	/**
-	 * 站内信
-	 *
-	 * @return
-	 */
-	@GetMapping(value = "/message/message")
-	boolean sendMessage();
+    /**
+     * 站内信
+     *
+     * @return
+     */
+    @GetMapping(value = "/message/message")
+    boolean sendMessage();
 
-	@GetMapping(value = "/message/dingtalk")
-	boolean sendDingtalk();
+    @GetMapping(value = "/message/dingtalk")
+    boolean sendDingtalk();
 
-	@GetMapping(value = "/message/wechat")
-	boolean sendWechat();
+    @GetMapping(value = "/message/wechat")
+    boolean sendWechat();
 
-	@GetMapping(value = "/message/email")
-	boolean sendEmail();
+    @GetMapping(value = "/message/email")
+    boolean sendEmail();
 
-	@GetMapping(value = "/message/store")
-	boolean sendStoreMessage();
+    @GetMapping(value = "/message/store")
+    boolean sendStoreMessage();
 }

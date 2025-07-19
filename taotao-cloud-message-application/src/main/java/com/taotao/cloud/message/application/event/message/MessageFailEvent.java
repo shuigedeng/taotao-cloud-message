@@ -16,9 +16,8 @@
 
 package com.taotao.cloud.message.application.event.message;
 
-import org.springframework.context.ApplicationEvent;
-
 import java.time.Clock;
+import org.springframework.context.ApplicationEvent;
 
 public class MessageFailEvent extends ApplicationEvent {
     public MessageFailEvent(Object source) {

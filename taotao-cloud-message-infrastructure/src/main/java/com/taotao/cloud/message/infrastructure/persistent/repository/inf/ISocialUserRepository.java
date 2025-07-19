@@ -18,7 +18,6 @@ package com.taotao.cloud.message.infrastructure.persistent.repository.inf;
 
 import com.taotao.boot.webagg.repository.BaseInterfaceSuperRepository;
 import com.taotao.cloud.message.infrastructure.persistent.persistence.system.SocialUserPO;
-import com.taotao.cloud.message.infrastructure.persistent.persistence.system.UserPO;
 
 /**
  * CompanyMapper

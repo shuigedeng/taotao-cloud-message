@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.taotao.cloud.message.infrastructure.channels.netty;
 
 /**
@@ -23,6 +24,7 @@ package com.taotao.cloud.message.infrastructure.channels.netty;
  * @since 2023-04-28 21:14
  */
 public interface PushMsgService {
-	public void pushMsgToOne(DataContent dataContent);
-	public void pushMsgToAll(DataContent dataContent);
+    public void pushMsgToOne(DataContent dataContent);
+
+    public void pushMsgToAll(DataContent dataContent);
 }
