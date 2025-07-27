@@ -17,8 +17,6 @@
 package com.taotao.cloud.message.interfaces.dubbo;
 
 import com.taotao.boot.common.utils.log.LogUtils;
-import com.taotao.cloud.message.api.dubbo.DictRpcService;
-import com.taotao.cloud.message.api.dubbo.response.DictRpcResponse;
 import lombok.AllArgsConstructor;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
@@ -32,14 +30,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @AllArgsConstructor
-@DubboService(interfaceClass = DictRpcService.class, validation = "true")
-public class DictRpcServiceImpl implements DictRpcService {
+public class DictRpcServiceImpl  {
 
-    @Override
-    public DictRpcResponse findByCode(Integer code) {
-
-        LogUtils.info("DictRpcServiceImpl.findByCode", "code={}", code);
-
-        return new DictRpcResponse();
-    }
+//    @Override
+//    public DictRpcResponse findByCode(Integer code) {
+//
+//        LogUtils.info("DictRpcServiceImpl.findByCode", "code={}", code);
+//
+//        return new DictRpcResponse();
+//    }
 }

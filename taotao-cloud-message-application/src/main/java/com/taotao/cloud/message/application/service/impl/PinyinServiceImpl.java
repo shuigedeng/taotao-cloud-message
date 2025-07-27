@@ -16,9 +16,9 @@
 
 package com.taotao.cloud.message.application.service.impl;
 
-import static com.taotao.cloud.message.api.constant.PinyinConstants.CHINESE_WORDS_REGEX;
+import static com.taotao.boot.pinyin.roses.api.constants.PinyinConstants.CHINESE_WORDS_REGEX;
 
-import com.taotao.cloud.message.api.constant.PinyinException;
+import com.taotao.boot.pinyin.exception.PinyinException;
 import com.taotao.cloud.message.application.service.PinYinService;
 import java.util.Properties;
 import java.util.Set;
@@ -119,7 +119,7 @@ public class PinyinServiceImpl implements PinYinService {
             }
             return finalPinyinString.toString();
         } catch (BadHanyuPinyinOutputFormatCombination e1) {
-            throw new PinyinException(500, e1.getMessage());
+            throw new PinyinException(e1.getMessage());
         }
     }
 
@@ -192,7 +192,7 @@ public class PinyinServiceImpl implements PinYinService {
                 }
             }
         } catch (BadHanyuPinyinOutputFormatCombination e) {
-            throw new PinyinException(500, e.getMessage());
+            throw new PinyinException(e.getMessage());
         }
 
         return hanyupinyin.toString();
