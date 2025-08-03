@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.taotao.cloud.message.infrastructure.channels.netty;
 
 import com.taotao.cloud.sys.infrastructure.channels.netty.DataContent;
@@ -7,36 +23,39 @@ import com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
-import org.springframework.stereotype.Component;
-
 import java.util.Objects;
+import org.springframework.stereotype.Component;
 
 @Component
 @ChannelHandler.Sharable
-
 public class ServerListenerHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
 
     private static final Logger log = LoggerFactory.getLogger(ServerBoot.class);
+
     static {
-        //先初始化出来
+        // 先初始化出来
         com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool.getChannelMap();
         com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool.getChannelGroup();
     }
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg) throws Exception {
+    protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg)
+            throws Exception {
         String content = msg.text();
         /**获取客户端传过来的消息*/
         DataContent dataContent = JsonUtils.jsonToPojo(content, DataContent.class);
         assert dataContent != null;
         Integer action = dataContent.getAction();
-        Channel channel =  ctx.channel();
+        Channel channel = ctx.channel();
         /**
          * 根据消息类型对其进行处理，我们这里只做两个事情
          * 1. 注册用户
          * 2. 心跳在线
          * */
-        if(Objects.equals(action, com.taotao.cloud.sys.infrastructure.channels.netty.MessageActionEnum.CONNECT.type)){
+        if (Objects.equals(
+                action,
+                com.taotao.cloud.sys.infrastructure.channels.netty.MessageActionEnum.CONNECT
+                        .type)) {
             /**
              * 2.1 当websocket 第一次 open 的时候，
              * 初始化channel，把用的 channel 和 userid 关联起来
@@ -44,52 +63,53 @@ public class ServerListenerHandler extends SimpleChannelInboundHandler<TextWebSo
             String userid = dataContent.getUserid();
             AttributeKey<String> key = AttributeKey.valueOf("userId");
             ctx.channel().attr(key).setIfAbsent(userid);
-            com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool.getChannelMap().put(userid,channel);
+            com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool.getChannelMap()
+                    .put(userid, channel);
             com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool.output();
 
-        } else if(Objects.equals(action, com.taotao.cloud.sys.infrastructure.channels.netty.MessageActionEnum.KEEPALIVE.type)){
+        } else if (Objects.equals(
+                action,
+                com.taotao.cloud.sys.infrastructure.channels.netty.MessageActionEnum.KEEPALIVE
+                        .type)) {
             /**
              * 心跳包的处理
              * */
-
-            LogUtils.info("收到来自channel 为["+channel+"]的心跳包"+dataContent);
+            LogUtils.info("收到来自channel 为[" + channel + "]的心跳包" + dataContent);
             channel.writeAndFlush(
                     new TextWebSocketFrame(
-                            JsonUtils.objectToJson(R.ok("返回心跳包").
-                                    put("type", MessageActionEnum.KEEPALIVE.type))
-                    )
-            );
+                            JsonUtils.objectToJson(
+                                    R.ok("返回心跳包").put("type", MessageActionEnum.KEEPALIVE.type))));
             LogUtils.info("已返回消息");
-
         }
-
     }
 
     @Override
     public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
-        //接收到请求
+        // 接收到请求
         log.info("有新的客户端链接：[{}]", ctx.channel().id().asLongText());
         AttributeKey<String> key = AttributeKey.valueOf("userId");
         ctx.channel().attr(key).setIfAbsent("temp");
-        com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool.getChannelGroup().add(ctx.channel());
+        com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool.getChannelGroup()
+                .add(ctx.channel());
     }
 
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
         String chanelId = ctx.channel().id().asShortText();
-        log.info("客户端被移除：channel id 为："+chanelId);
+        log.info("客户端被移除：channel id 为：" + chanelId);
         removeUserId(ctx);
-        com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool.getChannelGroup().remove(ctx.channel());
+        com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool.getChannelGroup()
+                .remove(ctx.channel());
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         causLogUtils.error(e);
-        //发生了异常后关闭连接，同时从channelgroup移除
+        // 发生了异常后关闭连接，同时从channelgroup移除
         ctx.channel().close();
         removeUserId(ctx);
-        com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool.getChannelGroup().remove(ctx.channel());
-
+        com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool.getChannelGroup()
+                .remove(ctx.channel());
     }
 
     /**

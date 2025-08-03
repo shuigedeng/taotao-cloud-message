@@ -18,6 +18,4 @@ package com.taotao.cloud.message.infrastructure.factory;
 
 import com.taotao.boot.ddd.model.types.Factory;
 
-public class DictFactory implements Factory {
-
-}
+public class DictFactory implements Factory {}

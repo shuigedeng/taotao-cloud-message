@@ -44,7 +44,8 @@ public class SmsController {
     /** 短信通知服务 */
     private final NoticeService noticeService;
 
-    public SmsController(VerificationCodeService verificationCodeService, NoticeService noticeService) {
+    public SmsController(
+            VerificationCodeService verificationCodeService, NoticeService noticeService) {
         this.verificationCodeService = verificationCodeService;
         this.noticeService = noticeService;
     }

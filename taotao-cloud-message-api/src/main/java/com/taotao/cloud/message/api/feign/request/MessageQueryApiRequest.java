@@ -21,11 +21,10 @@ import jakarta.validation.constraints.Pattern;
 import java.io.Serial;
 import java.io.Serializable;
 import lombok.*;
-import lombok.Builder;
 import lombok.Data;
-import lombok.experimental.*;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.*;
 
 /**
  * 公司查询对象
@@ -35,15 +34,14 @@ import lombok.NoArgsConstructor;
  * @since 2021-10-09 16:31:52
  */
 @Data
-@Accessors(chain=true)
+@Accessors(chain = true)
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "公司查询对象")
 public class MessageQueryApiRequest implements Serializable {
 
-    @Serial
-    private static final long serialVersionUID = -4132785717179910025L;
+    @Serial private static final long serialVersionUID = -4132785717179910025L;
 
     @Schema(description = "租户id")
     private String tenantId;

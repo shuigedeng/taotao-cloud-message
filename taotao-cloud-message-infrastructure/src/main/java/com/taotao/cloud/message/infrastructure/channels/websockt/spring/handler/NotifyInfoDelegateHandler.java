@@ -1,17 +1,32 @@
+/*
+ * Copyright (c) 2020-2030, Shuigedeng (981376577@qq.com & https://blog.taotaocloud.top/).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.taotao.cloud.message.infrastructure.channels.websockt.spring.handler;
 
 import com.hccake.ballcat.notify.model.domain.NotifyInfo;
 import com.hccake.ballcat.system.model.entity.SysUser;
 import com.taotao.cloud.sys.infrastructure.channels.websockt.spring.handler.NotifyInfoHandler;
-import lombok.*;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
-
 import jakarta.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import lombok.*;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
 /**
  * 消息处理代理
@@ -24,31 +39,30 @@ import java.util.Map;
 @AllArgsConstructor
 public class NotifyInfoDelegateHandler<T extends NotifyInfo> {
 
-	private final List<NotifyInfoHandler<T>> notifyInfoHandlers;
+    private final List<NotifyInfoHandler<T>> notifyInfoHandlers;
 
-	private Map<Class<?>, NotifyInfoHandler<T>> handlerMap;
+    private Map<Class<?>, NotifyInfoHandler<T>> handlerMap;
 
-	@PostConstruct
-	public void init() {
-		handlerMap = new HashMap<>(notifyInfoHandlers.size());
-		for (NotifyInfoHandler<T> handler : notifyInfoHandlers) {
-			handlerMap.put(handler.getNotifyClass(), handler);
-		}
-	}
+    @PostConstruct
+    public void init() {
+        handlerMap = new HashMap<>(notifyInfoHandlers.size());
+        for (NotifyInfoHandler<T> handler : notifyInfoHandlers) {
+            handlerMap.put(handler.getNotifyClass(), handler);
+        }
+    }
 
-	/**
-	 * 代理方法
-	 * @param userList 发送用户列表
-	 * @param info 消息
-	 */
-	public void handle(List<SysUser> userList, T info) {
-		Assert.notNull(info, "event message cant be null!");
-		NotifyInfoHandler<T> notifyInfoHandler = handlerMap.get(info.getClass());
-		if (notifyInfoHandler == null) {
-			log.warn("no notifyHandler bean for class:{},please check!", info.getClass().getName());
-			return;
-		}
-		notifyInfoHandler.handle(userList, info);
-	}
-
+    /**
+     * 代理方法
+     * @param userList 发送用户列表
+     * @param info 消息
+     */
+    public void handle(List<SysUser> userList, T info) {
+        Assert.notNull(info, "event message cant be null!");
+        NotifyInfoHandler<T> notifyInfoHandler = handlerMap.get(info.getClass());
+        if (notifyInfoHandler == null) {
+            log.warn("no notifyHandler bean for class:{},please check!", info.getClass().getName());
+            return;
+        }
+        notifyInfoHandler.handle(userList, info);
+    }
 }

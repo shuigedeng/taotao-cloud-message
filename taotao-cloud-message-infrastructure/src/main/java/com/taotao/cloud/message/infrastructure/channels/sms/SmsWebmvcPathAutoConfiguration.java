@@ -20,11 +20,10 @@ import com.taotao.boot.common.utils.lang.StringUtils;
 import com.taotao.boot.common.utils.log.LogUtils;
 import com.taotao.boot.sms.common.model.NoticeInfo;
 import com.taotao.boot.sms.common.model.VerifyInfo;
-import java.lang.reflect.Method;
-
 import com.taotao.cloud.sys.infrastructure.channels.sms.SmsController;
 import com.taotao.cloud.sys.infrastructure.channels.sms.SmsWebmvcAutoConfiguration;
 import com.taotao.cloud.sys.infrastructure.channels.sms.SmsWebmvcProperties;
+import java.lang.reflect.Method;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -39,13 +38,20 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
  * @author shuigedeng
  */
 @AutoConfiguration(after = SmsWebmvcAutoConfiguration.class)
-@ConditionalOnProperty(prefix = com.taotao.cloud.sys.infrastructure.channels.sms.SmsWebmvcProperties.PREFIX, name = "enable", havingValue = "true")
+@ConditionalOnProperty(
+        prefix = com.taotao.cloud.sys.infrastructure.channels.sms.SmsWebmvcProperties.PREFIX,
+        name = "enable",
+        havingValue = "true")
 public class SmsWebmvcPathAutoConfiguration {
 
-    private static String getBasePath(com.taotao.cloud.sys.infrastructure.channels.sms.SmsWebmvcProperties properties) {
+    private static String getBasePath(
+            com.taotao.cloud.sys.infrastructure.channels.sms.SmsWebmvcProperties properties) {
         String bathPath = StringUtils.trimToNull(properties.getBasePath());
 
-        return bathPath == null ? com.taotao.cloud.sys.infrastructure.channels.sms.SmsWebmvcProperties.DEFAULT_BASE_PATH : bathPath;
+        return bathPath == null
+                ? com.taotao.cloud.sys.infrastructure.channels.sms.SmsWebmvcProperties
+                        .DEFAULT_BASE_PATH
+                : bathPath;
     }
 
     /**
@@ -64,16 +70,21 @@ public class SmsWebmvcPathAutoConfiguration {
     @Autowired
     @ConditionalOnBean(RequestMappingHandlerMapping.class)
     public void smsController(
-            SmsWebmvcProperties properties, RequestMappingHandlerMapping mapping, com.taotao.cloud.sys.infrastructure.channels.sms.SmsController controller)
+            SmsWebmvcProperties properties,
+            RequestMappingHandlerMapping mapping,
+            com.taotao.cloud.sys.infrastructure.channels.sms.SmsController controller)
             throws NoSuchMethodException, SecurityException {
 
         String bathPath = getBasePath(properties);
 
         if (properties.isEnableSend()) {
-            Method sendMethod = com.taotao.cloud.sys.infrastructure.channels.sms.SmsController.class.getMethod("sendVerificationCode", String.class);
-            RequestMappingInfo sendInfo = RequestMappingInfo.paths(bathPath + "/verificationCode/{phone}")
-                    .methods(RequestMethod.POST)
-                    .build();
+            Method sendMethod =
+                    com.taotao.cloud.sys.infrastructure.channels.sms.SmsController.class.getMethod(
+                            "sendVerificationCode", String.class);
+            RequestMappingInfo sendInfo =
+                    RequestMappingInfo.paths(bathPath + "/verificationCode/{phone}")
+                            .methods(RequestMethod.POST)
+                            .build();
             mapping.registerMapping(sendInfo, controller, sendMethod);
             LogUtils.debug("registerMapping: {}", sendInfo);
         } else {
@@ -81,11 +92,14 @@ public class SmsWebmvcPathAutoConfiguration {
         }
 
         if (properties.isEnableGet()) {
-            Method getMethod = com.taotao.cloud.sys.infrastructure.channels.sms.SmsController.class.getMethod("getVerificationCode", String.class, String.class);
-            RequestMappingInfo getInfo = RequestMappingInfo.paths(bathPath + "/verificationCode/{phone}")
-                    .methods(RequestMethod.GET)
-                    .produces("application/json")
-                    .build();
+            Method getMethod =
+                    com.taotao.cloud.sys.infrastructure.channels.sms.SmsController.class.getMethod(
+                            "getVerificationCode", String.class, String.class);
+            RequestMappingInfo getInfo =
+                    RequestMappingInfo.paths(bathPath + "/verificationCode/{phone}")
+                            .methods(RequestMethod.GET)
+                            .produces("application/json")
+                            .build();
             mapping.registerMapping(getInfo, controller, getMethod);
             LogUtils.debug("registerMapping: {}", getInfo);
         } else {
@@ -93,10 +107,13 @@ public class SmsWebmvcPathAutoConfiguration {
         }
 
         if (properties.isEnableVerify()) {
-            Method verifyMethod = com.taotao.cloud.sys.infrastructure.channels.sms.SmsController.class.getMethod("verifyVerificationCode", VerifyInfo.class);
-            RequestMappingInfo verifyInfo = RequestMappingInfo.paths(bathPath + "/verificationCode")
-                    .methods(RequestMethod.POST)
-                    .build();
+            Method verifyMethod =
+                    com.taotao.cloud.sys.infrastructure.channels.sms.SmsController.class.getMethod(
+                            "verifyVerificationCode", VerifyInfo.class);
+            RequestMappingInfo verifyInfo =
+                    RequestMappingInfo.paths(bathPath + "/verificationCode")
+                            .methods(RequestMethod.POST)
+                            .build();
             mapping.registerMapping(verifyInfo, controller, verifyMethod);
             LogUtils.debug("registerMapping: {}", verifyInfo);
         } else {
@@ -105,9 +122,10 @@ public class SmsWebmvcPathAutoConfiguration {
 
         if (properties.isEnableNotice()) {
             Method noticeMethod = SmsController.class.getMethod("sendNotice", NoticeInfo.class);
-            RequestMappingInfo noticeInfo = RequestMappingInfo.paths(bathPath + "/notice")
-                    .methods(RequestMethod.PUT)
-                    .build();
+            RequestMappingInfo noticeInfo =
+                    RequestMappingInfo.paths(bathPath + "/notice")
+                            .methods(RequestMethod.PUT)
+                            .build();
             mapping.registerMapping(noticeInfo, controller, noticeMethod);
             LogUtils.debug("registerMapping: {}", noticeInfo);
         } else {

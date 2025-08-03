@@ -16,8 +16,12 @@
 
 package com.taotao.cloud.message.application.service.impl;
 
-import com.taotao.cloud.message.api.constant.PinyinException;
+import static com.taotao.boot.pinyin.roses.api.constants.PinyinConstants.CHINESE_WORDS_REGEX;
+
+import com.taotao.boot.pinyin.exception.PinyinException;
 import com.taotao.cloud.message.application.service.PinYinService;
+import java.util.Properties;
+import java.util.Set;
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
@@ -25,11 +29,6 @@ import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinVCharType;
 import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 import org.springframework.stereotype.Service;
-
-import java.util.Properties;
-import java.util.Set;
-
-import static com.taotao.cloud.message.api.constant.PinyinConstants.CHINESE_WORDS_REGEX;
 
 /** 拼音工具类的实现 */
 @Service
@@ -76,7 +75,8 @@ public class PinyinServiceImpl implements PinYinService {
         Set<Object> keys = properties.keySet();
         for (Object lastNameObject : keys) {
             String lastname = (String) lastNameObject;
-            if (lastnameChines.length() >= lastname.length() && lastnameChines.startsWith(lastname)) {
+            if (lastnameChines.length() >= lastname.length()
+                    && lastnameChines.startsWith(lastname)) {
                 return properties.getProperty(lastname);
             }
         }
@@ -109,7 +109,9 @@ public class PinyinServiceImpl implements PinYinService {
             for (char chineseWord : chineseWordsArray) {
                 // 判断是否为汉字字符
                 if (Character.toString(chineseWord).matches(CHINESE_WORDS_REGEX)) {
-                    String[] strings = PinyinHelper.toHanyuPinyinStringArray(chineseWord, hanyuPinyinOutputFormat);
+                    String[] strings =
+                            PinyinHelper.toHanyuPinyinStringArray(
+                                    chineseWord, hanyuPinyinOutputFormat);
                     finalPinyinString.append(strings[0]);
                 } else {
                     finalPinyinString.append(chineseWord);
@@ -117,7 +119,7 @@ public class PinyinServiceImpl implements PinYinService {
             }
             return finalPinyinString.toString();
         } catch (BadHanyuPinyinOutputFormatCombination e1) {
-            throw new PinyinException(500, e1.getMessage());
+            throw new PinyinException(e1.getMessage());
         }
     }
 
@@ -172,7 +174,9 @@ public class PinyinServiceImpl implements PinYinService {
 
                 // 如果字符是中文,则将中文转为汉语拼音,并取第一个字母
                 if (str.matches(CHINESE_WORDS_REGEX)) {
-                    hanyupinyin.append(PinyinHelper.toHanyuPinyinStringArray(word, defaultFormat)[0].charAt(0));
+                    hanyupinyin.append(
+                            PinyinHelper.toHanyuPinyinStringArray(word, defaultFormat)[0].charAt(
+                                    0));
                 }
                 // 如果字符是数字,取数字
                 else if (str.matches("[0-9]+")) {
@@ -188,7 +192,7 @@ public class PinyinServiceImpl implements PinYinService {
                 }
             }
         } catch (BadHanyuPinyinOutputFormatCombination e) {
-            throw new PinyinException(500, e.getMessage());
+            throw new PinyinException(e.getMessage());
         }
 
         return hanyupinyin.toString();

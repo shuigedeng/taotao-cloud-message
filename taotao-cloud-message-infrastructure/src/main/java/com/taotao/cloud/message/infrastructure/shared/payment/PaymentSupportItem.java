@@ -16,9 +16,8 @@
 
 package com.taotao.cloud.message.infrastructure.shared.payment;
 
-import lombok.*;
-
 import java.util.List;
+import lombok.*;
 
 /** 支持的支付方式属性 */
 @Setter

@@ -16,9 +16,6 @@
 
 package com.taotao.cloud.message.application.event.sms;
 
-import com.taotao.boot.sms.common.event.SmsSendFailEvent;
-import com.taotao.boot.sms.common.event.SmsSendFinallyEvent;
-import com.taotao.boot.sms.common.event.SmsSendSuccessEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
@@ -26,15 +23,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class SmsSendListener {
 
-    @Async
-    @EventListener(SmsSendFailEvent.class)
-    public void smsSendFailEventListener(SmsSendFailEvent event) {}
-
-    @Async
-    @EventListener(SmsSendSuccessEvent.class)
-    public void smsSendSuccessEventListener(SmsSendSuccessEvent event) {}
-
-    @Async
-    @EventListener(SmsSendFinallyEvent.class)
-    public void smsSendFinallyEventListener(SmsSendFinallyEvent event) {}
+//    @Async
+//    @EventListener(SmsSendFailEvent.class)
+//    public void smsSendFailEventListener(SmsSendFailEvent event) {}
+//
+//    @Async
+//    @EventListener(SmsSendSuccessEvent.class)
+//    public void smsSendSuccessEventListener(SmsSendSuccessEvent event) {}
+//
+//    @Async
+//    @EventListener(SmsSendFinallyEvent.class)
+//    public void smsSendFinallyEventListener(SmsSendFinallyEvent event) {}
 }
