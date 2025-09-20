@@ -113,8 +113,8 @@ include "taotao-cloud-message-infrastructure"
 include "taotao-cloud-message-interfaces"
 
 
-gradle.settingsEvaluated {
-    if (JavaVersion.current() < JavaVersion.VERSION_21) {
-        throw new GradleException("This build requires JDK 21. It's currently ${JavaVersion.current()}. You can ignore this check by passing '-Dorg.gradle.ignoreBuildJavaVersionCheck'.")
-    }
-}
+//gradle.settingsEvaluated {
+//    if (JavaVersion.current() < JavaVersion.VERSION_21) {
+//        throw new GradleException("This build requires JDK 21. It's currently ${JavaVersion.current()}. You can ignore this check by passing '-Dorg.gradle.ignoreBuildJavaVersionCheck'.")
+//    }
+//}
