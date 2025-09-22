@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.infrastructure.persistent.repository.cls;
+package com.taotao.cloud.message.infrastructure.persistent.repository;
 
-import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
-import com.taotao.cloud.message.infrastructure.persistent.persistence.setting.SettingPO;
-import jakarta.persistence.EntityManager;
-import org.springframework.stereotype.Repository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.cloud.message.infrastructure.persistent.persistence.system.ResourcePO;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * CompanyMapper
@@ -28,10 +29,15 @@ import org.springframework.stereotype.Repository;
  * @version 2022.03
  * @since 2021/10/13 22:50
  */
-@Repository
-public class SettingRepository extends BaseClassSuperRepository<SettingPO, Long> {
+public interface IResourceRepository extends JpaSuperRepository<ResourcePO, Long> {
 
-    public SettingRepository(EntityManager em) {
-        super(SettingPO.class, em);
+    public List<ResourcePO> searchByComponent(String component);
+
+    default List<Long> selectByComponent(String component) {
+        List<ResourcePO> resources = searchByComponent(component);
+        return Optional.ofNullable(resources).stream()
+                .filter(Objects::nonNull)
+                .map(e -> e.get(0).getId())
+                .toList();
     }
 }

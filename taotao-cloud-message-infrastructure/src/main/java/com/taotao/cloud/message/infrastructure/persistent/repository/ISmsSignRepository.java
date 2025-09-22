@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.infrastructure.persistent.repository.inf;
+package com.taotao.cloud.message.infrastructure.persistent.repository;
 
-import com.taotao.cloud.message.infrastructure.persistent.persistence.sms.SmsReachPO;
+import com.taotao.cloud.message.infrastructure.persistent.persistence.sms.SmsSignPO;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -26,4 +26,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @version 2022.03
  * @since 2021/10/13 22:50
  */
-public interface ISmsReachRepository extends JpaRepository<SmsReachPO, Long> {}
+public interface ISmsSignRepository extends JpaRepository<SmsSignPO, Long> {}
