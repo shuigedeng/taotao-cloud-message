@@ -14,12 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.infrastructure.persistent.repository.cls;
+package com.taotao.cloud.message.infrastructure.persistent.repository;
 
-import com.taotao.boot.webagg.repository.BaseClassSuperRepository;
-import com.taotao.cloud.message.infrastructure.persistent.persistence.system.RoleResourcePO;
-import jakarta.persistence.EntityManager;
-import org.springframework.stereotype.Repository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.cloud.message.infrastructure.persistent.persistence.file.FileLogPO;
 
 /**
  * CompanyMapper
@@ -28,10 +26,4 @@ import org.springframework.stereotype.Repository;
  * @version 2022.03
  * @since 2021/10/13 22:50
  */
-@Repository
-public class RoleResourceRepository extends BaseClassSuperRepository<RoleResourcePO, Long> {
-
-    public RoleResourceRepository(EntityManager em) {
-        super(RoleResourcePO.class, em);
-    }
-}
+public interface IFileLogRepository extends JpaSuperRepository<FileLogPO, Long> {}

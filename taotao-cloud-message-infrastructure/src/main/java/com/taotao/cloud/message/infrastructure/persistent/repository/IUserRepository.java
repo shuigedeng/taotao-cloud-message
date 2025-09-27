@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.infrastructure.persistent.repository.inf;
+package com.taotao.cloud.message.infrastructure.persistent.repository;
 
-import com.taotao.cloud.message.infrastructure.persistent.persistence.sms.SmsTemplatePO;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.taotao.boot.data.jpa.base.repository.JpaSuperRepository;
+import com.taotao.cloud.message.infrastructure.persistent.persistence.system.UserPO;
 
 /**
  * CompanyMapper
@@ -26,4 +26,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @version 2022.03
  * @since 2021/10/13 22:50
  */
-public interface ISmsTemplateRepository extends JpaRepository<SmsTemplatePO, Long> {}
+public interface IUserRepository extends JpaSuperRepository<UserPO, Long> {}
