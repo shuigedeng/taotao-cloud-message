@@ -17,7 +17,7 @@
 package com.taotao.cloud.message.infrastructure.channels.sse;
 
 import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.common.model.Result;
+import com.taotao.boot.common.model.result.Result;
 import com.taotao.cloud.message.biz.service.business.SseService;
 import com.taotao.cloud.sys.infrastructure.channels.sse.Chater;
 import com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO;
