@@ -16,4 +16,6 @@
 
 package com.taotao.cloud.message.api.feign.request;
 
-public class NoticeMessageApiRequest {}
+import com.taotao.boot.common.model.request.RequestBase;
+
+public class NoticeMessageApiRequest extends RequestBase {}

@@ -16,4 +16,6 @@
 
 package com.taotao.cloud.message.api.feign.response;
 
-public class StoreMessageApiResponse {}
+import com.taotao.boot.common.model.response.ResponseBase;
+
+public class StoreMessageApiResponse  extends ResponseBase {}
