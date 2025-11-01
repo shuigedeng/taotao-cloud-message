@@ -41,7 +41,11 @@ develocity {
 
     buildScan {
         //publishAlways()
-        publishing.onlyIf { true }
+        publishing {
+            onlyIf {
+                true
+            }
+        }
 
         uploadInBackground = false
 
@@ -83,7 +87,6 @@ develocity {
         }
     }
 }
-
 
 rootProject.name = 'taotao-cloud-message'
 
