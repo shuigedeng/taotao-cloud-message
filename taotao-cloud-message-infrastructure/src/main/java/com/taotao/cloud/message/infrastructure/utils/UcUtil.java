@@ -16,8 +16,6 @@
 
 package com.taotao.cloud.message.infrastructure.utils;
 //
-// import org.dromara.hutoolcore.bean.BeanUtil;
-// import org.dromara.hutoolcore.util.StrUtil;
 // import com.alibaba.fastjson.JSONArray;
 // import com.alibaba.fastjson.JSONObject;
 //

@@ -22,7 +22,6 @@ import com.hccake.ballcat.notify.model.domain.NotifyInfo;
 import com.hccake.ballcat.system.model.entity.SysUser;
 import com.taotao.cloud.sys.infrastructure.channels.websockt.spring.push.NotifyPusher;
 import java.util.List;
-import org.dromara.hutoolcore.util.StrUtil;
 import org.springframework.stereotype.Component;
 
 /**

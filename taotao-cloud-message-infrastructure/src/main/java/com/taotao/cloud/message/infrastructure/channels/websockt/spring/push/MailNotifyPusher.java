@@ -24,7 +24,6 @@ import com.hccake.ballcat.system.model.entity.SysUser;
 import com.taotao.cloud.sys.infrastructure.channels.websockt.spring.push.NotifyPusher;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.dromara.hutoolcore.util.StrUtil;
 
 /**
  * 通知邮件发布

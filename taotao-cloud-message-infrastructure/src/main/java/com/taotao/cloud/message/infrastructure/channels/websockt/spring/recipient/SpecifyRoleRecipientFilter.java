@@ -22,7 +22,6 @@ import com.hccake.ballcat.system.service.SysUserService;
 import com.taotao.cloud.sys.infrastructure.channels.websockt.spring.recipient.RecipientFilter;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.dromara.hutoolcore.collection.CollUtil;
 import org.springframework.stereotype.Component;
 
 /**

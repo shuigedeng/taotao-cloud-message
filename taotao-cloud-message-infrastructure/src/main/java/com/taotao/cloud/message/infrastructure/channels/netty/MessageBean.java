@@ -21,7 +21,6 @@ import lombok.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.*;
-import org.dromara.hutooljson.JSONUtil;
 
 @Data
 @AllArgsConstructor

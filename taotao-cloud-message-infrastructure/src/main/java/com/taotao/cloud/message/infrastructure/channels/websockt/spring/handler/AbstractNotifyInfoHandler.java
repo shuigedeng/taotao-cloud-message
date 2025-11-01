@@ -24,7 +24,6 @@ import com.taotao.cloud.sys.infrastructure.channels.websockt.spring.handler.Noti
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
-import org.dromara.hutoolcore.collection.CollUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
