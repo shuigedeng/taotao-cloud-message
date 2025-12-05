@@ -14,15 +14,15 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.feign;
+package com.taotao.cloud.message.api.client;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.PageQuery;
 import com.taotao.boot.common.model.result.PageResult;
-import com.taotao.cloud.message.api.feign.fallback.StoreMessageApiFallback;
-import com.taotao.cloud.message.api.feign.response.StoreMessageApiResponse;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.taotao.cloud.message.api.client.fallback.StoreMessageApiFallback;
+import com.taotao.cloud.message.api.client.response.StoreMessageApiResponse;
+import org.springframework.web.service.annotation.GetExchange;
+import org.springframework.web.service.annotation.HttpExchange;
 
 /**
  * 远程调用售后模块
@@ -30,12 +30,10 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@FeignClient(
-        value = ServiceNameConstants.TAOTAO_CLOUD_MESSAGE,
-        contextId = "StoreMessageApi",
-        fallbackFactory = StoreMessageApiFallback.class)
+@HttpExchange(
+        value = ServiceNameConstants.TAOTAO_CLOUD_MESSAGE)
 public interface StoreMessageApi {
 
-    @GetMapping(value = "/message/getPage")
+    @GetExchange(value = "/message/getPage")
     PageResult<StoreMessageApiResponse> getPage(PageQuery PageQuery);
 }

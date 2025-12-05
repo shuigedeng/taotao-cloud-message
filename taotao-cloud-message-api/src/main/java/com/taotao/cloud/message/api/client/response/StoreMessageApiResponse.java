@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.feign.response;
+package com.taotao.cloud.message.api.client.response;
 
 import com.taotao.boot.common.model.response.ResponseBase;
 

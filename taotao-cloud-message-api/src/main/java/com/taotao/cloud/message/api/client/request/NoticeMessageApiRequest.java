@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.feign.request;
+package com.taotao.cloud.message.api.client.request;
 
 import com.taotao.boot.common.model.request.RequestBase;
 

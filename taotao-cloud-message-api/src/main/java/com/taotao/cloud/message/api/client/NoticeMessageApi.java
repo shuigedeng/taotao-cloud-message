@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.feign;
+package com.taotao.cloud.message.api.client;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
-import com.taotao.cloud.message.api.feign.fallback.NoticeMessageApiFallback;
-import com.taotao.cloud.message.api.feign.request.NoticeMessageApiRequest;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.taotao.cloud.message.api.client.fallback.NoticeMessageApiFallback;
+import com.taotao.cloud.message.api.client.request.NoticeMessageApiRequest;
+import org.springframework.web.service.annotation.GetExchange;
+import org.springframework.web.service.annotation.HttpExchange;
 
 /**
  * 远程调用售后模块
@@ -28,16 +28,14 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author shuigedeng
  * @since 2020/5/2 16:42
  */
-@FeignClient(
-        value = ServiceNameConstants.TAOTAO_CLOUD_MESSAGE,
-        contextId = "NoticeMessageApi",
-        fallbackFactory = NoticeMessageApiFallback.class)
+@HttpExchange(
+        value = ServiceNameConstants.TAOTAO_CLOUD_MESSAGE)
 public interface NoticeMessageApi {
 
-    @GetMapping(value = "/noticeMessage/sms")
-    void noticeMessage(NoticeMessageApiRequest noticeMessageDTO);
+    @GetExchange(value = "/noticeMessage/sms")
+    void noticeMessage( NoticeMessageApiRequest noticeMessageDTO);
 
-    @GetMapping(value = "/message/sms")
+    @GetExchange(value = "/message/sms")
     boolean sendSms();
 
     /**
@@ -45,18 +43,18 @@ public interface NoticeMessageApi {
      *
      * @return
      */
-    @GetMapping(value = "/message/message")
+    @GetExchange(value = "/message/message")
     boolean sendMessage();
 
-    @GetMapping(value = "/message/dingtalk")
+    @GetExchange(value = "/message/dingtalk")
     boolean sendDingtalk();
 
-    @GetMapping(value = "/message/wechat")
+    @GetExchange(value = "/message/wechat")
     boolean sendWechat();
 
-    @GetMapping(value = "/message/email")
+    @GetExchange(value = "/message/email")
     boolean sendEmail();
 
-    @GetMapping(value = "/message/store")
+    @GetExchange(value = "/message/store")
     boolean sendStoreMessage();
 }
