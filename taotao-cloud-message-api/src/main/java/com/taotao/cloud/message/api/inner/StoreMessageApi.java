@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.client;
+package com.taotao.cloud.message.api.inner;
 
 import com.taotao.boot.common.constant.ServiceNameConstants;
 import com.taotao.boot.common.model.request.PageQuery;
 import com.taotao.boot.common.model.result.PageResult;
-import com.taotao.cloud.message.api.client.fallback.StoreMessageApiFallback;
-import com.taotao.cloud.message.api.client.response.StoreMessageApiResponse;
+import com.taotao.cloud.message.api.inner.response.StoreMessageApiResponse;
 import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.HttpExchange;
 

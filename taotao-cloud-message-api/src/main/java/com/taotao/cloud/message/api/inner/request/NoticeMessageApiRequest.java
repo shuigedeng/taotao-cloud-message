@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.client.request;
+package com.taotao.cloud.message.api.inner.request;
 
 import com.taotao.boot.common.model.request.RequestBase;
 
