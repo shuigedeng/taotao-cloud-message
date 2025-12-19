@@ -16,7 +16,15 @@
 
 package com.taotao.cloud.message.infrastructure.channels.sse;
 
+/**
+ * MessageDTO
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class MessageDTO<T> {
+
     private String fromUserName;
     private String targetUserName;
     private T message;
@@ -26,7 +34,7 @@ public class MessageDTO<T> {
         return fromUserName;
     }
 
-    public void setFromUserName(String fromUserName) {
+    public void setFromUserName( String fromUserName ) {
         this.fromUserName = fromUserName;
     }
 
@@ -34,7 +42,7 @@ public class MessageDTO<T> {
         return message;
     }
 
-    public void setMessage(T message) {
+    public void setMessage( T message ) {
         this.message = message;
     }
 
@@ -42,7 +50,7 @@ public class MessageDTO<T> {
         return messageType;
     }
 
-    public void setMessageType(String messageType) {
+    public void setMessageType( String messageType ) {
         this.messageType = messageType;
     }
 
@@ -50,7 +58,7 @@ public class MessageDTO<T> {
         return targetUserName;
     }
 
-    public void setTargetUserName(String targetUserName) {
+    public void setTargetUserName( String targetUserName ) {
         this.targetUserName = targetUserName;
     }
 
@@ -60,7 +68,7 @@ public class MessageDTO<T> {
         TYPE_BYTE("1001");
         private String messageType;
 
-        Type(String messageType) {
+        Type( String messageType ) {
             this.messageType = messageType;
         }
 
@@ -68,7 +76,7 @@ public class MessageDTO<T> {
             return messageType;
         }
 
-        public void setMessageType(String messageType) {
+        public void setMessageType( String messageType ) {
             this.messageType = messageType;
         }
     }

@@ -22,6 +22,13 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * NotifyWebsocketEventListenerConfiguration
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @ConditionalOnClass({NotifyWebsocketEventListener.class, UserAnnouncementService.class})
 @Configuration(proxyBeanMethods = false)
 public class NotifyWebsocketEventListenerConfiguration {
@@ -30,7 +37,7 @@ public class NotifyWebsocketEventListenerConfiguration {
 
     @Bean
     public NotifyWebsocketEventListener notifyWebsocketEventListener(
-            NotifyInfoDelegateHandler<? super NotifyInfo> notifyInfoDelegateHandler) {
+            NotifyInfoDelegateHandler<? super NotifyInfo> notifyInfoDelegateHandler ) {
         return new NotifyWebsocketEventListener(messageDistributor, notifyInfoDelegateHandler);
     }
 }

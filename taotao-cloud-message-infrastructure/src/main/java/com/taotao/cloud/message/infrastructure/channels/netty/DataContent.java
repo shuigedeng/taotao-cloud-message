@@ -17,9 +17,17 @@
 package com.taotao.cloud.message.infrastructure.channels.netty;
 
 import java.io.Serializable;
+
 import lombok.*;
 import lombok.NoArgsConstructor;
 
+/**
+ * DataContent
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -28,6 +36,7 @@ import lombok.NoArgsConstructor;
  * 保留action和userid即可
  * */
 public class DataContent implements Serializable {
+
     private Integer action;
     private String userid;
 }

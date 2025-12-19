@@ -23,9 +23,18 @@ import com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+
 import java.util.Objects;
+
 import org.springframework.stereotype.Component;
 
+/**
+ * ServerListenerHandler
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Component
 @ChannelHandler.Sharable
 public class ServerListenerHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
@@ -39,7 +48,7 @@ public class ServerListenerHandler extends SimpleChannelInboundHandler<TextWebSo
     }
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, TextWebSocketFrame msg)
+    protected void channelRead0( ChannelHandlerContext ctx, TextWebSocketFrame msg )
             throws Exception {
         String content = msg.text();
         /**获取客户端传过来的消息*/
@@ -84,7 +93,7 @@ public class ServerListenerHandler extends SimpleChannelInboundHandler<TextWebSo
     }
 
     @Override
-    public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
+    public void handlerAdded( ChannelHandlerContext ctx ) throws Exception {
         // 接收到请求
         log.info("有新的客户端链接：[{}]", ctx.channel().id().asLongText());
         AttributeKey<String> key = AttributeKey.valueOf("userId");
@@ -94,7 +103,7 @@ public class ServerListenerHandler extends SimpleChannelInboundHandler<TextWebSo
     }
 
     @Override
-    public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
+    public void handlerRemoved( ChannelHandlerContext ctx ) throws Exception {
         String chanelId = ctx.channel().id().asShortText();
         log.info("客户端被移除：channel id 为：" + chanelId);
         removeUserId(ctx);
@@ -103,7 +112,7 @@ public class ServerListenerHandler extends SimpleChannelInboundHandler<TextWebSo
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCaught( ChannelHandlerContext ctx, Throwable cause ) throws Exception {
         causLogUtils.error(e);
         // 发生了异常后关闭连接，同时从channelgroup移除
         ctx.channel().close();
@@ -115,7 +124,7 @@ public class ServerListenerHandler extends SimpleChannelInboundHandler<TextWebSo
     /**
      * 删除用户与channel的对应关系
      */
-    private void removeUserId(ChannelHandlerContext ctx) {
+    private void removeUserId( ChannelHandlerContext ctx ) {
         AttributeKey<String> key = AttributeKey.valueOf("userId");
         String userId = ctx.channel().attr(key).get();
         UserConnectPool.getChannelMap().remove(userId);

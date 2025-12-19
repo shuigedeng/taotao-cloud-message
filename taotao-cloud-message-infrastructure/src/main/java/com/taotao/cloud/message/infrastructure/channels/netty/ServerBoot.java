@@ -21,18 +21,28 @@ import io.netty.bootstrap.ServerBootstrap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * ServerBoot
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Component
 @Slf4j
 public class ServerBoot {
-    @Autowired ServerBootstrap serverBootstrap;
-    @Resource NioEventLoopGroup boosGroup;
-    @Resource NioEventLoopGroup workerGroup;
-    @Autowired HoleNettyProperties holeNettyProperties;
+
+    @Autowired
+    ServerBootstrap serverBootstrap;
+    @Resource
+    NioEventLoopGroup boosGroup;
+    @Resource
+    NioEventLoopGroup workerGroup;
+    @Autowired
+    HoleNettyProperties holeNettyProperties;
 
     /**
      * 开机启动
-     *
-     * @throws InterruptedException
      */
     @PostConstruct
     public void start() throws InterruptedException {

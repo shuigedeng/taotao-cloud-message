@@ -3,6 +3,7 @@ package com.taotao.cloud.message.application.dto.email.query;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
+
 import java.util.AbstractMap;
 import java.util.Map;
 import java.util.Objects;
@@ -10,8 +11,16 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 import javax.annotation.processing.Generated;
 
+/**
+ * EmailQryBuilder
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Generated("io.soabase.recordbuilder.core.RecordBuilder")
 public class EmailQryBuilder {
+
     private String fromUser;
 
     private String host;
@@ -27,7 +36,7 @@ public class EmailQryBuilder {
     }
 
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    private EmailQryBuilder(String fromUser, String host, String pass, Integer port, String user) {
+    private EmailQryBuilder( String fromUser, String host, String pass, Integer port, String user ) {
         this.fromUser = fromUser;
         this.host = host;
         this.pass = pass;
@@ -39,8 +48,8 @@ public class EmailQryBuilder {
      * Static constructor/builder. Can be used instead of new EmailQry(...)
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public static EmailQry EmailQry(@NotBlank(message = "收件人不能为空") String fromUser, String host,
-            String pass, @Max(value = 200L, message = "端口不能大于200") Integer port, String user) {
+    public static EmailQry EmailQry( @NotBlank(message = "收件人不能为空") String fromUser, String host,
+            String pass, @Max(value = 200L, message = "端口不能大于200") Integer port, String user ) {
         return new EmailQry(fromUser, host, pass, port, user);
     }
 
@@ -56,7 +65,7 @@ public class EmailQryBuilder {
      * Return a new builder with all fields set to the values taken from the given record instance
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public static EmailQryBuilder builder(EmailQry from) {
+    public static EmailQryBuilder builder( EmailQry from ) {
         return new EmailQryBuilder(from.fromUser(), from.host(), from.pass(), from.port(), from.user());
     }
 
@@ -64,20 +73,21 @@ public class EmailQryBuilder {
      * Return a "with"er for an existing record instance
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public static EmailQryBuilder.With from(EmailQry from) {
+    public static EmailQryBuilder.With from( EmailQry from ) {
         return new _FromWith(from);
     }
 
     /**
-     * Return a stream of the record components as map entries keyed with the component name and the value as the component value
+     * Return a stream of the record components as map entries keyed with the component name and the value as the
+     * component value
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public static Stream<Map.Entry<String, Object>> stream(EmailQry record) {
+    public static Stream<Map.Entry<String, Object>> stream( EmailQry record ) {
         return Stream.of(new AbstractMap.SimpleImmutableEntry<>("fromUser", record.fromUser()),
-                 new AbstractMap.SimpleImmutableEntry<>("host", record.host()),
-                 new AbstractMap.SimpleImmutableEntry<>("pass", record.pass()),
-                 new AbstractMap.SimpleImmutableEntry<>("port", record.port()),
-                 new AbstractMap.SimpleImmutableEntry<>("user", record.user()));
+                new AbstractMap.SimpleImmutableEntry<>("host", record.host()),
+                new AbstractMap.SimpleImmutableEntry<>("pass", record.pass()),
+                new AbstractMap.SimpleImmutableEntry<>("port", record.port()),
+                new AbstractMap.SimpleImmutableEntry<>("user", record.user()));
     }
 
     /**
@@ -91,7 +101,8 @@ public class EmailQryBuilder {
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
     @Override
     public String toString() {
-        return "EmailQryBuilder[fromUser=" + fromUser + ", host=" + host + ", pass=" + pass + ", port=" + port + ", user=" + user + "]";
+        return "EmailQryBuilder[fromUser=" + fromUser + ", host=" + host + ", pass=" + pass + ", port=" + port
+                + ", user=" + user + "]";
     }
 
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
@@ -102,20 +113,20 @@ public class EmailQryBuilder {
 
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
     @Override
-    public boolean equals(Object o) {
-        return (this == o) || ((o instanceof EmailQryBuilder r)
+    public boolean equals( Object o ) {
+        return ( this == o ) || ( ( o instanceof EmailQryBuilder r )
                 && Objects.equals(fromUser, r.fromUser)
                 && Objects.equals(host, r.host)
                 && Objects.equals(pass, r.pass)
                 && Objects.equals(port, r.port)
-                && Objects.equals(user, r.user));
+                && Objects.equals(user, r.user) );
     }
 
     /**
      * Set a new value for the {@code fromUser} record component in the builder
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public EmailQryBuilder fromUser(@NotBlank(message = "收件人不能为空") String fromUser) {
+    public EmailQryBuilder fromUser( @NotBlank(message = "收件人不能为空") String fromUser ) {
         this.fromUser = fromUser;
         return this;
     }
@@ -135,7 +146,7 @@ public class EmailQryBuilder {
      * Set a new value for the {@code host} record component in the builder
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public EmailQryBuilder host(String host) {
+    public EmailQryBuilder host( String host ) {
         this.host = host;
         return this;
     }
@@ -152,7 +163,7 @@ public class EmailQryBuilder {
      * Set a new value for the {@code pass} record component in the builder
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public EmailQryBuilder pass(String pass) {
+    public EmailQryBuilder pass( String pass ) {
         this.pass = pass;
         return this;
     }
@@ -169,7 +180,7 @@ public class EmailQryBuilder {
      * Set a new value for the {@code port} record component in the builder
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public EmailQryBuilder port(@Max(value = 200L, message = "端口不能大于200") Integer port) {
+    public EmailQryBuilder port( @Max(value = 200L, message = "端口不能大于200") Integer port ) {
         this.port = port;
         return this;
     }
@@ -190,7 +201,7 @@ public class EmailQryBuilder {
      * Set a new value for the {@code user} record component in the builder
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public EmailQryBuilder user(String user) {
+    public EmailQryBuilder user( String user ) {
         this.user = user;
         return this;
     }
@@ -208,6 +219,7 @@ public class EmailQryBuilder {
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
     public interface With {
+
         /**
          * Return the current value for the {@code fromUser} record component in the builder
          */
@@ -257,7 +269,7 @@ public class EmailQryBuilder {
          * Return a new record built from the builder passed to the given consumer
          */
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        default EmailQry with(Consumer<EmailQryBuilder> consumer) {
+        default EmailQry with( Consumer<EmailQryBuilder> consumer ) {
             EmailQryBuilder builder = with();
             consumer.accept(builder);
             return builder.build();
@@ -267,7 +279,7 @@ public class EmailQryBuilder {
          * Return a new instance of {@code EmailQry} with a new value for {@code fromUser}
          */
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        default EmailQry withFromUser(@NotBlank(message = "收件人不能为空") String fromUser) {
+        default EmailQry withFromUser( @NotBlank(message = "收件人不能为空") String fromUser ) {
             return new EmailQry(fromUser, host(), pass(), port(), user());
         }
 
@@ -275,7 +287,7 @@ public class EmailQryBuilder {
          * Return a new instance of {@code EmailQry} with a new value for {@code host}
          */
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        default EmailQry withHost(String host) {
+        default EmailQry withHost( String host ) {
             return new EmailQry(fromUser(), host, pass(), port(), user());
         }
 
@@ -283,7 +295,7 @@ public class EmailQryBuilder {
          * Return a new instance of {@code EmailQry} with a new value for {@code pass}
          */
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        default EmailQry withPass(String pass) {
+        default EmailQry withPass( String pass ) {
             return new EmailQry(fromUser(), host(), pass, port(), user());
         }
 
@@ -291,7 +303,7 @@ public class EmailQryBuilder {
          * Return a new instance of {@code EmailQry} with a new value for {@code port}
          */
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        default EmailQry withPort(@Max(value = 200L, message = "端口不能大于200") Integer port) {
+        default EmailQry withPort( @Max(value = 200L, message = "端口不能大于200") Integer port ) {
             return new EmailQry(fromUser(), host(), pass(), port, user());
         }
 
@@ -299,17 +311,18 @@ public class EmailQryBuilder {
          * Return a new instance of {@code EmailQry} with a new value for {@code user}
          */
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        default EmailQry withUser(String user) {
+        default EmailQry withUser( String user ) {
             return new EmailQry(fromUser(), host(), pass(), port(), user);
         }
     }
 
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    private static final class _FromWith implements EmailQryBuilder.With {
+    private static final class _FromWith implements With {
+
         private final EmailQry from;
 
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        private _FromWith(EmailQry from) {
+        private _FromWith( EmailQry from ) {
             this.from = from;
         }
 

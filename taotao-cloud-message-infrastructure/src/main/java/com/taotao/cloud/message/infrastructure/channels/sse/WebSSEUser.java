@@ -20,29 +20,32 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * WebSSEUser
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class WebSSEUser {
+
     private static Map<String, Chater> userChaterMap = new ConcurrentHashMap<>();
 
-    public static void add(String userName, Chater chater) {
+    public static void add( String userName, Chater chater ) {
         userChaterMap.put(userName, chater);
     }
 
     /**
      * 根据昵称拿Chater
-     *
-     * @param nickName
-     * @return
      */
-    public static Chater getChater(String userName) {
+    public static Chater getChater( String userName ) {
         return userChaterMap.get(userName);
     }
 
     /**
      * 移除失效的Chater
-     *
-     * @param Chater
      */
-    public static void removeUser(String userName) {
+    public static void removeUser( String userName ) {
         userChaterMap.remove(userName);
     }
 

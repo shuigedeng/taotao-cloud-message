@@ -3,6 +3,7 @@ package com.taotao.cloud.message.application.dto.email.cmmond;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
+
 import java.util.AbstractMap;
 import java.util.Map;
 import java.util.Objects;
@@ -10,8 +11,16 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 import javax.annotation.processing.Generated;
 
+/**
+ * EmailAddCmdBuilder
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Generated("io.soabase.recordbuilder.core.RecordBuilder")
 public class EmailAddCmdBuilder {
+
     private String fromUser;
 
     private String host;
@@ -27,8 +36,8 @@ public class EmailAddCmdBuilder {
     }
 
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    private EmailAddCmdBuilder(String fromUser, String host, String pass, Integer port,
-            String user) {
+    private EmailAddCmdBuilder( String fromUser, String host, String pass, Integer port,
+            String user ) {
         this.fromUser = fromUser;
         this.host = host;
         this.pass = pass;
@@ -40,9 +49,9 @@ public class EmailAddCmdBuilder {
      * Static constructor/builder. Can be used instead of new EmailAddCmd(...)
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public static EmailAddCmd EmailAddCmd(@NotBlank(message = "收件人不能为空") String fromUser,
+    public static EmailAddCmd EmailAddCmd( @NotBlank(message = "收件人不能为空") String fromUser,
             String host, String pass, @Max(value = 200L, message = "端口不能大于200") Integer port,
-            String user) {
+            String user ) {
         return new EmailAddCmd(fromUser, host, pass, port, user);
     }
 
@@ -58,7 +67,7 @@ public class EmailAddCmdBuilder {
      * Return a new builder with all fields set to the values taken from the given record instance
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public static EmailAddCmdBuilder builder(EmailAddCmd from) {
+    public static EmailAddCmdBuilder builder( EmailAddCmd from ) {
         return new EmailAddCmdBuilder(from.fromUser(), from.host(), from.pass(), from.port(), from.user());
     }
 
@@ -66,20 +75,21 @@ public class EmailAddCmdBuilder {
      * Return a "with"er for an existing record instance
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public static EmailAddCmdBuilder.With from(EmailAddCmd from) {
+    public static EmailAddCmdBuilder.With from( EmailAddCmd from ) {
         return new _FromWith(from);
     }
 
     /**
-     * Return a stream of the record components as map entries keyed with the component name and the value as the component value
+     * Return a stream of the record components as map entries keyed with the component name and the value as the
+     * component value
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public static Stream<Map.Entry<String, Object>> stream(EmailAddCmd record) {
+    public static Stream<Map.Entry<String, Object>> stream( EmailAddCmd record ) {
         return Stream.of(new AbstractMap.SimpleImmutableEntry<>("fromUser", record.fromUser()),
-                 new AbstractMap.SimpleImmutableEntry<>("host", record.host()),
-                 new AbstractMap.SimpleImmutableEntry<>("pass", record.pass()),
-                 new AbstractMap.SimpleImmutableEntry<>("port", record.port()),
-                 new AbstractMap.SimpleImmutableEntry<>("user", record.user()));
+                new AbstractMap.SimpleImmutableEntry<>("host", record.host()),
+                new AbstractMap.SimpleImmutableEntry<>("pass", record.pass()),
+                new AbstractMap.SimpleImmutableEntry<>("port", record.port()),
+                new AbstractMap.SimpleImmutableEntry<>("user", record.user()));
     }
 
     /**
@@ -93,7 +103,8 @@ public class EmailAddCmdBuilder {
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
     @Override
     public String toString() {
-        return "EmailAddCmdBuilder[fromUser=" + fromUser + ", host=" + host + ", pass=" + pass + ", port=" + port + ", user=" + user + "]";
+        return "EmailAddCmdBuilder[fromUser=" + fromUser + ", host=" + host + ", pass=" + pass + ", port=" + port
+                + ", user=" + user + "]";
     }
 
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
@@ -104,20 +115,20 @@ public class EmailAddCmdBuilder {
 
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
     @Override
-    public boolean equals(Object o) {
-        return (this == o) || ((o instanceof EmailAddCmdBuilder r)
+    public boolean equals( Object o ) {
+        return ( this == o ) || ( ( o instanceof EmailAddCmdBuilder r )
                 && Objects.equals(fromUser, r.fromUser)
                 && Objects.equals(host, r.host)
                 && Objects.equals(pass, r.pass)
                 && Objects.equals(port, r.port)
-                && Objects.equals(user, r.user));
+                && Objects.equals(user, r.user) );
     }
 
     /**
      * Set a new value for the {@code fromUser} record component in the builder
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public EmailAddCmdBuilder fromUser(@NotBlank(message = "收件人不能为空") String fromUser) {
+    public EmailAddCmdBuilder fromUser( @NotBlank(message = "收件人不能为空") String fromUser ) {
         this.fromUser = fromUser;
         return this;
     }
@@ -137,7 +148,7 @@ public class EmailAddCmdBuilder {
      * Set a new value for the {@code host} record component in the builder
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public EmailAddCmdBuilder host(String host) {
+    public EmailAddCmdBuilder host( String host ) {
         this.host = host;
         return this;
     }
@@ -154,7 +165,7 @@ public class EmailAddCmdBuilder {
      * Set a new value for the {@code pass} record component in the builder
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public EmailAddCmdBuilder pass(String pass) {
+    public EmailAddCmdBuilder pass( String pass ) {
         this.pass = pass;
         return this;
     }
@@ -171,7 +182,7 @@ public class EmailAddCmdBuilder {
      * Set a new value for the {@code port} record component in the builder
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public EmailAddCmdBuilder port(@Max(value = 200L, message = "端口不能大于200") Integer port) {
+    public EmailAddCmdBuilder port( @Max(value = 200L, message = "端口不能大于200") Integer port ) {
         this.port = port;
         return this;
     }
@@ -192,7 +203,7 @@ public class EmailAddCmdBuilder {
      * Set a new value for the {@code user} record component in the builder
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    public EmailAddCmdBuilder user(String user) {
+    public EmailAddCmdBuilder user( String user ) {
         this.user = user;
         return this;
     }
@@ -210,6 +221,7 @@ public class EmailAddCmdBuilder {
      */
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
     public interface With {
+
         /**
          * Return the current value for the {@code fromUser} record component in the builder
          */
@@ -259,7 +271,7 @@ public class EmailAddCmdBuilder {
          * Return a new record built from the builder passed to the given consumer
          */
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        default EmailAddCmd with(Consumer<EmailAddCmdBuilder> consumer) {
+        default EmailAddCmd with( Consumer<EmailAddCmdBuilder> consumer ) {
             EmailAddCmdBuilder builder = with();
             consumer.accept(builder);
             return builder.build();
@@ -269,7 +281,7 @@ public class EmailAddCmdBuilder {
          * Return a new instance of {@code EmailAddCmd} with a new value for {@code fromUser}
          */
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        default EmailAddCmd withFromUser(@NotBlank(message = "收件人不能为空") String fromUser) {
+        default EmailAddCmd withFromUser( @NotBlank(message = "收件人不能为空") String fromUser ) {
             return new EmailAddCmd(fromUser, host(), pass(), port(), user());
         }
 
@@ -277,7 +289,7 @@ public class EmailAddCmdBuilder {
          * Return a new instance of {@code EmailAddCmd} with a new value for {@code host}
          */
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        default EmailAddCmd withHost(String host) {
+        default EmailAddCmd withHost( String host ) {
             return new EmailAddCmd(fromUser(), host, pass(), port(), user());
         }
 
@@ -285,7 +297,7 @@ public class EmailAddCmdBuilder {
          * Return a new instance of {@code EmailAddCmd} with a new value for {@code pass}
          */
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        default EmailAddCmd withPass(String pass) {
+        default EmailAddCmd withPass( String pass ) {
             return new EmailAddCmd(fromUser(), host(), pass, port(), user());
         }
 
@@ -293,7 +305,7 @@ public class EmailAddCmdBuilder {
          * Return a new instance of {@code EmailAddCmd} with a new value for {@code port}
          */
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        default EmailAddCmd withPort(@Max(value = 200L, message = "端口不能大于200") Integer port) {
+        default EmailAddCmd withPort( @Max(value = 200L, message = "端口不能大于200") Integer port ) {
             return new EmailAddCmd(fromUser(), host(), pass(), port, user());
         }
 
@@ -301,17 +313,18 @@ public class EmailAddCmdBuilder {
          * Return a new instance of {@code EmailAddCmd} with a new value for {@code user}
          */
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        default EmailAddCmd withUser(String user) {
+        default EmailAddCmd withUser( String user ) {
             return new EmailAddCmd(fromUser(), host(), pass(), port(), user);
         }
     }
 
     @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-    private static final class _FromWith implements EmailAddCmdBuilder.With {
+    private static final class _FromWith implements With {
+
         private final EmailAddCmd from;
 
         @Generated("io.soabase.recordbuilder.core.RecordBuilder")
-        private _FromWith(EmailAddCmd from) {
+        private _FromWith( EmailAddCmd from ) {
             this.from = from;
         }
 

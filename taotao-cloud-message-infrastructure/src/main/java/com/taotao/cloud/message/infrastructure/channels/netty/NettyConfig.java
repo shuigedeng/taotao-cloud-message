@@ -23,15 +23,22 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * NettyConfig
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Configuration
 @EnableConfigurationProperties
 public class NettyConfig {
-    @Autowired HoleNettyProperties holeNettyProperties;
+
+    @Autowired
+    HoleNettyProperties holeNettyProperties;
 
     /**
-     * boss 线程池
-     * 负责客户端连接
-     * @return
+     * boss 线程池 负责客户端连接
      */
     @Bean
     public NioEventLoopGroup boosGroup() {
@@ -39,9 +46,7 @@ public class NettyConfig {
     }
 
     /**
-     * worker线程池
-     * 负责业务处理
-     * @return
+     * worker线程池 负责业务处理
      */
     @Bean
     public NioEventLoopGroup workerGroup() {
@@ -50,7 +55,6 @@ public class NettyConfig {
 
     /**
      * 服务器启动器
-     * @return
      */
     @Bean
     public ServerBootstrap serverBootstrap() {

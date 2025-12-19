@@ -16,9 +16,17 @@
 
 package com.taotao.cloud.message.infrastructure.channels.websockt.spring.admin.constant;
 
+/**
+ * AdminWebSocketConstants
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public final class AdminWebSocketConstants {
 
-    private AdminWebSocketConstants() {}
+    private AdminWebSocketConstants() {
+    }
 
     /**
      * 存储在 WebSocketSession Attribute 中的 token 属性名

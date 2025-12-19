@@ -22,12 +22,20 @@ import com.taotao.cloud.sys.infrastructure.channels.websockt.netty.Chat;
 import com.taotao.cloud.sys.infrastructure.channels.websockt.netty.ChatMapper;
 import com.taotao.cloud.sys.infrastructure.channels.websockt.netty.ChatService;
 import com.taotao.cloud.sys.infrastructure.channels.websockt.netty.NettyWebSocket;
+
 import java.util.List;
 
+/**
+ * ChatServiceImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class ChatServiceImpl extends ServiceImpl<ChatMapper, Chat> implements ChatService {
 
     @Override
-    public void sendInfo(Chat chat) {
+    public void sendInfo( Chat chat ) {
         QueryWrapper<Chat> queryWrapper = new QueryWrapper<>();
         List<Chat> chats =
                 this.baseMapper.selectList(

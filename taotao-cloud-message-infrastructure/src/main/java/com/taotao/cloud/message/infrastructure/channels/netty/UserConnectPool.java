@@ -20,8 +20,16 @@ import io.netty.channel.Channel;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
+
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * UserConnectPool
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class UserConnectPool {
 
     // 主要是为了广播消息
@@ -61,7 +69,7 @@ public class UserConnectPool {
         return channelMap;
     }
 
-    public static Channel getChannel(String userId) {
+    public static Channel getChannel( String userId ) {
         if (null == channelMap) {
             return getChannelMap().get(userId);
         }

@@ -18,10 +18,19 @@ package com.taotao.cloud.message.infrastructure.channels.websockt.netty;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+
 import java.time.LocalDateTime;
+
 import lombok.Data;
 import lombok.experimental.*;
 
+/**
+ * Chat
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Data
 public class Chat {
 

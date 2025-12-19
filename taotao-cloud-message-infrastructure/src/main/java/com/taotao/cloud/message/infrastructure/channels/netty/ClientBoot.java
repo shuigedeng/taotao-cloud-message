@@ -21,16 +21,23 @@ import com.taotao.cloud.sys.infrastructure.channels.netty.MessageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+/**
+ * ClientBoot
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Component
 public class ClientBoot {
-    @Autowired Bootstrap bootstrap;
-    @Autowired HoleNettyProperties holeNettyProperties;
+
+    @Autowired
+    Bootstrap bootstrap;
+    @Autowired
+    HoleNettyProperties holeNettyProperties;
 
     /**
      * 主端口连接
-     *
-     * @return
-     * @throws InterruptedException
      */
     public Channel connect() throws InterruptedException {
         // 连接服务器
@@ -45,9 +52,6 @@ public class ClientBoot {
 
     /**
      * 备用端口连接
-     *
-     * @return
-     * @throws InterruptedException
      */
     public Channel connectSlave() throws InterruptedException {
         // 连接服务器
@@ -63,10 +67,8 @@ public class ClientBoot {
 
     /**
      * 发送消息到服务器端
-     *
-     * @return
      */
-    public void sendMsg(MessageBean messageBean) throws InterruptedException {
+    public void sendMsg( MessageBean messageBean ) throws InterruptedException {
         connect().writeAndFlush(messageBean);
     }
 }

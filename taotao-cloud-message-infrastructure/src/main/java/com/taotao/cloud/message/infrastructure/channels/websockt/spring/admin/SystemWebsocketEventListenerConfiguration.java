@@ -22,13 +22,20 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * SystemWebsocketEventListenerConfiguration
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @ConditionalOnClass(SystemWebsocketEventListener.class)
 @Configuration(proxyBeanMethods = false)
 public class SystemWebsocketEventListenerConfiguration {
 
     private final MessageDistributor messageDistributor;
 
-    public SystemWebsocketEventListenerConfiguration(MessageDistributor messageDistributor) {
+    public SystemWebsocketEventListenerConfiguration( MessageDistributor messageDistributor ) {
         this.messageDistributor = messageDistributor;
     }
 

@@ -26,16 +26,20 @@ import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
 import io.netty.handler.timeout.IdleStateHandler;
 
+/**
+ * ServerHandler
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 public class ServerHandler extends ChannelInitializer<SocketChannel> {
 
     /**
      * 初始化通道以及配置对应管道的处理器
-     *
-     * @param channel
-     * @throws Exception
      */
     @Override
-    protected void initChannel(SocketChannel channel) throws Exception {
+    protected void initChannel( SocketChannel channel ) throws Exception {
 
         ChannelPipeline pipeline = channel.pipeline();
         pipeline.addLast(new HttpServerCodec());

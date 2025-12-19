@@ -18,4 +18,13 @@ package com.taotao.cloud.message.api.inner.response;
 
 import com.taotao.boot.common.model.response.ResponseBase;
 
-public class StoreMessageApiResponse  extends ResponseBase {}
+/**
+ * StoreMessageApiResponse
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
+public class StoreMessageApiResponse extends ResponseBase {
+
+}

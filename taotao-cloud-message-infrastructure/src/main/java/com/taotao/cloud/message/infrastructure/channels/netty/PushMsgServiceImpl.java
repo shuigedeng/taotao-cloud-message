@@ -22,14 +22,23 @@ import com.taotao.cloud.sys.infrastructure.channels.netty.PushMsgService;
 import com.taotao.cloud.sys.infrastructure.channels.netty.UserConnectPool;
 import io.netty.channel.Channel;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+
 import java.util.Objects;
+
 import org.springframework.stereotype.Service;
 
+/**
+ * PushMsgServiceImpl
+ *
+ * @author shuigedeng
+ * @version 2026.01
+ * @since 2025-12-19 09:30:45
+ */
 @Service
 public class PushMsgServiceImpl implements PushMsgService {
 
     @Override
-    public void pushMsgToOne(DataContent dataContent) {
+    public void pushMsgToOne( DataContent dataContent ) {
         ChatMsg chatMsg = dataContent.getChatMsg();
         Channel channel = UserConnectPool.getChannel(chatMsg.getReceiverId());
         if (Objects.isNull(channel)) {
@@ -40,7 +49,7 @@ public class PushMsgServiceImpl implements PushMsgService {
     }
 
     @Override
-    public void pushMsgToAll(DataContent dataContent) {
+    public void pushMsgToAll( DataContent dataContent ) {
         ChatMsg chatMsg = dataContent.getChatMsg();
         Channel channel = UserConnectPool.getChannel(chatMsg.getReceiverId());
         UserConnectPool.getChannelGroup()
