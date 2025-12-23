@@ -71,7 +71,7 @@ public class TaoTaoCloudMessageApplication {
                 .setTtcBanner()
                 .setTtcProfileIfNotExists("dev")
                 .setTtcApplicationProperty("taotao-cloud-message")
-                .setTtcAllowBeanDefinitionOverriding(true)
+                .setTtcAllowBeanDefinitionOverriding(false)
                 .run(args);
     }
 }
