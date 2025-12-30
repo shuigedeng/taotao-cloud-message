@@ -48,7 +48,7 @@ public class NotifyWebsocketEventListener {
         // 构建公告关闭的消息体
         AnnouncementCloseMessage message = new AnnouncementCloseMessage();
         message.setId(event.getId());
-        String msg = JsonUtils.toJson(message);
+        String msg = JacksonUtils.toJson(message);
 
         // 广播公告关闭信息
         MessageDO messageDO = new MessageDO().setMessageText(msg).setNeedBroadcast(true);

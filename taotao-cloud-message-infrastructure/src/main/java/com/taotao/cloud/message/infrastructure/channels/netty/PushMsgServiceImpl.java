@@ -45,7 +45,7 @@ public class PushMsgServiceImpl implements PushMsgService {
             throw new RuntimeException("未连接socket服务器");
         }
 
-        channel.writeAndFlush(new TextWebSocketFrame(JsonUtils.objectToJson(chatMsg)));
+        channel.writeAndFlush(new TextWebSocketFrame(JacksonUtils.objectToJson(chatMsg)));
     }
 
     @Override
@@ -53,6 +53,6 @@ public class PushMsgServiceImpl implements PushMsgService {
         ChatMsg chatMsg = dataContent.getChatMsg();
         Channel channel = UserConnectPool.getChannel(chatMsg.getReceiverId());
         UserConnectPool.getChannelGroup()
-                .writeAndFlush(new TextWebSocketFrame(JsonUtils.objectToJson(chatMsg)));
+                .writeAndFlush(new TextWebSocketFrame(JacksonUtils.objectToJson(chatMsg)));
     }
 }

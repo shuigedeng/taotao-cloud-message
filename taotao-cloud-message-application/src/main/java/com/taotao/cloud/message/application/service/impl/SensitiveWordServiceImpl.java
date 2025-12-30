@@ -17,12 +17,12 @@
 package com.taotao.cloud.message.application.service.impl;
 
 import com.taotao.cloud.message.application.service.SensitiveWordService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /** 敏感词业务层实现 */
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class SensitiveWordServiceImpl implements SensitiveWordService {
 
     @Override

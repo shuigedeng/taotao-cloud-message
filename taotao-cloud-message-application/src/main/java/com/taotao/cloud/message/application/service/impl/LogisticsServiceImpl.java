@@ -17,7 +17,7 @@
 package com.taotao.cloud.message.application.service.impl;
 
 import com.taotao.cloud.message.application.service.LogisticsService;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -26,7 +26,7 @@ import org.springframework.stereotype.Service;
  * @since 2020/11/13 10:00
  */
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class LogisticsServiceImpl implements LogisticsService {
 
     //	@Override

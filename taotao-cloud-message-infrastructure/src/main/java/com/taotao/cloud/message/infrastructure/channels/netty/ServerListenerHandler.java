@@ -52,7 +52,7 @@ public class ServerListenerHandler extends SimpleChannelInboundHandler<TextWebSo
             throws Exception {
         String content = msg.text();
         /**获取客户端传过来的消息*/
-        DataContent dataContent = JsonUtils.jsonToPojo(content, DataContent.class);
+        DataContent dataContent = JacksonUtils.jsonToPojo(content, DataContent.class);
         assert dataContent != null;
         Integer action = dataContent.getAction();
         Channel channel = ctx.channel();
@@ -86,7 +86,7 @@ public class ServerListenerHandler extends SimpleChannelInboundHandler<TextWebSo
             LogUtils.info("收到来自channel 为[" + channel + "]的心跳包" + dataContent);
             channel.writeAndFlush(
                     new TextWebSocketFrame(
-                            JsonUtils.objectToJson(
+                            JacksonUtils.objectToJson(
                                     R.ok("返回心跳包").put("type", MessageActionEnum.KEEPALIVE.type))));
             LogUtils.info("已返回消息");
         }

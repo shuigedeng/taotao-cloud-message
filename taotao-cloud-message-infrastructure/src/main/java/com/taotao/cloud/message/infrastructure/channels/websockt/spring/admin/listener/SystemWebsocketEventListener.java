@@ -48,7 +48,7 @@ public class SystemWebsocketEventListener {
         // 构建字典修改的消息体
         DictChangeMessage dictChangeMessage = new DictChangeMessage();
         dictChangeMessage.setDictCode(event.getDictCode());
-        String msg = JsonUtils.toJson(dictChangeMessage);
+        String msg = JacksonUtils.toJson(dictChangeMessage);
 
         // 广播修改信息
         MessageDO messageDO = new MessageDO().setMessageText(msg).setNeedBroadcast(true);

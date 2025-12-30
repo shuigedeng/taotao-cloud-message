@@ -51,7 +51,7 @@ public abstract class AbstractNotifyInfoHandler<
     @Override
     public void handle(List<SysUser> userList, T notifyInfo) {
         M message = createMessage(notifyInfo);
-        String msg = JsonUtils.toJson(message);
+        String msg = JacksonUtils.toJson(message);
         List<Object> sessionKeys = userList.stream().map(SysUser::getUserId).toList();
         persistMessage(userList, notifyInfo);
         MessageDO messageDO =
