@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.interfaces.dubbo;
+package com.taotao.cloud.message.interfaces.rpc;
 
-import com.taotao.boot.common.utils.log.LogUtils;
 import lombok.RequiredArgsConstructor;
-import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
 
 /**

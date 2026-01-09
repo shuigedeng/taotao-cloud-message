@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.dubbo.request;
+package com.taotao.cloud.message.api.rpc.request;
 
 import com.taotao.boot.common.model.request.RequestBase;
 import java.io.Serial;

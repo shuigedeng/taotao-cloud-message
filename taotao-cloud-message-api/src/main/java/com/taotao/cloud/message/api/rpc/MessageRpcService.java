@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.dubbo;
+package com.taotao.cloud.message.api.rpc;
 
 /**
  * 后台部门表服务接口

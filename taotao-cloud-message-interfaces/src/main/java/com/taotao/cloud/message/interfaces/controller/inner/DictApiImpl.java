@@ -14,24 +14,14 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.interfaces.feign;
-
-import com.alibaba.csp.sentinel.annotation.SentinelResource;
-import com.taotao.boot.common.exception.BusinessException;
-import com.taotao.boot.common.utils.log.LogUtils;
-import com.taotao.boot.idempotent.annotation.Idempotent;
+package com.taotao.cloud.message.interfaces.controller.inner;
 
 
-import com.taotao.boot.security.spring.annotation.NotAuth;
-import com.taotao.boot.web.request.annotation.RequestLogger;
-import com.taotao.boot.webagg.controller.FeignController;
+import com.taotao.boot.webagg.controller.InnerController;
 import com.taotao.cloud.message.application.service.DictService;
-import com.yomahub.tlog.core.annotation.TLogAspect;
-import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -40,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Validated
 @RestController
 @RequestMapping
-public class DictApiImpl extends FeignController {
+public class DictApiImpl extends InnerController {
 
     @Autowired private DictService dictService;
 //
