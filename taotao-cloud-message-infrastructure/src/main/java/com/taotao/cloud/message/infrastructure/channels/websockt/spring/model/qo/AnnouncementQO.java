@@ -26,7 +26,7 @@ import org.springdoc.api.annotations.ParameterObject;
 /**
  * 公告信息 查询对象
  *
- * @author hccake 2020-12-15 17:01:15
+ * @author shuigedeng 2020-12-15 17:01:15
  */
 @Data
 @ParameterObject

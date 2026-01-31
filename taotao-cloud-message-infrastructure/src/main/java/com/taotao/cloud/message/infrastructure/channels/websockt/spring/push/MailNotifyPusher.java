@@ -28,7 +28,7 @@ import lombok.RequiredArgsConstructor;
 /**
  * 通知邮件发布
  *
- * @author Hccake 2020/12/21
+ * @author shuigedeng 2020/12/21
  * @version 1.0
  */
 @RequiredArgsConstructor

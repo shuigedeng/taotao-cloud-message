@@ -24,7 +24,7 @@ import lombok.Setter;
 /**
  * 公告发布消息
  *
- * @author Hccake 2021/1/5
+ * @author shuigedeng 2021/1/5
  * @version 1.0
  */
 @Getter

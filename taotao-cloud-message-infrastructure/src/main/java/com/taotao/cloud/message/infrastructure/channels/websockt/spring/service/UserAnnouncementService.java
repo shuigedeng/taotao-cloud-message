@@ -26,7 +26,7 @@ import com.hccake.extend.mybatis.plus.service.ExtendService;
 /**
  * 用户公告表
  *
- * @author hccake 2020-12-25 08:04:53
+ * @author shuigedeng 2020-12-25 08:04:53
  */
 public interface UserAnnouncementService extends ExtendService<UserAnnouncement> {
 

@@ -29,7 +29,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.web.socket.server.HandshakeInterceptor;
 
 /**
- * @author Hccake 2021/1/5
+ * @author shuigedeng 2021/1/5
  * @version 1.0
  */
 @Import({

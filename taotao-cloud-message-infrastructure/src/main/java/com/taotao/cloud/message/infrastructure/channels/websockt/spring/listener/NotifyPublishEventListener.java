@@ -28,7 +28,7 @@ import org.springframework.stereotype.Component;
 /**
  * 通知发布事件监听器
  *
- * @author Hccake 2020/12/17
+ * @author shuigedeng 2020/12/17
  * @version 1.0
  */
 @Slf4j

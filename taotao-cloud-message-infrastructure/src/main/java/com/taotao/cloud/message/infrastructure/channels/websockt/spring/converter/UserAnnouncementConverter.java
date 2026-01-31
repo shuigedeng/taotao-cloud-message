@@ -24,7 +24,7 @@ import org.mapstruct.factory.Mappers;
 /**
  * 用户公告表
  *
- * @author hccake 2021-03-22 20:16:12
+ * @author shuigedeng 2021-03-22 20:16:12
  */
 @Mapper
 public interface UserAnnouncementConverter {

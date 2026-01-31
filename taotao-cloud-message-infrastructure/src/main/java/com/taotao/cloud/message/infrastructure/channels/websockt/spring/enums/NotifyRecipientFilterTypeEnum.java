@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 /**
  * 通知接收者筛选类型
  *
- * @author Hccake 2020/12/21
+ * @author shuigedeng 2020/12/21
  * @version 1.0
  */
 @Getter

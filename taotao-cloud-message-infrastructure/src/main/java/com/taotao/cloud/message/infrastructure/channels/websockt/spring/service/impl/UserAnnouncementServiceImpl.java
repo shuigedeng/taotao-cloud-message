@@ -29,7 +29,7 @@ import org.springframework.stereotype.Service;
 /**
  * 用户公告表
  *
- * @author hccake 2020-12-25 08:04:53
+ * @author shuigedeng 2020-12-25 08:04:53
  */
 @Service
 public class UserAnnouncementServiceImpl

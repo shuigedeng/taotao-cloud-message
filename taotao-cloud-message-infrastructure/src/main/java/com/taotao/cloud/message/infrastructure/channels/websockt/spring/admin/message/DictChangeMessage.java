@@ -23,7 +23,7 @@ import lombok.Setter;
 /**
  * 字典修改消息
  *
- * @author Hccake 2021/1/5
+ * @author shuigedeng 2021/1/5
  * @version 1.0
  */
 @Getter

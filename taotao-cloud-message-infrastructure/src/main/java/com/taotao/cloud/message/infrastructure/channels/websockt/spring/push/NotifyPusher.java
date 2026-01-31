@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * 通知发布者
  *
- * @author Hccake 2020/12/21
+ * @author shuigedeng 2020/12/21
  * @version 1.0
  */
 public interface NotifyPusher {

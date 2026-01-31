@@ -23,7 +23,7 @@ import lombok.ToString;
 /**
  * 公告关闭事件
  *
- * @author Hccake 2021/1/7
+ * @author shuigedeng 2021/1/7
  * @version 1.0
  */
 @Getter

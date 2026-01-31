@@ -28,7 +28,7 @@ import org.springframework.stereotype.Component;
 /**
  * 消息通知站内推送
  *
- * @author Hccake 2020/12/21
+ * @author shuigedeng 2020/12/21
  * @version 1.0
  */
 @Component

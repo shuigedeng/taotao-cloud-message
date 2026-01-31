@@ -28,7 +28,7 @@ import org.springframework.web.socket.server.HandshakeInterceptor;
 /**
  * WebSocket 握手拦截器 在握手时记录下当前 session 对应的用户Id和token信息
  *
- * @author Hccake 2021/1/4
+ * @author shuigedeng 2021/1/4
  * @version 1.0
  */
 public class UserAttributeHandshakeInterceptor implements HandshakeInterceptor {

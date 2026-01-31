@@ -23,7 +23,7 @@ import org.springframework.context.ApplicationEvent;
 /**
  * 通知发布事件
  *
- * @author Hccake 2020/12/17
+ * @author shuigedeng 2020/12/17
  * @version 1.0
  */
 @Getter

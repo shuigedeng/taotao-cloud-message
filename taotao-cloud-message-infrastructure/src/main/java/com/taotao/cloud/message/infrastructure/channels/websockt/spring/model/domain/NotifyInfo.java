@@ -21,7 +21,7 @@ import com.hccake.ballcat.notify.enums.NotifyRecipientFilterTypeEnum;
 import java.util.List;
 
 /**
- * @author Hccake 2020/12/23
+ * @author shuigedeng 2020/12/23
  * @version 1.0
  */
 public interface NotifyInfo {

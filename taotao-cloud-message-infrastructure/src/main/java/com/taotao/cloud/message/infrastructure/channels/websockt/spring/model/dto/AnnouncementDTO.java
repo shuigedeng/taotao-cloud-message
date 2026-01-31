@@ -27,7 +27,7 @@ import lombok.Data;
 /**
  * 公告信息
  *
- * @author hccake 2020-12-15 17:01:15
+ * @author shuigedeng 2020-12-15 17:01:15
  */
 @Data
 @Schema(title = "公告信息")

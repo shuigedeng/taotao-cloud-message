@@ -29,7 +29,7 @@ import lombok.experimental.*;
 /**
  * 用户公告表
  *
- * @author hccake 2020-12-25 08:04:53
+ * @author shuigedeng 2020-12-25 08:04:53
  */
 @Data
 @TableAlias(UserAnnouncement.TABLE_ALIAS)

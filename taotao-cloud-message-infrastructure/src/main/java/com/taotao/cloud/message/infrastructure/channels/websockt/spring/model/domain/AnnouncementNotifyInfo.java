@@ -28,7 +28,7 @@ import lombok.experimental.*;
 /**
  * 公告通知信息
  *
- * @author Hccake 2020/12/23
+ * @author shuigedeng 2020/12/23
  * @version 1.0
  */
 @Data

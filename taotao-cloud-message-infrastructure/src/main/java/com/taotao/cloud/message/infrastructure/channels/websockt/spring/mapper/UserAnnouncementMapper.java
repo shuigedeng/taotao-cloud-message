@@ -34,7 +34,7 @@ import java.time.LocalDateTime;
 /**
  * 用户公告表
  *
- * @author hccake 2020-12-25 08:04:53
+ * @author shuigedeng 2020-12-25 08:04:53
  */
 public interface UserAnnouncementMapper extends ExtendMapper<UserAnnouncement> {
 

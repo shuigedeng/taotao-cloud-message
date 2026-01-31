@@ -24,7 +24,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
 /**
- * @author Hccake 2020/12/16
+ * @author shuigedeng 2020/12/16
  * @version 1.0
  */
 @Mapper

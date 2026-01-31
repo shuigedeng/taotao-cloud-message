@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * 接收者筛选器
  *
- * @author Hccake 2020/12/21
+ * @author shuigedeng 2020/12/21
  * @version 1.0
  */
 public interface RecipientFilter {

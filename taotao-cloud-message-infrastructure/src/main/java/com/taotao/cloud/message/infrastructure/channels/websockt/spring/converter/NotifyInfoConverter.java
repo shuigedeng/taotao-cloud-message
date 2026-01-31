@@ -22,7 +22,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 /**
- * @author Hccake 2020/12/23
+ * @author shuigedeng 2020/12/23
  * @version 1.0
  */
 @Mapper

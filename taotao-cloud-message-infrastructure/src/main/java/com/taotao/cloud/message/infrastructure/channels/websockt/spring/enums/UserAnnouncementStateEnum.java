@@ -22,7 +22,7 @@ import lombok.Getter;
 /**
  * 用户公告状态
  *
- * @author Hccake 2021/1/19
+ * @author shuigedeng 2021/1/19
  * @version 1.0
  */
 @Getter
