@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.message.api.inner.request;
 
-import com.taotao.boot.common.model.request.RequestBase;
+import com.taotao.boot.common.model.ddd.types.MarkerRequest;
 
 /**
  * NoticeMessageApiRequest

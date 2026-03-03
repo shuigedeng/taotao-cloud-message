@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.message.api.inner.response;
 
-import com.taotao.boot.common.model.response.ResponseBase;
+import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 
 /**
  * StoreMessageApiResponse

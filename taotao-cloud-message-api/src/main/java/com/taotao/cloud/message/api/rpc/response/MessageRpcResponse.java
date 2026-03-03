@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.message.api.rpc.response;
 
-import com.taotao.boot.common.model.response.ResponseBase;
+import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.Serial;
 import java.io.Serializable;
@@ -39,7 +39,7 @@ import lombok.experimental.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "公司查询VO")
-public class MessageRpcResponse  extends ResponseBase implements Serializable {
+public class MessageRpcResponse  implements MarkerResponse  {
 
     @Serial private static final long serialVersionUID = -4132785717179910025L;
 

@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.message.api.inner.response;
 
-import com.taotao.boot.common.model.response.ResponseBase;
+import com.taotao.boot.common.model.ddd.types.MarkerResponse;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,7 +40,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "公司查询VO")
-public class MessageApiResponse  extends ResponseBase implements Serializable {
+public class MessageApiResponse  implements MarkerResponse  {
 
     @Serial private static final long serialVersionUID = -4132785717179910025L;
 

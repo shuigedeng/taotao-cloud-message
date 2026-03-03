@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.message.api.inner.request;
 
-import com.taotao.boot.common.model.request.RequestBase;
+import com.taotao.boot.common.model.ddd.types.MarkerRequest;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
@@ -41,7 +41,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "公司查询对象")
-public class MessageQueryApiRequest extends RequestBase implements Serializable {
+public class MessageQueryApiRequest implements MarkerRequest {
 
     @Serial private static final long serialVersionUID = -4132785717179910025L;
 
