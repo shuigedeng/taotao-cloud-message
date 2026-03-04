@@ -25,7 +25,7 @@ import com.taotao.boot.ddd.model.application.service.CommandService;
  * @version 2022.03
  * @since 2022-03-25 14:24:04
  */
-public interface AlipayConfigService implements CommandService {
+public interface AlipayConfigService extends CommandService {
     //
     //    /**
     //     * 处理来自PC的交易请求
