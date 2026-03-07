@@ -16,7 +16,7 @@
 
 package com.taotao.cloud.message.common.utils;
 
-import org.jspecify.annotations.NonNull;;
+import org.jspecify.annotations.NonNull;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
