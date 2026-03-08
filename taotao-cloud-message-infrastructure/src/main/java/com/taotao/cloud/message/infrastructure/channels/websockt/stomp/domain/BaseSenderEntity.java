@@ -25,7 +25,7 @@ import jakarta.persistence.MappedSuperclass;
  * <p>Description: 基础发送者实体 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/16 22:30
+ * @since : 2022/12/16 22:30
  */
 @MappedSuperclass
 public abstract class BaseSenderEntity extends BaseEntity {

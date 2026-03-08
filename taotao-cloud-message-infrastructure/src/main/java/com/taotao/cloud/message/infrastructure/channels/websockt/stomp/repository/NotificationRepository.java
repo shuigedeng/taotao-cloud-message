@@ -28,7 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
  * <p>Description: NotificationQueueRepository </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/7 22:03
+ * @since : 2022/12/7 22:03
  */
 public interface NotificationRepository extends BaseRepository<Notification, String> {
 

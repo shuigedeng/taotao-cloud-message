@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.*;
  * <p>Description: 系统通知 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/17 14:19
+ * @since : 2022/12/17 14:19
  */
 @RestController
 @RequestMapping("/message/notification")

@@ -40,7 +40,7 @@ import org.springframework.web.bind.annotation.*;
  * <p>Description: DialogueDetailController </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/17 12:49
+ * @since : 2022/12/17 12:49
  */
 @RestController
 @RequestMapping("/message/dialogue/detail")

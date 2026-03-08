@@ -26,7 +26,7 @@ import org.springframework.stereotype.Service;
  * <p>Description: PersonalDialogueService </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/7 22:09
+ * @since : 2022/12/7 22:09
  */
 @Service
 public class DialogueService extends BaseService<Dialogue, String> {

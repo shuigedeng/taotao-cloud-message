@@ -24,7 +24,7 @@ import org.springframework.context.annotation.Import;
  * <p>Description: 开启 Supplier Message </p>
  *
  * @author : gengwei.zheng
- * @date : 2021/11/8 11:36
+ * @since : 2021/11/8 11:36
  */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

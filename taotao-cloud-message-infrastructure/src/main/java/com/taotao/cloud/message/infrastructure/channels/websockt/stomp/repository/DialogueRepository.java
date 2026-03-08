@@ -23,6 +23,6 @@ import cn.herodotus.engine.supplier.message.entity.Dialogue;
  * <p>Description: PersonalDialogueRepository </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/7 22:06
+ * @since : 2022/12/7 22:06
  */
 public interface DialogueRepository extends BaseRepository<Dialogue, String> {}

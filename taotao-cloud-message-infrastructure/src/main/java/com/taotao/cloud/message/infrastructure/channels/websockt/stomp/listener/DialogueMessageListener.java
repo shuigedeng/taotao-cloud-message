@@ -30,7 +30,7 @@ import org.springframework.stereotype.Component;
  * 解耦模块之间的依赖关系
  *
  * @author : gengwei.zheng
- * @date : 2023/3/11 18:49
+ * @since : 2023/3/11 18:49
  */
 @Component
 public class DialogueMessageListener implements ApplicationListener<LocalSendDialogueMessageEvent> {

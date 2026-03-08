@@ -30,7 +30,7 @@ import org.hibernate.annotations.UuidGenerator;
  * 本质是一张冗余表，作为中间桥梁连接私信联系和私信对话详情。同时保存对话的最新一条信息，方便展示。
  *
  * @author : gengwei.zheng
- * @date : 2022/12/7 11:01
+ * @since : 2022/12/7 11:01
  */
 @Schema(name = "私信对话")
 @Entity

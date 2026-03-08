@@ -40,7 +40,7 @@ import org.springframework.transaction.annotation.Transactional;
  * <p>Description: PersonalDialogueDetailService </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/7 22:10
+ * @since : 2022/12/7 22:10
  */
 @Service
 public class DialogueDetailService extends BaseService<DialogueDetail, String> {

@@ -29,7 +29,7 @@ import org.hibernate.annotations.UuidGenerator;
  * <p>Description: 通知队列 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/7 18:19
+ * @since : 2022/12/7 18:19
  */
 @Schema(name = "通知队列")
 @Entity

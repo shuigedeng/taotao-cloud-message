@@ -27,7 +27,7 @@ import org.springframework.data.jpa.repository.QueryHints;
  * <p>Description: PullStampRepository </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/6 21:56
+ * @since : 2022/12/6 21:56
  */
 public interface PullStampRepository extends BaseRepository<PullStamp, String> {
 

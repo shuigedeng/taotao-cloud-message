@@ -41,7 +41,7 @@ import org.springframework.stereotype.Service;
  * <p>Description: NotificationQueueService </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/7 22:08
+ * @since : 2022/12/7 22:08
  */
 @Service
 public class NotificationService extends BaseService<Notification, String> {

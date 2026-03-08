@@ -31,7 +31,7 @@ import org.hibernate.annotations.UuidGenerator;
  * 私信双相关系存储。
  *
  * @author : gengwei.zheng
- * @date : 2022/12/7 11:03
+ * @since : 2022/12/7 11:03
  */
 @Schema(name = "私信联系")
 @Entity

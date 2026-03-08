@@ -28,7 +28,7 @@ import org.springframework.stereotype.Service;
  * <p>Description: MessagePullStampService </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/7 22:10
+ * @since : 2022/12/7 22:10
  */
 @Service
 public class PullStampService extends BaseService<PullStamp, String> {

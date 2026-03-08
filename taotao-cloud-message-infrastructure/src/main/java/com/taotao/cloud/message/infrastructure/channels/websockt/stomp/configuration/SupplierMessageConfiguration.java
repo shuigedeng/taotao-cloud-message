@@ -28,7 +28,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * <p>Description: 消息互动 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/6 21:29
+ * @since : 2022/12/6 21:29
  */
 @Configuration(proxyBeanMethods = false)
 @EntityScan(basePackages = {"cn.herodotus.engine.supplier.message.entity"})

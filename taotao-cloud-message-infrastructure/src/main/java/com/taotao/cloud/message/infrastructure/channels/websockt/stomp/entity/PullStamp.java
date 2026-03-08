@@ -31,7 +31,7 @@ import org.hibernate.annotations.UuidGenerator;
  * <p>Description: 信息拉取标记 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/6 21:34
+ * @since : 2022/12/6 21:34
  */
 @Schema(name = "拉取标记")
 @Entity

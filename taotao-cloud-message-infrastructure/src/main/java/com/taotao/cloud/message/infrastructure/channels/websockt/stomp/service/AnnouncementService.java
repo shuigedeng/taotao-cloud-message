@@ -28,7 +28,7 @@ import org.springframework.stereotype.Service;
  * <p>Description: SystemAnnouncementService </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/7 22:11
+ * @since : 2022/12/7 22:11
  */
 @Service
 public class AnnouncementService extends BaseService<Announcement, String> {

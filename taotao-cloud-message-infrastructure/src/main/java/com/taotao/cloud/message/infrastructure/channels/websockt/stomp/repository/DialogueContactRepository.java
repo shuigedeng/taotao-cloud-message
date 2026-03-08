@@ -32,7 +32,7 @@ import org.springframework.transaction.annotation.Transactional;
  * <p>Description: PersonalContactRepository </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/7 22:05
+ * @since : 2022/12/7 22:05
  */
 public interface DialogueContactRepository extends BaseRepository<DialogueContact, String> {
 

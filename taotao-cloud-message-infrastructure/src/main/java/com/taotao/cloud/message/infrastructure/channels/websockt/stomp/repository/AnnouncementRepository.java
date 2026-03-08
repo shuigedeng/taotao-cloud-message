@@ -28,7 +28,7 @@ import org.springframework.data.jpa.repository.QueryHints;
  * <p>Description: SystemAnnouncementRepository </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/7 22:07
+ * @since : 2022/12/7 22:07
  */
 public interface AnnouncementRepository extends BaseRepository<Announcement, String> {
 

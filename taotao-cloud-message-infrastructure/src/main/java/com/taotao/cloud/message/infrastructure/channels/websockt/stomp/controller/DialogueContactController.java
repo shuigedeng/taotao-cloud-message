@@ -41,7 +41,7 @@ import org.springframework.web.bind.annotation.RestController;
  * <p>Description: DialogueContactController </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/17 0:05
+ * @since : 2022/12/17 0:05
  */
 @RestController
 @RequestMapping("/message/dialogue/contact")

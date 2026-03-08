@@ -28,7 +28,7 @@ import org.hibernate.annotations.UuidGenerator;
  * <p>Description: 站内通知 </p>
  *
  * @author : gengwei.zheng
- * @date : 2022/12/6 21:33
+ * @since : 2022/12/6 21:33
  */
 @Schema(name = "系统公告")
 @Entity
