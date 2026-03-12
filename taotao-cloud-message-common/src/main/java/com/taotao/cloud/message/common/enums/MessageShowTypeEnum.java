@@ -14,19 +14,21 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.enums;
+package com.taotao.cloud.message.common.enums;
 
-/** 消息标题 */
-public enum MessageTitleEnum {
+/** 消息展示类型 */
+public enum MessageShowTypeEnum {
 
-    /** 您有新的订单，请您关注 */
-    NEW_ORDER("您有新的订单，请您关注"),
-    /** 您有订单被支付，请您及时进行发货处理 */
-    PAY_ORDER("您有订单被支付，请您及时进行发货处理");
+    // 订单
+    ORDER("订单"),
+    // 售后单
+    AFTER_SALE("售后订单"),
+    // 站内信
+    NOTICE("站内信");
 
     private final String description;
 
-    MessageTitleEnum(String description) {
+    MessageShowTypeEnum(String description) {
         this.description = description;
     }
 

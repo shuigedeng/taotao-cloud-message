@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.enums;
+package com.taotao.cloud.message.common.enums;
 
-/** 消息发送客户端 */
-public enum MessageSendClientEnum {
+/** 消息发送类型 */
+public enum RangeEnum {
 
     // 全部用户
-    MEMBER("会员"),
+    ALL("全部"),
     // 指定用户
-    STORE("店铺");
+    APPOINT("指定用户");
 
     private final String description;
 
-    MessageSendClientEnum(String description) {
+    RangeEnum(String description) {
         this.description = description;
     }
 

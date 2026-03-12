@@ -14,21 +14,19 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.enums;
+package com.taotao.cloud.message.common.enums;
 
-/** 消息状态枚举 */
-public enum MessageStatusEnum {
+/** 发送消息范围枚举 */
+public enum MessageRangeEnum {
 
-    // 未读消息
-    UN_READY("未读消息"),
-    // 已读消息
-    ALREADY_READY("已读消息"),
-    // 回收站
-    ALREADY_REMOVE("回收站");
+    /** 所有用户 */
+    ALL("所有用户"),
+    /** 指定用户 */
+    USER("指定用户");
 
     private final String description;
 
-    MessageStatusEnum(String description) {
+    MessageRangeEnum(String description) {
         this.description = description;
     }
 

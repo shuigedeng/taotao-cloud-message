@@ -14,21 +14,21 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.enums;
+package com.taotao.cloud.message.common.enums;
 
-/** 消息展示类型 */
-public enum MessageShowTypeEnum {
+/** 消息模板类型 */
+public enum MessageTemplateTypeEnum {
 
-    // 订单
-    ORDER("订单"),
-    // 售后单
-    AFTER_SALE("售后订单"),
-    // 站内信
-    NOTICE("站内信");
+    // 会员消息
+    MEMBER("会员消息"),
+    // 店铺消息
+    STORE("店铺消息"),
+    // 其他消息
+    OTHER("其他消息");
 
     private final String description;
 
-    MessageShowTypeEnum(String description) {
+    MessageTemplateTypeEnum(String description) {
         this.description = description;
     }
 

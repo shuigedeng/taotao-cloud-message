@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.constant;
+package com.taotao.cloud.message.common.constant;
 
 /** 代码生成通用常量 */
 public interface MessageConstants {

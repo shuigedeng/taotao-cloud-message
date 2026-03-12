@@ -14,21 +14,19 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.enums;
+package com.taotao.cloud.message.common.enums;
 
-/** 消息模板类型 */
-public enum MessageTemplateTypeEnum {
+/** 消息发送客户端 */
+public enum MessageSendClientEnum {
 
-    // 会员消息
-    MEMBER("会员消息"),
-    // 店铺消息
-    STORE("店铺消息"),
-    // 其他消息
-    OTHER("其他消息");
+    // 全部用户
+    MEMBER("会员"),
+    // 指定用户
+    STORE("店铺");
 
     private final String description;
 
-    MessageTemplateTypeEnum(String description) {
+    MessageSendClientEnum(String description) {
         this.description = description;
     }
 

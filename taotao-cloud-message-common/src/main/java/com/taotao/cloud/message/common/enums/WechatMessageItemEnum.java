@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.enums;
+package com.taotao.cloud.message.common.enums;
 
 /** 微信模版设置变量 */
 public enum WechatMessageItemEnum {

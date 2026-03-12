@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.enums;
+package com.taotao.cloud.message.common.enums;
 
 /** 消息编码枚举 */
 public enum NoticeMessageNodeEnum {
