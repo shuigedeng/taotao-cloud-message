@@ -37,7 +37,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(callSuper = true)
-@Accessors(fluent = true)
+
 @Entity
 @Table(name = MessagePO.TABLE_NAME)
 @TableName(MessagePO.TABLE_NAME)

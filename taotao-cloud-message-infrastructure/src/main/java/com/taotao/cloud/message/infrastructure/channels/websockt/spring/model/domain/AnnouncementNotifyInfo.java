@@ -32,7 +32,7 @@ import lombok.experimental.*;
  * @version 1.0
  */
 @Data
-@Accessors(chain = true)
+
 @Schema(title = "公告通知信息")
 public class AnnouncementNotifyInfo implements NotifyInfo {
 
