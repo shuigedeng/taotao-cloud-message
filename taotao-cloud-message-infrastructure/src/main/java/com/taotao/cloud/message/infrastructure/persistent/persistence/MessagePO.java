@@ -17,7 +17,7 @@
 package com.taotao.cloud.message.infrastructure.persistent.persistence;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.taotao.boot.webagg.entity.BaseSuperEntity;
+import com.taotao.boot.webagg.entity.BasePO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;
@@ -42,7 +42,7 @@ import java.util.Objects;
 @Table(name = MessagePO.TABLE_NAME)
 @TableName(MessagePO.TABLE_NAME)
 @org.springframework.data.relational.core.mapping.Table(name = MessagePO.TABLE_NAME)
-public class MessagePO extends BaseSuperEntity<MessagePO, Long> {
+public class MessagePO extends BasePO<MessagePO> {
 
     public static final String TABLE_NAME = "ttc_app";
 
