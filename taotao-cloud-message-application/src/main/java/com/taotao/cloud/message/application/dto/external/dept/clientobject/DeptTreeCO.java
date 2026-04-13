@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.application.dto.dept.clientobject;
+package com.taotao.cloud.message.application.dto.external.dept.clientobject;
 
 import com.taotao.boot.common.tree.INode;
 import com.taotao.boot.common.tree.MapperNode;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
+
 import java.io.Serial;
 import java.time.LocalDateTime;
 import java.util.List;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 /**
  * DepartVO

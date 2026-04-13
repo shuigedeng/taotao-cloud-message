@@ -14,30 +14,45 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.application.dto.dict.query;
+package com.taotao.cloud.message.application.dto.external.dept.cmmond;
 
-import com.taotao.boot.common.model.ddd.query.PageQuery;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
-import lombok.experimental.Accessors;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
- * DictPageQry
+ * 部门添加对象
  *
  * @author shuigedeng
- * @version 2026.04
- * @since 2025-12-19 09:30:45
+ * @version 2022.03
+ * @since 2022-03-23 08:50:16
  */
 @Setter
 @Getter
 @ToString
 
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class DictPageQry extends PageQuery {
+@Schema(description = "部门添加对象")
+public class DeptSaveCmd implements Serializable {
 
-    private String dictName;
-    private String dictCode;
-    private String description;
+    @Serial private static final long serialVersionUID = -4132785717179910025L;
+
+    @Schema(description = "部门id")
+    private Integer deptId;
+
+    @Schema(description = "部门名称")
+    private String name;
+
+    @Schema(description = "上级部门id")
+    private Integer parentId;
+
+    @Schema(description = "排序")
+    private Integer sort;
+
+    @Schema(description = "备注")
     private String remark;
 }

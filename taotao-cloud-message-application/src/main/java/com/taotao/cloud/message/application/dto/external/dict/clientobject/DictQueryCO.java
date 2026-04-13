@@ -14,22 +14,20 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.application.dto.dict.cmmond;
+package com.taotao.cloud.message.application.dto.external.dict.clientobject;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import lombok.*;
+
 import java.io.Serial;
 import java.io.Serializable;
-import lombok.*;
-import lombok.experimental.Accessors;
+import java.time.LocalDateTime;
 
 /**
- * 字典添加对象
+ * 字典查询对象
  *
  * @author shuigedeng
- * @version 2022.03
- * @since 2022-03-23 08:50:33
+ * @since 2020/5/14 10:44
  */
 @Setter
 @Getter
@@ -38,19 +36,18 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "字典添加对象")
-public class DictSaveCmd implements Serializable {
+@Schema(description = "字典查询对象")
+public class DictQueryCO implements Serializable {
 
     @Serial private static final long serialVersionUID = -4132785717179910025L;
 
+    @Schema(description = "id")
+    private Long id;
+
     @Schema(description = "字典名称")
-    @NotBlank(message = "字典名称不能为空")
-    @Size(max = 10, message = "字典名称不能超过10个字符")
     private String dictName;
 
     @Schema(description = "字典编码")
-    @NotBlank(message = "字典编码不能为空")
-    @Size(max = 10, message = "字典编码不能超过10个字符")
     private String dictCode;
 
     @Schema(description = "描述")
@@ -61,4 +58,10 @@ public class DictSaveCmd implements Serializable {
 
     @Schema(description = "备注信息")
     private String remark;
+
+    @Schema(description = "创建时间")
+    private LocalDateTime createTime;
+
+    @Schema(description = "最后修改时间")
+    private LocalDateTime lastModifiedTime;
 }

@@ -14,52 +14,68 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.application.dto.dept.clientobject;
+package com.taotao.cloud.message.application.dto.own.dept.clientobject;
 
+import com.taotao.boot.common.tree.INode;
+import com.taotao.boot.common.tree.MapperNode;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
+
 import java.io.Serial;
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 /**
+ * DepartVO
+ *
  * @author shuigedeng
- * @since 2020/5/14 10:44
+ * @version 2021.10
+ * @since 2021-12-22 20:59:37
  */
+@EqualsAndHashCode(callSuper = true)
 @Setter
 @Getter
 @ToString
 
-@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(description = "部门树VO")
-public class SysDeptTreeCO implements Serializable {
+public class DeptTreeCO extends MapperNode implements INode {
 
     @Serial private static final long serialVersionUID = -4132785717179910025L;
 
-    @Schema(description = "对应SysDepart中的id字段,前端数据树中的key")
-    private Integer key;
+    /// **
+    // * 主键ID
+    // */
+    // private Long id;
 
-    @Schema(description = "对应SysDepart中的id字段;前端数据树中的value")
-    private String value;
+    /// **
+    // * 父节点ID
+    // */
+    // private Long parentId;
 
-    @Schema(description = "对应depart_name字段;前端数据树中的title")
-    private String title;
+    /// **
+    // * 子孙节点
+    // */
+    // private List<INode> children;
 
-    @Schema(description = "部门主键ID")
-    private Long deptId;
+    /// **
+    // * 是否有子孙节点
+    // */
+    // private Boolean hasChildren;
 
-    @Schema(description = "部门名称")
+    /** 部门名称 */
     private String name;
 
-    @Schema(description = "上级部门")
-    private Long parentId;
+    /// **
+    // * 排序
+    // */
+    // private Integer sort;
+    /** 删除标识 */
+    private String isDeleted;
 
-    @Schema(description = "排序")
-    private Integer sort;
+    /** 租户ID */
+    private Long tenantId;
 
     @Schema(description = "备注")
     private String remark;
@@ -70,15 +86,16 @@ public class SysDeptTreeCO implements Serializable {
     @Schema(description = "修改时间")
     private LocalDateTime updateTime;
 
-    @Schema(description = "是否删除  -1：已删除  0：正常")
-    private Boolean delFlag;
+    // @Override
+    // public List<INode> getChildren() {
+    //	if (this.children == null) {
+    //		this.children = new ArrayList<>();
+    //	}
+    //	return this.children;
+    // }
 
-    @Schema(description = "上级部门")
-    private String parentName;
-
-    @Schema(description = "等级")
-    private Integer level;
-
-    @Schema(description = "children")
-    private List<SysDeptTreeCO> children;
+    @Override
+    public <T extends INode> List<T> getChildren() {
+        return super.getChildren();
+    }
 }

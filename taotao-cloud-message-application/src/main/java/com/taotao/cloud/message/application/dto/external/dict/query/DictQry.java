@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.application.dto.dict.query;
+package com.taotao.cloud.message.application.dto.external.dict.query;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -14,39 +14,41 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.application.dto.dept.clientobject;
+package com.taotao.cloud.message.application.dto.external.dept.cmmond;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
+
 import java.io.Serial;
 import java.io.Serializable;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 /**
- * 部门查询对象
+ * 部门更新对象
  *
  * @author shuigedeng
- * @since 2020/6/15 11:00
+ * @version 2022.03
+ * @since 2022-03-23 08:50:21
  */
 @Setter
 @Getter
 @ToString
 
+@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "部门查询对象")
-public class DeptQueryCO implements Serializable {
+@Schema(description = "部门更新对象")
+public class DeptUpdateCmd implements Serializable {
 
     @Serial private static final long serialVersionUID = -4132785717179910025L;
 
     @Schema(description = "部门id")
-    private Long deptId;
+    private Integer deptId;
 
     @Schema(description = "部门名称")
     private String name;
 
     @Schema(description = "上级部门id")
-    private Long parentId;
+    private Integer parentId;
 
     @Schema(description = "排序")
     private Integer sort;

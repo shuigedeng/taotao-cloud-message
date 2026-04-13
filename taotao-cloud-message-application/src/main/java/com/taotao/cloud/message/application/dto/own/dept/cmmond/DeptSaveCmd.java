@@ -14,22 +14,20 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.application.dto.dict.cmmond;
+package com.taotao.cloud.message.application.dto.own.dept.cmmond;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import lombok.*;
+
 import java.io.Serial;
 import java.io.Serializable;
-import lombok.*;
-import lombok.experimental.Accessors;
 
 /**
- * 字典更新对象
+ * 部门添加对象
  *
  * @author shuigedeng
  * @version 2022.03
- * @since 2020/9/30 08:49
+ * @since 2022-03-23 08:50:16
  */
 @Setter
 @Getter
@@ -38,27 +36,23 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "字典更新对象")
-public class DictUpdateCmd implements Serializable {
+@Schema(description = "部门添加对象")
+public class DeptSaveCmd implements Serializable {
 
     @Serial private static final long serialVersionUID = -4132785717179910025L;
 
-    @Schema(description = "字典名称")
-    @NotBlank(message = "字典名称不能为空")
-    @Size(max = 10, message = "字典名称不能超过10个字符")
-    private String dictName;
+    @Schema(description = "部门id")
+    private Integer deptId;
 
-    @Schema(description = "字典编码")
-    @NotBlank(message = "字典编码不能为空")
-    @Size(max = 10, message = "字典编码不能超过10个字符")
-    private String dictCode;
+    @Schema(description = "部门名称")
+    private String name;
 
-    @Schema(description = "描述")
-    private String description;
+    @Schema(description = "上级部门id")
+    private Integer parentId;
 
-    @Schema(description = "排序值")
-    private Integer dictSort;
+    @Schema(description = "排序")
+    private Integer sort;
 
-    @Schema(description = "备注信息")
+    @Schema(description = "备注")
     private String remark;
 }

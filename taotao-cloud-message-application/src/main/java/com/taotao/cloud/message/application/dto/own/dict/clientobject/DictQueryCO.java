@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.application.dto.dept.cmmond;
+package com.taotao.cloud.message.application.dto.own.dict.clientobject;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
+
 import java.io.Serial;
 import java.io.Serializable;
-import lombok.*;
-import lombok.experimental.Accessors;
+import java.time.LocalDateTime;
 
 /**
- * 部门添加对象
+ * 字典查询对象
  *
  * @author shuigedeng
- * @version 2022.03
- * @since 2022-03-23 08:50:16
+ * @since 2020/5/14 10:44
  */
 @Setter
 @Getter
@@ -36,23 +36,32 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@Schema(description = "部门添加对象")
-public class DeptSaveCmd implements Serializable {
+@Schema(description = "字典查询对象")
+public class DictQueryCO implements Serializable {
 
     @Serial private static final long serialVersionUID = -4132785717179910025L;
 
-    @Schema(description = "部门id")
-    private Integer deptId;
+    @Schema(description = "id")
+    private Long id;
 
-    @Schema(description = "部门名称")
-    private String name;
+    @Schema(description = "字典名称")
+    private String dictName;
 
-    @Schema(description = "上级部门id")
-    private Integer parentId;
+    @Schema(description = "字典编码")
+    private String dictCode;
 
-    @Schema(description = "排序")
-    private Integer sort;
+    @Schema(description = "描述")
+    private String description;
 
-    @Schema(description = "备注")
+    @Schema(description = "排序值")
+    private Integer dictSort;
+
+    @Schema(description = "备注信息")
     private String remark;
+
+    @Schema(description = "创建时间")
+    private LocalDateTime createTime;
+
+    @Schema(description = "最后修改时间")
+    private LocalDateTime lastModifiedTime;
 }
