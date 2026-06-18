@@ -1,53 +1,56 @@
-## 5. 模块化规则
-
-**`.claude/rules/code-style.md`**
-```markdown
-# 代码风格规范
+# 代码风格规范 — taotao-cloud-message
 
 ## 格式化规则
 - 缩进: 4 个空格（不使用 Tab）
 - 行宽: 120 字符
 - 大括号: K&R 风格（左括号不换行）
-- 缩进：4 空格
-- 包命名：`com.company.project.layer.subdomain`（如 `com.shop.order.domain.model`）
-- 类名：PascalCase，接口以 `I` 开头（可选）或直接名词（如 `OrderRepository`）
-- 方法：小驼峰，动词开头（`validateEmail`, `calculateTotal`）
+- 编码: UTF-8
+
+## 命名规范
+
+| 元素 | 规范 | 示例 |
+|------|------|------|
+| 包名 | 全小写 | `com.taotao.cloud.message.domain.entity` |
+| 类名 | PascalCase | `DeptEntity`, `DictSaveCmd` |
+| 接口 | PascalCase（无 I 前缀） | `DeptDomainRepository`, `AlipayConfigService` |
+| 方法 | 小驼峰 | `checkName()`, `findById()` |
+| 常量 | UPPER_SNAKE | `TABLE_NAME`, `DEFAULT_PAGE_SIZE` |
+| 枚举 | UPPER_SNAKE | `PENDING`, `PROCESSED` |
+
+## DTO 命名后缀
+- Command: `*Cmd` — `DictSaveCmd`, `DictUpdateCmd`
+- Query: `*Qry`, `*PageQry` — `DictQry`, `DictPageQry`
+- Client Object: `*CO` — `DictQueryCO`, `DeptTreeCO`
+- PO: `*PO` — `MessagePO`
+- DO: `*DO` — `DeptDO`, `DictDO`
+- Entity: `*Entity` — `DeptEntity`
+
 ## 导入顺序
-1. Java 标准库 (java.*, javax.*)
-2. 第三方库 (org.*, com.*)
-3. Spring 框架 (org.springframework.*)
-4. 项目内部包 (com.company.project.*)
-5. 静态导入
+1. Java 标准库 (`java.*`, `javax.*`, `jakarta.*`)
+2. 第三方库 (`org.*`, `com.*`)
+3. Spring 框架 (`org.springframework.*`)
+4. taotao-boot 框架 (`com.taotao.boot.*`)
+5. 项目内部包 (`com.taotao.cloud.message.*`)
+6. 静态导入
 
 ## Lombok 使用规范
+
 ```java
-@Data           // 用于简单 DTO/Entity
-@Builder        // 用于构建复杂对象
-@Slf4j          // 日志记录
-@RequiredArgsConstructor  // 依赖注入
-示例代码
-java
-@Slf4j
-@Service
-@RequiredArgsConstructor
-public class UserServiceImpl implements UserService {
-    private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
-    
-    @Override
-    @Transactional
-    public UserResponse create(UserRequest request) {
-        log.info("Creating user with username: {}", request.getUsername());
-        
-        // 业务逻辑
-        User user = User.builder()
-            .username(request.getUsername())
-            .password(passwordEncoder.encode(request.getPassword()))
-            .build();
-        
-        User saved = userRepository.save(user);
-        log.debug("User created with id: {}", saved.getId());
-        
-        return UserResponse.from(saved);
-    }
-}
+@Setter @Getter @ToString       // 标准 POJO（最常用）
+@RequiredArgsConstructor         // 构造器注入（Controller/Service）
+@AllArgsConstructor @NoArgsConstructor  // PO / Command
+@EqualsAndHashCode               // DTO / 值对象
+@Slf4j                           // 日志（可选，倾向于 lombok.extern.slf4j）
+@SuperBuilder                    // 领域事件
+@Accessors(chain = true)         // 链式调用（可选）
+```
+
+## 包路径规范
+
+```
+domain:         com.taotao.cloud.message.domain.{entity|valueobject|event|repository|service}
+application:    com.taotao.cloud.message.application.{service|dto/{own|external}/{entity}/{cmmond|query|clientobject}|event|handler}
+infrastructure: com.taotao.cloud.message.infrastructure.{persistent/{persistence|repository|mapper}|repository|channels|event|configuration}
+interfaces:     com.taotao.cloud.message.interfaces.controller.{buyer|seller|manager|mall|inner}
+api:            com.taotao.cloud.message.api.{rpc|inner}
+```

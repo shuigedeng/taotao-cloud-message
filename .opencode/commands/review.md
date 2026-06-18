@@ -22,9 +22,10 @@ agent: general
 - Application Service 是否不包含业务规则判断（仅编排）
 
 ### 3. 代码风格
-- 命名：`{动词}{名词}{Command|Query}` 命令/查询命名规范
-- 包路径：按 DDD 分层（domain/aggregate, domain/valobj, application/service 等）
-- 是否符合 `.claude/rules/` 下各规范文件
+- 命名：`*Cmd` / `*Qry` / `*CO` DTO 命名规范
+- 包路径：按 DDD 分层（domain/entity, domain/valueobject, application/dto/{own|external}/{entity}/{cmmond|query|clientobject} 等）
+- Controller 按角色分包（buyer/seller/manager/mall/inner）
+- 是否符合 `.opencode/instructions/code-rules.md` 下各规范
 
 ### 4. 项目特定禁止项
 - 聚合根中注入 Repository 或 Domain Service

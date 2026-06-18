@@ -1,120 +1,69 @@
-## 3. DDD 模块化规则
-
-**`.claude/rules/aggregate-design.md`**
-```markdown
-# 聚合设计规范
+# 聚合设计规范 — taotao-cloud-message
 
 ## 聚合识别原则
 
 ### 1. 事务边界
 聚合内修改必须在一个事务中完成，聚合间使用最终一致性。
 
+### 2. 一致性规则
+- **强一致性**: 聚合内保证
+- **最终一致性**: 聚合间通过领域事件保证
+
+### 3. 聚合大小
+- **小聚合原则**: 一个聚合根通常只包含 1-3 个实体
+- **跨聚合引用**: 通过 ID 引用，而非对象引用
+
+## 聚合根写法
+
 ```java
-// ✅ 正确：聚合内事务
-@Aggregate
-public class Order {
-    public void addItem(Product product, int quantity) {
-        // 校验库存（聚合内规则）
-        if (product.getStock() < quantity) {
-            throw new DomainException("库存不足");
+@Setter
+@Getter
+@ToString
+public class DeptEntity extends AggregateRoot<Long> {
+
+    private String name;
+    private Long pid;
+    private String path;
+    private Integer sort;
+
+    // 业务行为方法（命令方法）
+    public void checkName(long count) {
+        if (count > 0) {
+            throw new BusinessException("部门名称已存在，请重新填写");
         }
-        this.items.add(new OrderItem(product, quantity));
-        this.totalAmount = calculateTotal();
     }
-}
 
-// ❌ 错误：跨聚合事务
-public class Order {
-    public void addItem(Product product, int quantity) {
-        // 不应该直接调用Product聚合的方法
-        product.reduceStock(quantity);  
-    }
-}
-2. 一致性规则
-强一致性: 聚合内保证
-
-最终一致性: 聚合间通过事件保证
-
-3. 聚合大小
-小聚合原则: 一个聚合根通常只包含1-3个实体
-
-性能考虑: 避免加载过多数据
-
-java
-// ✅ 好的设计：小聚合
-@Aggregate
-public class Order {
-    private OrderId id;
-    private List<OrderItem> items;  // 只包含必要实体
-    private Money totalAmount;
-}
-
-// ❌ 坏的设计：大聚合
-@Aggregate
-public class Order {
-    private List<OrderItem> items;
-    private Customer customer;  // 不应该包含Customer聚合
-    private Payment payment;     // 不应该包含Payment聚合
-    private Shipping shipping;   // 不应该包含Shipping聚合
-}
-4. 聚合根标识
-使用值对象作为ID，而非基本类型：
-
-java
-// ✅ 正确
-public class OrderId implements Serializable {
-    private final String value;
-    
-    public OrderId(String value) {
-        this.value = value;
-    }
-    // equals/hashCode
-}
-
-// ❌ 错误
-public class Order {
-    @Id
-    private Long id;  // 基本类型无法表达业务语义
-}
-聚合根方法设计
-命令方法（状态变更）
-java
-public class Order {
-    // 命令方法：有业务语义
-    public void submit() { ... }
-    public void cancel(String reason) { ... }
-    public void pay(Money amount) { ... }
-    
-    // 而不是
-    public void setStatus(OrderStatus status) { ... }  // 贫血模型
-}
-查询方法（只读）
-java
-public class Order {
-    public boolean isPending() {
-        return status == OrderStatus.PENDING;
-    }
-    
-    public Money calculateTax(TaxPolicy policy) {
-        return policy.calculate(this.totalAmount);
-    }
-}
-不变性维护
-聚合根必须保证内部不变量：
-
-java
-public class Order {
-    public void addItem(OrderItem item) {
-        // 不变性1: 订单必须是待支付状态
-        if (status != OrderStatus.PENDING) {
-            throw new DomainException("只有待支付订单可以添加商品");
+    public void checkIdAndPid() {
+        if (id.equals(pid)) {
+            throw new BusinessException("上级部门不能为当前部门");
         }
-        
-        // 不变性2: 商品数量不能超过库存
-        if (item.getQuantity() > 100) {
-            throw new DomainException("单次购买数量不能超过100");
-        }
-        
-        items.add(item);
     }
 }
+```
+
+## 聚合根设计要点
+1. **行为方法**: 用业务语义命名（`submit()`, `cancel()`, `pay()`），而非 setter
+2. **不变性维护**: 聚合根负责保证内部不变量
+3. **无框架注解**: 不依赖 Spring、JPA 等框架注解
+4. **领域事件**: 聚合内业务方法完成后注册事件
+
+## 仓储接口设计
+
+```java
+// 接口在 domain/repository/
+public interface DeptDomainRepository {
+    void create(DeptEntity dept);
+    void modify(DeptEntity dept);
+    void remove(Long[] ids);
+}
+
+// 实现在 infrastructure/repository/
+@Service
+@AllArgsConstructor
+public class DeptDomainRepositoryImpl implements DeptDomainRepository {
+    @Override
+    public void create(DeptEntity dept) {
+        // 通过 JPA Repository 或 MyBatis Mapper 持久化
+    }
+}
+```

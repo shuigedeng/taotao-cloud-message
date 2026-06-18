@@ -14,11 +14,13 @@ agent: general
 ### 1. 分析问题
 - 使用 `read` 定位涉问题代码
 - 使用 `grep` 搜索相关引用
+- 阅读 `.opencode/instructions/code-rules.md` 确认规范
 - 确认修复不影响聚合边界
 
 ### 2. 执行修正
 - 使用 `edit` 工具修改代码（优先于 `write`）
 - 只修改与问题直接相关的部分，禁止重构式修复
+- 遵循 DDD 分层原则：interfaces → application → domain ← infrastructure
 
 ### 3. 验证
 ```bash
@@ -33,6 +35,7 @@ agent: general
 - 未在 Controller 中添加业务逻辑
 - 未在错误的分层中引入依赖
 - 领域事件使用方式正确
+- DTO 命名符合 `*Cmd` / `*Qry` / `*CO` 规范
 
 ### 5. Git Commit
 ```bash

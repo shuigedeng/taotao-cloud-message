@@ -29,20 +29,13 @@ def to_snake(pascal_str):
 
 TEMPLATES = {
     # === DOMAIN 层 ===
-    "domain/aggregate/{Entity}Agg.java": """package com.taotao.cloud.order.domain.{module}.aggregate;
+    "domain/aggregate/{Entity}Agg.java": """package com.taotao.cloud.message.domain.{module}.aggregate;
 
-import jakarta.persistence.*;
 import java.util.Objects;
 
-@AggregateRoot
-@Entity
-@Table(name = "{table_name}")
 public class {Entity}Agg {{
 
-    @Id
     private Long id;
-
-    protected {Entity}Agg() {{}}
 
     public static {Entity}Agg create() {{
         {Entity}Agg agg = new {Entity}Agg();
@@ -53,7 +46,21 @@ public class {Entity}Agg {{
 }}
 """,
 
-    "domain/valobj/{Entity}Status.java": """package com.taotao.cloud.order.domain.{module}.valobj;
+    "domain/entity/{Entity}Entity.java": """package com.taotao.cloud.message.domain.{module}.entity;
+
+import com.taotao.boot.ddd.model.domain.AggregateRoot;
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
+
+@Setter
+@Getter
+@ToString
+@Schema(name = "{Entity}Entity", description = "{Entity}实体")
+public class {Entity}Entity extends AggregateRoot<Long> {{
+}}
+""",
+
+    "domain/valueobject/{Entity}Status.java": """package com.taotao.cloud.message.domain.{module}.valueobject;
 
 public enum {Entity}Status {{
     PENDING("待处理"),
@@ -70,152 +77,199 @@ public enum {Entity}Status {{
 }}
 """,
 
-    "domain/event/{Entity}CreatedEvent.java": """package com.taotao.cloud.order.domain.{module}.event;
+    "domain/event/{Entity}CreatedEvent.java": """package com.taotao.cloud.message.domain.{module}.event;
 
-import com.taotao.cloud.order.domain.common.event.DomainEvent;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
+
 import java.time.LocalDateTime;
 
-public class {Entity}CreatedEvent extends DomainEvent {{
-    private final Long {entity}Id;
-    private final LocalDateTime occurredAt;
-
-    public {Entity}CreatedEvent(Long {entity}Id) {{
-        this.{entity}Id = {entity}Id;
-        this.occurredAt = LocalDateTime.now();
-    }}
-
-    public Long get{Entity}Id() {{ return {entity}Id; }}
-    public LocalDateTime getOccurredAt() {{ return occurredAt; }}
+@Setter
+@Getter
+@ToString
+@SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
+public class {Entity}CreatedEvent {{
+    private Long {entity}Id;
+    private LocalDateTime occurredAt;
 }}
 """,
 
-    "domain/repository/{Entity}DomainRepository.java": """package com.taotao.cloud.order.domain.{module}.repository;
+    "domain/repository/{Entity}DomainRepository.java": """package com.taotao.cloud.message.domain.{module}.repository;
 
-import com.taotao.cloud.order.domain.{module}.aggregate.{Entity}Agg;
+import com.taotao.cloud.message.domain.{module}.entity.{Entity}Entity;
 import java.util.Optional;
 
 public interface {Entity}DomainRepository {{
-    Optional<{Entity}Agg> findById(Long id);
-    {Entity}Agg save({Entity}Agg {entity}Agg);
+    Optional<{Entity}Entity> findById(Long id);
+    {Entity}Entity save({Entity}Entity {entity}Entity);
     void deleteById(Long id);
 }}
 """,
 
+    "domain/service/{Entity}DomainService.java": """package com.taotao.cloud.message.domain.{module}.service;
+
+import com.taotao.cloud.message.domain.{module}.entity.{Entity}Entity;
+
+public interface {Entity}DomainService {{
+    void create({Entity}Entity {entity}Entity);
+    void modify({Entity}Entity {entity}Entity);
+    void remove(Long[] ids);
+}}
+""",
+
     # === APPLICATION 层 ===
-    "application/dto/command/Create{Entity}Command.java": """package com.taotao.cloud.order.application.dto.{module}.command;
+    "application/dto/own/{entity}/cmmond/{Entity}SaveCmd.java": """package com.taotao.cloud.message.application.dto.own.{entity}.cmmond;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 
-public record Create{Entity}Command() {{
+import java.io.Serial;
+import java.io.Serializable;
+
+@Setter
+@Getter
+@ToString
+@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
+@Schema(description = "创建{Entity}命令")
+public class {Entity}SaveCmd implements Serializable {{
+    @Serial private static final long serialVersionUID = 1L;
 }}
 """,
 
-    "application/dto/command/Update{Entity}Command.java": """package com.taotao.cloud.order.application.dto.{module}.command;
+    "application/dto/own/{entity}/query/{Entity}Qry.java": """package com.taotao.cloud.message.application.dto.own.{entity}.query;
 
-import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
-public record Update{Entity}Command(
-    @NotNull Long id
-) {{
+import java.io.Serial;
+import java.io.Serializable;
+
+@Setter
+@Getter
+@ToString
+@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
+public class {Entity}Qry implements Serializable {{
+    @Serial private static final long serialVersionUID = 1L;
 }}
 """,
 
-    "application/dto/result/{Entity}Result.java": """package com.taotao.cloud.order.application.dto.{module}.result;
+    "application/dto/own/{entity}/clientobject/{Entity}CO.java": """package com.taotao.cloud.message.application.dto.own.{entity}.clientobject;
 
-public record {Entity}Result(
-    Long id,
-    String status
-) {{
-    public static {Entity}Result fromDomain(com.taotao.cloud.order.domain.{module}.aggregate.{Entity}Agg agg) {{
-        return new {Entity}Result(
-            agg.getId(),
-            null
-        );
-    }}
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.*;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
+@Setter
+@Getter
+@ToString
+@EqualsAndHashCode
+@AllArgsConstructor
+@NoArgsConstructor
+@Schema(description = "{Entity}查询对象")
+public class {Entity}CO implements Serializable {{
+    @Serial private static final long serialVersionUID = 1L;
+
+    @Schema(description = "id")
+    private Long id;
+
+    @Schema(description = "创建时间")
+    private LocalDateTime createTime;
 }}
 """,
 
-    "application/service/command/{Entity}CommandService.java": """package com.taotao.cloud.order.application.service.{module}.command;
-
-import com.taotao.cloud.order.application.dto.{module}.command.Create{Entity}Command;
-import com.taotao.cloud.order.application.dto.{module}.command.Update{Entity}Command;
-import com.taotao.cloud.order.application.dto.{module}.result.{Entity}Result;
+    "application/service/{Entity}CommandService.java": """package com.taotao.cloud.message.application.service;
 
 public interface {Entity}CommandService {{
-    {Entity}Result create(Create{Entity}Command command);
-    {Entity}Result update(Update{Entity}Command command);
+    void create({Entity}SaveCmd cmd);
+    void update({Entity}UpdateCmd cmd);
     void delete(Long id);
 }}
 """,
 
+    "application/service/impl/{Entity}CommandServiceImpl.java": """package com.taotao.cloud.message.application.service.impl;
+
+import com.taotao.cloud.message.application.service.{Entity}CommandService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@RequiredArgsConstructor
+@Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
+public class {Entity}CommandServiceImpl implements {Entity}CommandService {{
+    // 注入 {Entity}DomainRepository
+}}
+""",
+
     # === INFRASTRUCTURE 层 ===
-    "infrastructure/persistent/po/{Entity}Po.java": """package com.taotao.cloud.order.infrastructure.persistent.{module}.po;
+    "infrastructure/persistent/persistence/{Entity}PO.java": """package com.taotao.cloud.message.infrastructure.persistent.persistence;
 
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.taotao.boot.webagg.entity.BasePO;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.*;
+import org.hibernate.proxy.HibernateProxy;
+import java.util.Objects;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(callSuper = true)
 @Entity
 @Table(name = "{table_name}")
-public class {Entity}Po {{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@TableName("{table_name}")
+public class {Entity}PO extends BasePO<{Entity}PO> {{
+    public static final String TABLE_NAME = "{table_name}";
 
-    private String status;
+    // fields...
+}}
+""",
 
-    // 基础字段
-    private Long createBy;
-    private LocalDateTime createTime;
-    private Long updateBy;
-    private LocalDateTime updateTime;
-    private Boolean isDeleted;
-    private Long tenantId;
-    private Integer version;
+    "infrastructure/repository/{Entity}DomainRepositoryImpl.java": """package com.taotao.cloud.message.infrastructure.repository;
 
-    public {Entity}Po() {{}}
+import com.taotao.cloud.message.domain.{module}.entity.{Entity}Entity;
+import com.taotao.cloud.message.domain.{module}.repository.{Entity}DomainRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
-    public Long getId() {{ return id; }}
-    public void setId(Long id) {{ this.id = id; }}
-    public String getStatus() {{ return status; }}
-    public void setStatus(String status) {{ this.status = status; }}
-    // ... getters/setters
+@Service
+@AllArgsConstructor
+public class {Entity}DomainRepositoryImpl implements {Entity}DomainRepository {{
+    // 注入 JPA Repository
 }}
 """,
 
     # === INTERFACES 层 ===
-    "interfaces/controller/buyer/{Entity}BuyerController.java": """package com.taotao.cloud.order.interfaces.controller.buyer;
+    "interfaces/controller/buyer/{Entity}BuyerController.java": """package com.taotao.cloud.message.interfaces.controller.buyer;
 
-import com.taotao.boot.common.model.result.Result;
+import com.taotao.boot.common.model.Result;
 import com.taotao.boot.webagg.controller.BusinessController;
-import com.taotao.cloud.order.application.dto.{module}.command.Create{Entity}Command;
-import com.taotao.cloud.order.application.dto.{module}.result.{Entity}Result;
-import com.taotao.cloud.order.application.service.{module}.command.{Entity}CommandService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+@Validated
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/sys/buyer/{entity}")
 @Tag(name = "买家端-{Entity}API")
-@RequestMapping("/buyer/{module}/{entity}")
 public class {Entity}BuyerController extends BusinessController {{
-
-    private final {Entity}CommandService {entity}CommandService;
-
-    @PostMapping
-    @Operation(summary = "创建{Entity}")
-    public Result<{Entity}Result> create(@Valid @RequestBody Create{Entity}Command command) {{
-        return Result.success({entity}CommandService.create(command));
-    }}
-
-    @DeleteMapping("/{{id}}")
-    @Operation(summary = "删除{Entity}")
-    public Result<Void> delete(@PathVariable Long id) {{
-        {entity}CommandService.delete(id);
-        return Result.success();
-    }}
+    // private final {Entity}CommandService {entity}CommandService;
 }}
 """,
 }

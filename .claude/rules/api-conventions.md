@@ -1,58 +1,71 @@
+# API 设计规范 — taotao-cloud-message
 
-**`.claude/rules/api-conventions.md`**
-```markdown
-# API 设计规范
+## Controller 分包
 
-## RESTful 约定
+按角色分包，五端隔离：
 
-### 资源命名
-- 使用名词复数: `/users`, `/orders`, `/products`
-- 避免动词: ❌ `/getUser`, ✅ `/users/{id}`
+```
+interfaces/controller/
+├── buyer/       # 买家端
+├── seller/      # 卖家端
+├── manager/     # 管理端
+├── mall/        # 商城端
+└── inner/       # 内部 API
+```
 
-### HTTP 方法
-| 方法 | 用途 | 示例 | 状态码 |
-|------|------|------|--------|
-| GET | 查询 | `/users/{id}` | 200 |
-| POST | 创建 | `/users` | 201 |
-| PUT | 全量更新 | `/users/{id}` | 200 |
-| PATCH | 部分更新 | `/users/{id}` | 200 |
-| DELETE | 删除 | `/users/{id}` | 204 |
+## 路由规范
 
-### 响应格式
+```
+/{role}/{entity}/{action}
+```
+
+示例：
+- `/sys/buyer/dict/page` — 买家端字典分页查询
+- `/sys/seller/dict/add` — 卖家端字典新增
+- `/app/page` — 管理端应用分页
+
+## Controller 写法
+
+```java
+@Validated
+@RequiredArgsConstructor
+@RestController
+@RequestMapping("/sys/buyer/dict")
+@Tag(name = "买家端-字典API")
+public class BuyerDictController extends BusinessController {
+
+    // private final DictCommandService dictCommandService;
+
+    @GetMapping("/page")
+    @Operation(summary = "分页查询字典")
+    public Result<PageResult<DictCO>> page(DictPageQry qry) {
+        return Result.success(dictQueryService.pageQuery(qry));
+    }
+
+    @PostMapping
+    @Operation(summary = "新增字典")
+    public Result<Boolean> save(@Valid @RequestBody DictSaveCmd cmd) {
+        return Result.success(dictCommandService.save(cmd));
+    }
+}
+```
+
+## 响应格式
+
 ```json
 {
   "code": 200,
   "message": "success",
-  "data": {
-    "id": 1,
-    "username": "john"
-  },
-  "timestamp": "2024-01-01T00:00:00Z"
+  "data": { }
 }
-分页响应
-json
-{
-  "code": 200,
-  "message": "success",
-  "data": {
-    "content": [...],
-    "page": 0,
-    "size": 20,
-    "totalElements": 100,
-    "totalPages": 5,
-    "last": false
-  }
-}
-参数校验注解
-java
-public class UserRequest {
-    @NotNull(message = "用户名不能为空")
-    @Size(min = 3, max = 50, message = "用户名长度必须在3-50之间")
-    private String username;
-    
-    @Email(message = "邮箱格式不正确")
-    private String email;
-    
-    @Pattern(regexp = "^1[3-9]\\d{9}$", message = "手机号格式不正确")
-    private String phone;
-}
+```
+
+## 参数校验
+- 使用 `jakarta.validation` 注解（`@NotBlank`, `@Size`, `@NotNull` 等）
+- Controller 类上加 `@Validated`
+- Command 入参上加 `@Valid`
+
+## API 文档
+- Controller 类加 `@Tag` 注解
+- 方法加 `@Operation(summary = "...")` 
+- DTO 字段加 `@Schema(description = "...")`

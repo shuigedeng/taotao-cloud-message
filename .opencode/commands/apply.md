@@ -25,7 +25,11 @@ agent: general
 | 仓储实现 | `infrastructure/persistent/repository/` | PO 映射 |
 | 数据传输 | `application/dto/` + `application/assembler/` | 数据转换 |
 | REST API | `interfaces/controller/` | 按端 buyer/seller/manager |
-| RPC/gRPC 接口定义 | `api/` | 接口 + DTO |
+| DTO 定义（Command/Query/CO） | `application/dto/{own|external}/{entity}/` | `*Cmd`, `*Qry`, `*CO` |
+| 业务处理器 | `application/handler/` | 复杂业务流程编排 |
+| 领域事件 | `domain/event/` 或 `infrastructure/event/` | 定义在 domain，发布在 infrastructure |
+| 消息通道 | `infrastructure/channels/{netty,websockt,dingtalk}/` | 第三方通信适配 |
+| RPC/gRPC 接口定义 | `api/rpc/` 或 `api/inner/` | 接口 + DTO |
 | RPC/gRPC 实现 | `interfaces/rpc/` 或 `interfaces/grpc/` | 实现类 |
 
 ## 执行流程
