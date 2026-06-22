@@ -5,7 +5,7 @@
 | 组件 | 版本 |
 |------|------|
 | JDK | 25（预览特性，--enable-preview） |
-| Gradle | 9.5.0 |
+| Gradle | 9.6.0 |
 | Spring Boot | 4.1.0 |
 | Spring Cloud Alibaba | 2025.1.0.0 |
 | Spring Security | 7.1.0 |
