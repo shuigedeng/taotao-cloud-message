@@ -271,7 +271,7 @@ gradlew :taotao-cloud-message-domain:test  # 指定模块测试
 ## NOTES
 
 - JDK 25 预览特性，所有 task 配置了 `--enable-preview` + 大量 `--add-exports`
-- `taotao-cloud-dependencies:2026.07` BOM 未开源，外部构建需要私有仓库凭据
+- `taotao-cloud-dependencies:2026.08` BOM 未开源，外部构建需要私有仓库凭据
 - 代码质量门禁：Checkstyle 13.5.0 + SpotBugs + PMD + Spotless 8.6.0 + OWASP
 - Spotless 使用 `google-java-format` AOSP 风格
 - 四个环境配置：dev / test / pre / pro
