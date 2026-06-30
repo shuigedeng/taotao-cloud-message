@@ -4,7 +4,7 @@
 
 | 组件 | 版本 |
 |------|------|
-| JDK | 25（预览特性，--enable-preview） |
+| JDK | 25（预览特性，`--enable-preview`） |
 | Gradle | 9.6.0 |
 | Spring Boot | 4.1.0 |
 | Spring Cloud Alibaba | 2025.1.0.0 |
@@ -13,7 +13,7 @@
 | JPA (Jakarta) | 3.2.0 |
 | MapStruct | 1.6.3 |
 | Lombok | 1.18.46 |
-| Record Builder | 52 |
+| Record Builder | 53 |
 | QueryDSL | 5.1.0 |
 | Knife4j (Swagger) | 4.5.0 |
 | Netty | 4.2.12.Final |
@@ -55,19 +55,21 @@ com.taotao.cloud.message
 | PO 持久化对象 | `infrastructure/persistent/persistence/` — extends `BasePO<Self>` |
 | MyBatis Mapper | `infrastructure/persistent/mapper/` |
 | 应用服务 | `application/service/` + `application/service/impl/` |
-| DTO (自有) | `application/dto/own/{entity}/{cmmond|query|clientobject}/` |
-| DTO (外部) | `application/dto/external/{entity}/{cmmond|query|clientobject}/` |
-| Controller | `interfaces/controller/{buyer|seller|manager|mall|inner}/` |
-| 消息通道 | `infrastructure/channels/{netty|websockt|dingtalk}/` |
+| DTO (自有) | `application/dto/own/{entity}/{cmmond\|query\|clientobject}/` |
+| DTO (外部) | `application/dto/external/{entity}/{cmmond\|query\|clientobject}/` |
+| Controller | `interfaces/controller/{buyer\|seller\|manager\|mall\|inner}/` |
+| 消息通道 | `infrastructure/channels/{netty\|websockt\|dingtalk}/` |
 | 防腐层 | `facade/acl/` |
 | RPC 接口定义 | `api/rpc/` + `api/inner/` |
 | RPC 实现 | `interfaces/rpc/` + `interfaces/grpc/` |
 
 ## DTO 命名规范
 
-- Command（写操作入参）: `*Cmd`，包名 `cmmond/` — e.g. `DictSaveCmd`, `DictUpdateCmd`
-- Query（查询入参）: `*Qry`, `*PageQry`，包名 `query/` — e.g. `DictQry`, `DictPageQry`
-- Client Object（返回对象）: `*CO`，包名 `clientobject/` — e.g. `DictQueryCO`
+| 分类 | 后缀 | 包名 | 示例 |
+|------|------|------|------|
+| Command（写操作入参） | `*Cmd` | `cmmond/` | `DictSaveCmd`、`DictUpdateCmd` |
+| Query（查询入参） | `*Qry`、`*PageQry` | `query/` | `DictQry`、`DictPageQry` |
+| Client Object（返回对象） | `*CO` | `clientobject/` | `DictQueryCO` |
 
 ## 分层依赖规则
 
@@ -78,18 +80,20 @@ facade（独立，被 application 依赖）
 common（被所有模块依赖）
 ```
 
-- Controller 禁止写业务逻辑
-- Application Service 仅编排，不含业务规则
-- Domain 层零 Spring 注解，纯业务
-- 跨聚合通过 ID 引用，非对象引用
-- 事务边界仅开在 application/service/ 层
+- **Controller** 禁止写业务逻辑
+- **Application Service** 仅编排，不含业务规则
+- **Domain** 层零 Spring 注解，纯业务
+- 跨聚合通过 **ID 引用**，非对象引用
+- 事务边界仅开在 **application/service/** 层
 
 ## 常用类继承
 
-- Domain Entity: `extends AggregateRoot<Long>`（来自 `taotao.boot.ddd.model.domain`）
-- PO: `extends BasePO<Self>`（来自 `taotao.boot.webagg.entity`）
-- Controller: `extends BusinessController`（来自 `taotao.boot.webagg.controller`）
-- Application Service 接口: `extends CommandService`（来自 `taotao.boot.ddd.model.application.service`）
+| 类型 | 基类 | 来源 |
+|------|------|------|
+| Domain Entity | `AggregateRoot<Long>` | `taotao.boot.ddd.model.domain` |
+| PO | `BasePO<Self>` | `taotao.boot.webagg.entity` |
+| Controller | `BusinessController` | `taotao.boot.webagg.controller` |
+| Application Service 接口 | `CommandService` | `taotao.boot.ddd.model.application.service` |
 
 ## 常用注解
 
@@ -119,13 +123,22 @@ gradlew publishToMavenLocal                # 发布到本地
 - 值对象中包含业务行为以外的逻辑
 - Application Service 中包含业务规则判断
 - 跨聚合直接操作其他聚合的内部状态
-- 在 domain 层使用 Spring 注解（`@Autowired`, `@Service` 等）
+- 在 domain 层使用 Spring 注解（`@Autowired`、`@Service` 等）
 - Controller 直接调用 Repository / Mapper
 - Application Service 直接调用 Mapper
 
 ## 代码质量
 
-- Checkstyle 13.5.0 + SpotBugs + PMD + Spotless 8.6.0 (google-java-format AOSP) + OWASP
+- Checkstyle 13.5.0 + SpotBugs + PMD + Spotless 8.7.0 (google-java-format AOSP) + OWASP
 - Spotless 使用 `google-java-format` AOSP 风格，4 空格缩进
 - JDK 25 预览特性：所有 task 配置 `--enable-preview` + `--add-exports`
 - 四个环境配置：dev / test / pre / pro
+- 所有子模块应用 jacoco / checkstyle / spotless / spotbugs / pmd 质量插件
+
+## 协作约定
+
+- 响应语言：**中文**（问题描述、代码评审）
+- 代码注释用**英文**
+- 提交信息格式：`type(scope): description`（e.g. `feat(dict): add batch delete`）
+- 优先编写 domain 层单元测试
+- 编码前先确认当前分支，避免交叉提交
