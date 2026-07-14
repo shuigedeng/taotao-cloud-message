@@ -1,0 +1,20 @@
+# Temporary / IDE
+node_modules
+__pycache__
+*.pyc
+.DS_Store
+*.swp
+*.swo
+
+# Build output
+build/
+dist/
+
+# Sensitive config
+*.local.*
+.env
+.env.*
+
+# Keep opencode config tracked
+!opencode.json
+!AGENTS.md

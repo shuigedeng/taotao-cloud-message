@@ -1,0 +1,10 @@
+# Personal / Local overrides (not committed)
+CLAUDE.local.md
+settings.local.json
+
+# IDE
+.DS_Store
+*.swp
+*.swo
+__pycache__
+*.pyc
