@@ -47,7 +47,6 @@ public class SystemWebsocketEventListenerConfiguration {
      * @return SystemWebsocketEventListener
      * @since 2022.03
      */
-
     public SystemWebsocketEventListener systemWebsocketEventListener() {
         return new SystemWebsocketEventListener(messageDistributor);
     }

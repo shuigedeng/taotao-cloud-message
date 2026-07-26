@@ -44,7 +44,6 @@ public class NotifyWebsocketEventListenerConfiguration {
      * @return NotifyWebsocketEventListener
      * @since 2022.03
      */
-
     public NotifyWebsocketEventListener notifyWebsocketEventListener(
             NotifyInfoDelegateHandler<? super NotifyInfo> notifyInfoDelegateHandler ) {
         return new NotifyWebsocketEventListener(messageDistributor, notifyInfoDelegateHandler);

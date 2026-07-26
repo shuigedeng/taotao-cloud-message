@@ -66,7 +66,6 @@ public class DialogueDetailService extends BaseService<DialogueDetail, String> {
         return dialogueDetailRepository;
     }
 
-
     /**
      * 转换
      *
@@ -74,7 +73,6 @@ public class DialogueDetailService extends BaseService<DialogueDetail, String> {
      * @return Notification
      * @since 2022.03
      */
-
     private Notification convertDialogueDetailToNotification(DialogueDetail dialogueDetail) {
         Notification notification = new Notification();
         notification.setUserId(dialogueDetail.getReceiverId());
@@ -139,7 +137,6 @@ public class DialogueDetailService extends BaseService<DialogueDetail, String> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void deleteDialogueById(String dialogueId) {
         dialogueContactService.deleteByDialogueId(dialogueId);
         dialogueService.deleteById(dialogueId);

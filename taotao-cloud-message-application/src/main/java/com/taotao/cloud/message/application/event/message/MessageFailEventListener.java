@@ -38,7 +38,6 @@ public class MessageFailEventListener {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void messageFailEventListener( MessageFailEvent event ) {
     }
 }

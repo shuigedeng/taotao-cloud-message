@@ -45,14 +45,12 @@ public class UserConnectPool {
      */
     private static final Object lock1 = new Object();
 
-
     /**
      * Object 方法
      *
      * @return 无返回值
      * @since 2022.03
      */
-
     private static final Object lock2 = new Object();
 
     /**
@@ -62,7 +60,6 @@ public class UserConnectPool {
      * @return ChannelGroup
      * @since 2022.03
      */
-
     public static ChannelGroup getChannelGroup() {
         if (null == channelGroup) {
             synchronized (lock1) {
@@ -93,7 +90,6 @@ public class UserConnectPool {
      * @return Channel
      * @since 2022.03
      */
-
     public static Channel getChannel( String userId ) {
         if (null == channelMap) {
             return getChannelMap().get(userId);

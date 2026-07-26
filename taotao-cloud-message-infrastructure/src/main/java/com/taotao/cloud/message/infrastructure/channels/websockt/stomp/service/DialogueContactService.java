@@ -91,7 +91,6 @@ public class DialogueContactService extends BaseService<DialogueContact, String>
         return this.findByPage(specification, pageable);
     }
 
-
     /**
      * 删除
      *
@@ -99,11 +98,9 @@ public class DialogueContactService extends BaseService<DialogueContact, String>
      * @return 无返回值
      * @since 2022.03
      */
-
     public void deleteByDialogueId(String dialogueId) {
         dialogueContactRepository.deleteAllByDialogueId(dialogueId);
     }
-
 
     /**
      * 根据条件查询
@@ -113,7 +110,6 @@ public class DialogueContactService extends BaseService<DialogueContact, String>
      * @return DialogueContact
      * @since 2022.03
      */
-
     public DialogueContact findBySenderIdAndReceiverId(String senderId, String receiverId) {
         return dialogueContactRepository
                 .findBySenderIdAndReceiverId(senderId, receiverId)

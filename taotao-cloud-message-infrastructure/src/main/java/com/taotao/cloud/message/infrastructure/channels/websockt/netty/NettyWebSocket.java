@@ -322,7 +322,6 @@ public class NettyWebSocket {
         redisRepository.opsForValue().decrement("online_key");
     }
 
-
     /**
      * 校验
      *
@@ -331,7 +330,6 @@ public class NettyWebSocket {
      * @return 字符串
      * @since 2022.03
      */
-
     private String checkToken(HttpHeaders headers, Session session) {
         String token = headers.get("token");
         if (StringUtils.isEmpty(token)) {
@@ -392,7 +390,6 @@ public class NettyWebSocket {
         }
     }
 
-
     /**
      * 发送信息
      *
@@ -401,7 +398,6 @@ public class NettyWebSocket {
      * @return 无返回值
      * @since 2022.03
      */
-
     public static void sendInfo(String userId, String message) {
         try {
             if (!StringUtils.isEmpty(userId) && userIdWebSocketMap.containsKey(userId)) {

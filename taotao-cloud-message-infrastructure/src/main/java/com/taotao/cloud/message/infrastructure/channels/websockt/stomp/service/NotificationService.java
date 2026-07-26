@@ -68,7 +68,6 @@ public class NotificationService extends BaseService<Notification, String> {
         return notificationRepository;
     }
 
-
     /**
      * pullAnnouncements 方法
      *
@@ -76,7 +75,6 @@ public class NotificationService extends BaseService<Notification, String> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void pullAnnouncements(String userId) {
         PullStamp pullStamp = pullStampService.getPullStamp(userId);
         List<Announcement> systemAnnouncements =
@@ -127,7 +125,6 @@ public class NotificationService extends BaseService<Notification, String> {
                 .collect(Collectors.toList());
     }
 
-
     /**
      * 转换
      *
@@ -136,7 +133,6 @@ public class NotificationService extends BaseService<Notification, String> {
      * @return Notification
      * @since 2022.03
      */
-
     private Notification convertAnnouncementToNotification(
             String userId, Announcement announcement) {
         Notification notification = new Notification();
@@ -157,7 +153,6 @@ public class NotificationService extends BaseService<Notification, String> {
      * @return 结果数量
      * @since 2022.03
      */
-
     public int setAllRead(String userId) {
         return notificationRepository.updateAllRead(userId);
     }

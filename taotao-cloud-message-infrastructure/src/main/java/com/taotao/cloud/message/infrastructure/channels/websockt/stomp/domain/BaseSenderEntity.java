@@ -48,7 +48,6 @@ public abstract class BaseSenderEntity extends BaseEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSenderId() {
         return senderId;
     }
@@ -60,7 +59,6 @@ public abstract class BaseSenderEntity extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSenderId(String senderId) {
         this.senderId = senderId;
     }
@@ -71,7 +69,6 @@ public abstract class BaseSenderEntity extends BaseEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSenderName() {
         return senderName;
     }
@@ -83,7 +80,6 @@ public abstract class BaseSenderEntity extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSenderName(String senderName) {
         this.senderName = senderName;
     }
@@ -94,7 +90,6 @@ public abstract class BaseSenderEntity extends BaseEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSenderAvatar() {
         return senderAvatar;
     }
@@ -106,7 +101,6 @@ public abstract class BaseSenderEntity extends BaseEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSenderAvatar(String senderAvatar) {
         this.senderAvatar = senderAvatar;
     }

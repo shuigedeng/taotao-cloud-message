@@ -32,9 +32,7 @@ public interface PushMsgService {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void pushMsgToOne(DataContent dataContent);
-
 
     /**
      * pushMsgToAll 方法
@@ -43,6 +41,5 @@ public interface PushMsgService {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void pushMsgToAll(DataContent dataContent);
 }

@@ -49,7 +49,6 @@ public class AdminWebSocketAutoConfiguration {
      * @return HandshakeInterceptor
      * @since 2022.03
      */
-
     public HandshakeInterceptor authenticationHandshakeInterceptor() {
         return new UserAttributeHandshakeInterceptor();
     }
@@ -63,7 +62,6 @@ public class AdminWebSocketAutoConfiguration {
      * @return SessionKeyGenerator
      * @since 2022.03
      */
-
     public SessionKeyGenerator userSessionKeyGenerator() {
         return new UserSessionKeyGenerator();
     }

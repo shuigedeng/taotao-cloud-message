@@ -51,7 +51,6 @@ public class NotifyInfoDelegateHandler<T extends NotifyInfo> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void init() {
         handlerMap = new HashMap<>(notifyInfoHandlers.size());
         for (NotifyInfoHandler<T> handler : notifyInfoHandlers) {

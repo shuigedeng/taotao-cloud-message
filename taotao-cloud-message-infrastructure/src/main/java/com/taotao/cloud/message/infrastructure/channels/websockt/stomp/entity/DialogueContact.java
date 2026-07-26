@@ -71,7 +71,6 @@ public class DialogueContact extends BaseSenderEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getContactId() {
         return contactId;
     }
@@ -83,7 +82,6 @@ public class DialogueContact extends BaseSenderEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setContactId(String contactId) {
         this.contactId = contactId;
     }
@@ -94,7 +92,6 @@ public class DialogueContact extends BaseSenderEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getReceiverId() {
         return receiverId;
     }
@@ -106,7 +103,6 @@ public class DialogueContact extends BaseSenderEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setReceiverId(String receiverId) {
         this.receiverId = receiverId;
     }
@@ -123,7 +119,6 @@ public class DialogueContact extends BaseSenderEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setDialogue(Dialogue dialogue) {
         this.dialogue = dialogue;
     }

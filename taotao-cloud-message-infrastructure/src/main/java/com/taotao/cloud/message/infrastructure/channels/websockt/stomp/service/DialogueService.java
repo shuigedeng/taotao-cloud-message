@@ -42,7 +42,6 @@ public class DialogueService extends BaseService<Dialogue, String> {
         return dialogueRepository;
     }
 
-
     /**
      * 创建
      *
@@ -50,13 +49,11 @@ public class DialogueService extends BaseService<Dialogue, String> {
      * @return Dialogue
      * @since 2022.03
      */
-
     public Dialogue createDialogue(String content) {
         Dialogue dialogue = new Dialogue();
         dialogue.setLatestNews(content);
         return this.save(dialogue);
     }
-
 
     /**
      * 更新
@@ -66,7 +63,6 @@ public class DialogueService extends BaseService<Dialogue, String> {
      * @return Dialogue
      * @since 2022.03
      */
-
     public Dialogue updateDialogue(String dialogueId, String content) {
         Dialogue dialogue = this.findById(dialogueId);
         dialogue.setLatestNews(content);

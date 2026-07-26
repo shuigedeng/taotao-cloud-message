@@ -51,7 +51,6 @@ public class SmsWebmvcPathAutoConfiguration {
      * @return 字符串
      * @since 2022.03
      */
-
     private static String getBasePath(
             com.taotao.cloud.sys.infrastructure.channels.sms.SmsWebmvcProperties properties) {
         String bathPath = StringUtils.trimToNull(properties.getBasePath());

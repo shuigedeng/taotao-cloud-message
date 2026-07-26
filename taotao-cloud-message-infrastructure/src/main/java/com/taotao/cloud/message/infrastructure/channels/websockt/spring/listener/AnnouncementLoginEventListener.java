@@ -97,7 +97,6 @@ public class AnnouncementLoginEventListener {
      * @return SysUser
      * @since 2022.03
      */
-
     private SysUser getSysUser(User user) {
         SysUser sysUser = new SysUser();
         sysUser.setUserId(user.getUserId());
@@ -109,7 +108,6 @@ public class AnnouncementLoginEventListener {
         return sysUser;
     }
 
-
     /**
      * 过滤
      *
@@ -119,7 +117,6 @@ public class AnnouncementLoginEventListener {
      * @return 是否成功
      * @since 2022.03
      */
-
     private boolean filterMatched(Announcement announ, Map<Integer, Object> filterAttrs) {
         Integer type = announ.getRecipientFilterType();
         return recipientHandler.match(

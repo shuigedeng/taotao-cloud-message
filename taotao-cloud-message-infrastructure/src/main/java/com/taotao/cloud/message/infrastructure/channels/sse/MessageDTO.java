@@ -36,7 +36,6 @@ public class MessageDTO<T> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getFromUserName() {
         return fromUserName;
     }
@@ -48,7 +47,6 @@ public class MessageDTO<T> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setFromUserName( String fromUserName ) {
         this.fromUserName = fromUserName;
     }
@@ -59,7 +57,6 @@ public class MessageDTO<T> {
      * @return T
      * @since 2022.03
      */
-
     public T getMessage() {
         return message;
     }
@@ -71,7 +68,6 @@ public class MessageDTO<T> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setMessage( T message ) {
         this.message = message;
     }
@@ -82,7 +78,6 @@ public class MessageDTO<T> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getMessageType() {
         return messageType;
     }
@@ -94,7 +89,6 @@ public class MessageDTO<T> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setMessageType( String messageType ) {
         this.messageType = messageType;
     }
@@ -105,7 +99,6 @@ public class MessageDTO<T> {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getTargetUserName() {
         return targetUserName;
     }
@@ -117,7 +110,6 @@ public class MessageDTO<T> {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setTargetUserName( String targetUserName ) {
         this.targetUserName = targetUserName;
     }
@@ -138,7 +130,6 @@ public class MessageDTO<T> {
          * @return 字符串
          * @since 2022.03
          */
-
         public String getMessageType() {
             return messageType;
         }
@@ -150,7 +141,6 @@ public class MessageDTO<T> {
          * @return 无返回值
          * @since 2022.03
          */
-
         public void setMessageType( String messageType ) {
             this.messageType = messageType;
         }

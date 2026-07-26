@@ -55,7 +55,6 @@ public class SmsWebmvcProperties {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isEnable() {
         return enable;
     }
@@ -67,7 +66,6 @@ public class SmsWebmvcProperties {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEnable(boolean enable) {
         this.enable = enable;
     }
@@ -78,7 +76,6 @@ public class SmsWebmvcProperties {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getBasePath() {
         return basePath;
     }
@@ -90,7 +87,6 @@ public class SmsWebmvcProperties {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setBasePath(String basePath) {
         this.basePath = basePath;
     }
@@ -101,7 +97,6 @@ public class SmsWebmvcProperties {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isEnableSend() {
         return enableSend;
     }
@@ -113,7 +108,6 @@ public class SmsWebmvcProperties {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEnableSend(boolean enableSend) {
         this.enableSend = enableSend;
     }
@@ -124,7 +118,6 @@ public class SmsWebmvcProperties {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isEnableGet() {
         return enableGet;
     }
@@ -136,7 +129,6 @@ public class SmsWebmvcProperties {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEnableGet(boolean enableGet) {
         this.enableGet = enableGet;
     }
@@ -147,7 +139,6 @@ public class SmsWebmvcProperties {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isEnableVerify() {
         return enableVerify;
     }
@@ -159,7 +150,6 @@ public class SmsWebmvcProperties {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEnableVerify(boolean enableVerify) {
         this.enableVerify = enableVerify;
     }
@@ -170,7 +160,6 @@ public class SmsWebmvcProperties {
      * @return 是否成功
      * @since 2022.03
      */
-
     public boolean isEnableNotice() {
         return enableNotice;
     }
@@ -182,7 +171,6 @@ public class SmsWebmvcProperties {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setEnableNotice(boolean enableNotice) {
         this.enableNotice = enableNotice;
     }

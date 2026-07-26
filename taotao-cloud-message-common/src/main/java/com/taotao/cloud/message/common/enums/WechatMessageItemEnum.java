@@ -50,7 +50,6 @@ public enum WechatMessageItemEnum {
      * @return 无返回值
      * @since 2022.03
      */
-
     public String[] getText() {
         return text;
     }

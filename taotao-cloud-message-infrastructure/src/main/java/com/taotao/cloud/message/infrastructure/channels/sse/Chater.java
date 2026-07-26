@@ -38,7 +38,6 @@ public class Chater {
     private Queue<com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO<?>> msgList =
             new ConcurrentLinkedQueue<>();
 
-
     /**
      * 添加消息
      *
@@ -46,7 +45,6 @@ public class Chater {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void addMsg( com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO<?> msg ) {
         msgList.add(msg);
         while (!msgList.isEmpty()) {
@@ -66,7 +64,6 @@ public class Chater {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getUserName() {
         return userName;
     }
@@ -79,7 +76,6 @@ public class Chater {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setUserName( String userName ) {
         this.userName = userName;
     }
@@ -91,7 +87,6 @@ public class Chater {
      * @return SseEmitter
      * @since 2022.03
      */
-
     public SseEmitter getSseEmitter() {
         return sseEmitter;
     }
@@ -104,7 +99,6 @@ public class Chater {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSseEmitter( SseEmitter sseEmitter ) {
         this.sseEmitter = sseEmitter;
     }

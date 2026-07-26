@@ -75,7 +75,6 @@ public class WebSseController {
      * @return 无返回值
      * @since 2022.03
      */
-
     public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel send(
             @RequestBody
                     com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO<String> messageDTO,
@@ -104,7 +103,6 @@ public class WebSseController {
      * @return SseEmitter
      * @since 2022.03
      */
-
     public SseEmitter to(HttpServletRequest request) {
         String userName = (String) request.getSession().getAttribute("userName");
         // 超时时间设置为3分钟
@@ -118,6 +116,7 @@ public class WebSseController {
     }
 
     @RequestMapping(value = "/setUser")
+
     /**
     /**
      * 设置
@@ -125,7 +124,6 @@ public class WebSseController {
      * @return 无返回值
      * @since 2022.03
      */
-
     public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel setUser(
             @RequestParam("userName") String userName, HttpServletRequest request) {
         logger.info("设置用户[{}]", userName);
@@ -146,7 +144,6 @@ public class WebSseController {
      * @return 无返回值
      * @since 2022.03
      */
-
     public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel user(
             HttpServletRequest request) {
         Object userName = request.getSession().getAttribute("userName");
@@ -164,7 +161,6 @@ public class WebSseController {
      * @return 无返回值
      * @since 2022.03
      */
-
     public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel userList() {
         return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.ok(
                 com.taotao.cloud.sys.infrastructure.channels.sse.WebSSEUser.getUserList());
@@ -178,7 +174,6 @@ public class WebSseController {
      * @return 无返回值
      * @since 2022.03
      */
-
     public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel fileUpload(
             @RequestParam("userName") String userName,
             @RequestParam MultipartFile[] myfiles,
@@ -229,7 +224,6 @@ public class WebSseController {
      * @return SseEmitter
      * @since 2022.03
      */
-
     public SseEmitter test(@PathVariable("clientId") @ApiParam("客户端 id") String clientId) {
         final SseEmitter emitter = sseService.getConn(clientId);
         CompletableFuture.runAsync(

@@ -32,7 +32,6 @@ import io.netty.handler.timeout.IdleStateEvent;
  */
 public class HeartBeatHandler extends ChannelInboundHandlerAdapter {
 
-
     /**
      * 用户事件Triggered
      *
@@ -41,7 +40,6 @@ public class HeartBeatHandler extends ChannelInboundHandlerAdapter {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void userEventTriggered( ChannelHandlerContext ctx, Object evt ) throws Exception {
         if (evt instanceof IdleStateEvent) {
             IdleStateEvent event = (IdleStateEvent) evt; // 强制类型转化

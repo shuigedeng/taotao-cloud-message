@@ -45,27 +45,23 @@ public class StreamFunctionService {
 
     @Autowired private StreamBridge bridge;
 
-
     /**
      * 发送
      *
      * @return 无返回值
      * @since 2022.03
      */
-
     public void sendRocketmqExample() {
         boolean s1 = bridge.send("example-out-0", "topic example");
         LogUtils.info("example send msg:{}", s1);
     }
 
-
     /**
      * 发送
      *
      * @return 无返回值
      * @since 2022.03
      */
-
     public void sendRocketmqDemo() throws Exception {
         // tag 发送
         String payload = "消息体demo1发送到tag s1";
@@ -78,14 +74,12 @@ public class StreamFunctionService {
         LogUtils.info("demo1 send msg:{}", s3);
     }
 
-
     /**
      * 发送
      *
      * @return 无返回值
      * @since 2022.03
      */
-
     public void sendRocketmqTest() throws Exception {
         String payload = "消息体tag s3 延迟消息 topic test";
         Map<String, Object> headers = new HashMap<>();
@@ -98,7 +92,6 @@ public class StreamFunctionService {
         LogUtils.info("test send msg:{}", s3);
     }
 
-
     /**
      * 发送
      *
@@ -106,13 +99,11 @@ public class StreamFunctionService {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void sendKafka(String content) {
         boolean send = bridge.send("outputKafka-out-0", content);
         LogUtils.info(String.valueOf(send));
     }
 
-
     /**
      * 发送
      *
@@ -120,13 +111,11 @@ public class StreamFunctionService {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void sendRabbit(String content) {
         boolean send = bridge.send("outputRabbit-out-0", content);
         LogUtils.info(String.valueOf(send));
     }
 
-
     /**
      * 发送
      *
@@ -134,7 +123,6 @@ public class StreamFunctionService {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void sendRocketmq(String content) {
         boolean send = bridge.send("outputEmail-out-0", content);
         LogUtils.info(String.valueOf(send));

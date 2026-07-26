@@ -41,7 +41,6 @@ public class EmailSendEventListener {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void saveRequestLog(EmailSendEvent event) {
         RequestLog requestLog = (RequestLog) event.getSource();
     }

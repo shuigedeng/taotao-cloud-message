@@ -54,7 +54,6 @@ public class SupplierMessageConfiguration {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void postConstruct() {
         log.debug("[Herodotus] |- SDK [Supplier Message] Auto Configure.");
     }

@@ -70,7 +70,6 @@ public class PullStamp extends AbstractEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     private Date latestPullTime = new Date();
 
     /**
@@ -80,7 +79,6 @@ public class PullStamp extends AbstractEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getStampId() {
         return stampId;
     }
@@ -93,7 +91,6 @@ public class PullStamp extends AbstractEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setStampId(String stampId) {
         this.stampId = stampId;
     }
@@ -105,7 +102,6 @@ public class PullStamp extends AbstractEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getUserId() {
         return userId;
     }
@@ -118,7 +114,6 @@ public class PullStamp extends AbstractEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setUserId(String userId) {
         this.userId = userId;
     }
@@ -130,7 +125,6 @@ public class PullStamp extends AbstractEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getSource() {
         return source;
     }
@@ -143,7 +137,6 @@ public class PullStamp extends AbstractEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setSource(String source) {
         this.source = source;
     }
@@ -155,7 +148,6 @@ public class PullStamp extends AbstractEntity {
      * @return Date
      * @since 2022.03
      */
-
     public Date getLatestPullTime() {
         return latestPullTime;
     }
@@ -168,7 +160,6 @@ public class PullStamp extends AbstractEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setLatestPullTime(Date latestPullTime) {
         this.latestPullTime = latestPullTime;
     }

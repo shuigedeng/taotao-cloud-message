@@ -48,7 +48,6 @@ public class PushMsgController {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void pushOne( DataContent dataContent ) {
         pushMsgService.pushMsgToOne(dataContent);
     }
@@ -62,7 +61,6 @@ public class PushMsgController {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void pushAll( DataContent dataContent ) {
         pushMsgService.pushMsgToAll(dataContent);
     }

@@ -61,7 +61,6 @@ public class Announcement extends BaseSenderEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getAnnouncementId() {
         return announcementId;
     }
@@ -73,7 +72,6 @@ public class Announcement extends BaseSenderEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setAnnouncementId(String announcementId) {
         this.announcementId = announcementId;
     }
@@ -84,7 +82,6 @@ public class Announcement extends BaseSenderEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getTitle() {
         return title;
     }
@@ -96,7 +93,6 @@ public class Announcement extends BaseSenderEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -107,7 +103,6 @@ public class Announcement extends BaseSenderEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getContent() {
         return content;
     }
@@ -119,7 +114,6 @@ public class Announcement extends BaseSenderEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setContent(String content) {
         this.content = content;
     }

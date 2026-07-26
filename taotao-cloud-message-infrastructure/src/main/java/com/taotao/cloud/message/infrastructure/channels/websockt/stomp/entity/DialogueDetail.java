@@ -78,7 +78,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getDetailId() {
         return detailId;
     }
@@ -90,7 +89,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setDetailId(String detailId) {
         this.detailId = detailId;
     }
@@ -101,7 +99,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getReceiverId() {
         return receiverId;
     }
@@ -113,7 +110,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setReceiverId(String receiverId) {
         this.receiverId = receiverId;
     }
@@ -124,7 +120,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getReceiverName() {
         return receiverName;
     }
@@ -136,7 +131,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setReceiverName(String receiverName) {
         this.receiverName = receiverName;
     }
@@ -147,7 +141,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getReceiverAvatar() {
         return receiverAvatar;
     }
@@ -159,7 +152,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setReceiverAvatar(String receiverAvatar) {
         this.receiverAvatar = receiverAvatar;
     }
@@ -170,7 +162,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getContent() {
         return content;
     }
@@ -182,7 +173,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setContent(String content) {
         this.content = content;
     }
@@ -193,7 +183,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * @return 字符串
      * @since 2022.03
      */
-
     public String getDialogueId() {
         return dialogueId;
     }
@@ -205,7 +194,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * @return 无返回值
      * @since 2022.03
      */
-
     public void setDialogueId(String dialogueId) {
         this.dialogueId = dialogueId;
     }
