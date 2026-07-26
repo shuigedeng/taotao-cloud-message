@@ -89,6 +89,15 @@ public class AnnouncementLoginEventListener {
         }
     }
 
+    /**
+    /**
+     * 获取
+     *
+     * @param user user
+     * @return SysUser
+     * @since 2022.03
+     */
+
     private SysUser getSysUser(User user) {
         SysUser sysUser = new SysUser();
         sysUser.setUserId(user.getUserId());
@@ -99,6 +108,17 @@ public class AnnouncementLoginEventListener {
         sysUser.setType(user.getType());
         return sysUser;
     }
+
+
+    /**
+     * 过滤
+     *
+     * @param announ announ
+     * @param Integer Integer
+     * @param filterAttrs filterAttrs
+     * @return 是否成功
+     * @since 2022.03
+     */
 
     private boolean filterMatched(Announcement announ, Map<Integer, Object> filterAttrs) {
         Integer type = announ.getRecipientFilterType();

@@ -40,6 +40,14 @@ public class SystemWebsocketEventListenerConfiguration {
     }
 
     @Bean
+
+    /**
+     * systemWebsocketEventListener 方法
+     *
+     * @return SystemWebsocketEventListener
+     * @since 2022.03
+     */
+
     public SystemWebsocketEventListener systemWebsocketEventListener() {
         return new SystemWebsocketEventListener(messageDistributor);
     }

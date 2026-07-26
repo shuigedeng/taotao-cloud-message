@@ -63,35 +63,111 @@ public class PullStamp extends AbstractEntity {
     @Schema(title = "上次拉取时间")
     @Column(name = "latest_pull_time", updatable = false)
     @JsonFormat(pattern = DefaultConstants.DATE_TIME_FORMAT)
+
+    /**
+     * 日期
+     *
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     private Date latestPullTime = new Date();
+
+    /**
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getStampId() {
         return stampId;
     }
 
+    /**
+    /**
+     * 设置
+     *
+     * @param stampId stampId
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setStampId(String stampId) {
         this.stampId = stampId;
     }
+
+    /**
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getUserId() {
         return userId;
     }
 
+    /**
+    /**
+     * 设置
+     *
+     * @param userId userId
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setUserId(String userId) {
         this.userId = userId;
     }
+
+    /**
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
 
     public String getSource() {
         return source;
     }
 
+    /**
+    /**
+     * 设置
+     *
+     * @param source source
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void setSource(String source) {
         this.source = source;
     }
 
+    /**
+    /**
+     * 获取
+     *
+     * @return Date
+     * @since 2022.03
+     */
+
     public Date getLatestPullTime() {
         return latestPullTime;
     }
+
+    /**
+    /**
+     * 设置
+     *
+     * @param latestPullTime latestPullTime
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setLatestPullTime(Date latestPullTime) {
         this.latestPullTime = latestPullTime;

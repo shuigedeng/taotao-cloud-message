@@ -42,12 +42,28 @@ public class AdminWebSocketAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(UserAttributeHandshakeInterceptor.class)
+
+    /**
+     * authenticationHandshakeInterceptor 方法
+     *
+     * @return HandshakeInterceptor
+     * @since 2022.03
+     */
+
     public HandshakeInterceptor authenticationHandshakeInterceptor() {
         return new UserAttributeHandshakeInterceptor();
     }
 
     @Bean
     @ConditionalOnMissingBean(SessionKeyGenerator.class)
+
+    /**
+     * 用户SessionKeyGenerator
+     *
+     * @return SessionKeyGenerator
+     * @since 2022.03
+     */
+
     public SessionKeyGenerator userSessionKeyGenerator() {
         return new UserSessionKeyGenerator();
     }

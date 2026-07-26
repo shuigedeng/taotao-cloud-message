@@ -37,25 +37,70 @@ public abstract class BaseSenderEntity extends BaseEntity {
     @Column(name = "sender_avatar", length = 1000)
     private String senderAvatar;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getSenderId() {
         return senderId;
     }
+
+    /**
+     * 设置
+     *
+     * @param senderId senderId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSenderId(String senderId) {
         this.senderId = senderId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getSenderName() {
         return senderName;
     }
+
+    /**
+     * 设置
+     *
+     * @param senderName senderName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSenderName(String senderName) {
         this.senderName = senderName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getSenderAvatar() {
         return senderAvatar;
     }
+
+    /**
+     * 设置
+     *
+     * @param senderAvatar senderAvatar
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setSenderAvatar(String senderAvatar) {
         this.senderAvatar = senderAvatar;

@@ -56,12 +56,29 @@ public class DemoController {
     }
 
     @GetMapping("/close")
+
+    /**
+     * 关闭
+     *
+     * @param userId 用户ID
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String close( String userId ) {
         com.taotao.cloud.sys.infrastructure.channels.websockt.netty.NettyWebSocket.close(userId);
         return "ok";
     }
 
     @GetMapping("/getOnlineUser")
+    /**
+    /**
+     * 获取
+     *
+     * @return Map
+     * @since 2022.03
+     */
+
     public Map getOnlineUser() {
         return NettyWebSocket.getOnlineUser();
     }

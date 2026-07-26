@@ -36,6 +36,15 @@ public class NotifyWebsocketEventListenerConfiguration {
     private final MessageDistributor messageDistributor;
 
     @Bean
+
+    /**
+     * 通知
+     *
+     * @param notifyInfoDelegateHandler notifyInfoDelegateHandler
+     * @return NotifyWebsocketEventListener
+     * @since 2022.03
+     */
+
     public NotifyWebsocketEventListener notifyWebsocketEventListener(
             NotifyInfoDelegateHandler<? super NotifyInfo> notifyInfoDelegateHandler ) {
         return new NotifyWebsocketEventListener(messageDistributor, notifyInfoDelegateHandler);

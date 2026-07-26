@@ -45,7 +45,23 @@ public class UserConnectPool {
      */
     private static final Object lock1 = new Object();
 
+
+    /**
+     * Object 方法
+     *
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     private static final Object lock2 = new Object();
+
+    /**
+    /**
+     * 获取
+     *
+     * @return ChannelGroup
+     * @since 2022.03
+     */
 
     public static ChannelGroup getChannelGroup() {
         if (null == channelGroup) {
@@ -68,6 +84,15 @@ public class UserConnectPool {
         }
         return channelMap;
     }
+
+    /**
+    /**
+     * 获取
+     *
+     * @param userId userId
+     * @return Channel
+     * @since 2022.03
+     */
 
     public static Channel getChannel( String userId ) {
         if (null == channelMap) {

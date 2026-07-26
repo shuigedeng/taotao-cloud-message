@@ -65,17 +65,47 @@ public class DialogueContact extends BaseSenderEntity {
     @JoinColumn(name = "dialogue_id", nullable = false)
     private com.taotao.cloud.sys.infrastructure.channels.websockt.stomp.entity.Dialogue dialogue;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getContactId() {
         return contactId;
     }
+
+    /**
+     * 设置
+     *
+     * @param contactId contactId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setContactId(String contactId) {
         this.contactId = contactId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getReceiverId() {
         return receiverId;
     }
+
+    /**
+     * 设置
+     *
+     * @param receiverId receiverId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setReceiverId(String receiverId) {
         this.receiverId = receiverId;
@@ -85,6 +115,14 @@ public class DialogueContact extends BaseSenderEntity {
             getDialogue() {
         return dialogue;
     }
+
+    /**
+     * 设置
+     *
+     * @param dialogue dialogue
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setDialogue(Dialogue dialogue) {
         this.dialogue = dialogue;

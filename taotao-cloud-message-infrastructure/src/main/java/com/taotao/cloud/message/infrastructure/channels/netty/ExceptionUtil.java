@@ -29,6 +29,15 @@ import java.io.Writer;
  */
 public class ExceptionUtil {
 
+
+    /**
+     * printStackTrace 方法
+     *
+     * @param e e
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public static String printStackTrace( Exception e ) {
         Writer writer = new StringWriter();
         PrintWriter printWriter = new PrintWriter(writer);

@@ -53,6 +53,15 @@ public class DialogueMessageListener implements ApplicationListener<LocalSendDia
         }
     }
 
+
+    /**
+     * 转换
+     *
+     * @param dialogueMessage dialogueMessage
+     * @return DialogueDetail
+     * @since 2022.03
+     */
+
     private DialogueDetail convertDialogueMessageToDialogueDetail(DialogueMessage dialogueMessage) {
         DialogueDetail dialogueDetail = new DialogueDetail();
         dialogueDetail.setDetailId(dialogueMessage.getDetailId());

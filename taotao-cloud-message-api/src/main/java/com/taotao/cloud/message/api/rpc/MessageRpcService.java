@@ -17,7 +17,7 @@
 package com.taotao.cloud.message.api.rpc;
 
 /**
- * 后台部门表服务接口
+ * 消息 RPC 服务接口
  *
  * @author shuigedeng
  * @version 2022.03

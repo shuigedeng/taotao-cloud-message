@@ -49,49 +49,139 @@ public class SmsWebmvcProperties {
     /** 是否启用通知发送web端点 */
     private boolean enableNotice = true;
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isEnable() {
         return enable;
     }
+
+    /**
+     * 设置
+     *
+     * @param enable enable
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setEnable(boolean enable) {
         this.enable = enable;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getBasePath() {
         return basePath;
     }
+
+    /**
+     * 设置
+     *
+     * @param basePath basePath
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setBasePath(String basePath) {
         this.basePath = basePath;
     }
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isEnableSend() {
         return enableSend;
     }
+
+    /**
+     * 设置
+     *
+     * @param enableSend enableSend
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setEnableSend(boolean enableSend) {
         this.enableSend = enableSend;
     }
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isEnableGet() {
         return enableGet;
     }
+
+    /**
+     * 设置
+     *
+     * @param enableGet enableGet
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setEnableGet(boolean enableGet) {
         this.enableGet = enableGet;
     }
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isEnableVerify() {
         return enableVerify;
     }
+
+    /**
+     * 设置
+     *
+     * @param enableVerify enableVerify
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setEnableVerify(boolean enableVerify) {
         this.enableVerify = enableVerify;
     }
 
+    /**
+     * 判断
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public boolean isEnableNotice() {
         return enableNotice;
     }
+
+    /**
+     * 设置
+     *
+     * @param enableNotice enableNotice
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setEnableNotice(boolean enableNotice) {
         this.enableNotice = enableNotice;

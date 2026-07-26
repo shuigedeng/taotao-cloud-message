@@ -68,41 +68,116 @@ public class Notification extends BaseSenderEntity {
     @Enumerated(EnumType.ORDINAL)
     private NotificationCategory category = NotificationCategory.ANNOUNCEMENT;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getQueueId() {
         return queueId;
     }
+
+    /**
+     * 设置
+     *
+     * @param queueId queueId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setQueueId(String queueId) {
         this.queueId = queueId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 是否成功
+     * @since 2022.03
+     */
+
     public Boolean getRead() {
         return read;
     }
+
+    /**
+     * 设置
+     *
+     * @param read read
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setRead(Boolean read) {
         this.read = read;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getUserId() {
         return userId;
     }
+
+    /**
+     * 设置
+     *
+     * @param userId userId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setUserId(String userId) {
         this.userId = userId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getContent() {
         return content;
     }
+
+    /**
+     * 设置
+     *
+     * @param content content
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setContent(String content) {
         this.content = content;
     }
 
+    /**
+     * 获取
+     *
+     * @return NotificationCategory
+     * @since 2022.03
+     */
+
     public NotificationCategory getCategory() {
         return category;
     }
+
+    /**
+     * 设置
+     *
+     * @param category category
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setCategory(NotificationCategory category) {
         this.category = category;

@@ -31,6 +31,16 @@ public class WebSSEUser {
 
     private static Map<String, Chater> userChaterMap = new ConcurrentHashMap<>();
 
+
+    /**
+     * 添加
+     *
+     * @param userName 用户名
+     * @param chater chater
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public static void add( String userName, Chater chater ) {
         userChaterMap.put(userName, chater);
     }

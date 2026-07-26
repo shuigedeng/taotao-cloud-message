@@ -44,9 +44,27 @@ public class PullStampService extends BaseService<PullStamp, String> {
         return pullStampRepository;
     }
 
+
+    /**
+     * 根据条件查询
+     *
+     * @param userId 用户ID
+     * @return PullStamp
+     * @since 2022.03
+     */
+
     public PullStamp findByUserId(String userId) {
         return pullStampRepository.findByUserId(userId).orElse(null);
     }
+
+    /**
+    /**
+     * 获取
+     *
+     * @param userId userId
+     * @return PullStamp
+     * @since 2022.03
+     */
 
     public PullStamp getPullStamp(String userId) {
 

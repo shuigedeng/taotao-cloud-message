@@ -30,6 +30,15 @@ import org.springframework.stereotype.Component;
 public class MessageFailEventListener {
 
     @EventListener(MessageFailEvent.class)
+
+    /**
+     * 消息FailEventListener
+     *
+     * @param event 事件
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void messageFailEventListener( MessageFailEvent event ) {
     }
 }

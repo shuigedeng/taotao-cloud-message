@@ -30,33 +30,93 @@ public class MessageDTO<T> {
     private T message;
     private String messageType;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getFromUserName() {
         return fromUserName;
     }
+
+    /**
+     * 设置
+     *
+     * @param fromUserName fromUserName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setFromUserName( String fromUserName ) {
         this.fromUserName = fromUserName;
     }
 
+    /**
+     * 获取
+     *
+     * @return T
+     * @since 2022.03
+     */
+
     public T getMessage() {
         return message;
     }
+
+    /**
+     * 设置
+     *
+     * @param message message
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setMessage( T message ) {
         this.message = message;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getMessageType() {
         return messageType;
     }
+
+    /**
+     * 设置
+     *
+     * @param messageType messageType
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setMessageType( String messageType ) {
         this.messageType = messageType;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getTargetUserName() {
         return targetUserName;
     }
+
+    /**
+     * 设置
+     *
+     * @param targetUserName targetUserName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setTargetUserName( String targetUserName ) {
         this.targetUserName = targetUserName;
@@ -72,9 +132,24 @@ public class MessageDTO<T> {
             this.messageType = messageType;
         }
 
+        /**
+         * 获取
+         *
+         * @return 字符串
+         * @since 2022.03
+         */
+
         public String getMessageType() {
             return messageType;
         }
+
+        /**
+         * 设置
+         *
+         * @param messageType messageType
+         * @return 无返回值
+         * @since 2022.03
+         */
 
         public void setMessageType( String messageType ) {
             this.messageType = messageType;

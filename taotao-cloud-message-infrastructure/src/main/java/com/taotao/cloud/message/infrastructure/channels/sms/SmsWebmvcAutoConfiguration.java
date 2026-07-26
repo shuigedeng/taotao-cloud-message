@@ -40,6 +40,16 @@ public class SmsWebmvcAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(com.taotao.cloud.sys.infrastructure.channels.sms.SmsController.class)
+
+    /**
+     * smsController 方法
+     *
+     * @param verificationCodeService verificationCodeService
+     * @param noticeService noticeService
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public com.taotao.cloud.sys.infrastructure.channels.sms.SmsController smsController(
             VerificationCodeService verificationCodeService, NoticeService noticeService) {
         return new SmsController(verificationCodeService, noticeService);

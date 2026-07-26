@@ -53,17 +53,47 @@ public class Dialogue extends BaseEntity {
     @Column(name = "latest_news", columnDefinition = "TEXT")
     private String latestNews;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getDialogueId() {
         return dialogueId;
     }
+
+    /**
+     * 设置
+     *
+     * @param dialogueId dialogueId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setDialogueId(String dialogueId) {
         this.dialogueId = dialogueId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getLatestNews() {
         return latestNews;
     }
+
+    /**
+     * 设置
+     *
+     * @param latestNews latestNews
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setLatestNews(String latestNews) {
         this.latestNews = latestNews;

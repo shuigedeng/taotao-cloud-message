@@ -72,49 +72,139 @@ public class DialogueDetail extends BaseSenderEntity {
     @Column(name = "dialogue_id", length = 64)
     private String dialogueId;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getDetailId() {
         return detailId;
     }
+
+    /**
+     * 设置
+     *
+     * @param detailId detailId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setDetailId(String detailId) {
         this.detailId = detailId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getReceiverId() {
         return receiverId;
     }
+
+    /**
+     * 设置
+     *
+     * @param receiverId receiverId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setReceiverId(String receiverId) {
         this.receiverId = receiverId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getReceiverName() {
         return receiverName;
     }
+
+    /**
+     * 设置
+     *
+     * @param receiverName receiverName
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setReceiverName(String receiverName) {
         this.receiverName = receiverName;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getReceiverAvatar() {
         return receiverAvatar;
     }
+
+    /**
+     * 设置
+     *
+     * @param receiverAvatar receiverAvatar
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setReceiverAvatar(String receiverAvatar) {
         this.receiverAvatar = receiverAvatar;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getContent() {
         return content;
     }
+
+    /**
+     * 设置
+     *
+     * @param content content
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setContent(String content) {
         this.content = content;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getDialogueId() {
         return dialogueId;
     }
+
+    /**
+     * 设置
+     *
+     * @param dialogueId dialogueId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setDialogueId(String dialogueId) {
         this.dialogueId = dialogueId;

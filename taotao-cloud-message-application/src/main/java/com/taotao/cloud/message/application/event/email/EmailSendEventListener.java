@@ -33,6 +33,15 @@ public class EmailSendEventListener {
 
     @Async
     @EventListener(EmailSendEvent.class)
+
+    /**
+     * 保存请求日志
+     *
+     * @param event 事件
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void saveRequestLog(EmailSendEvent event) {
         RequestLog requestLog = (RequestLog) event.getSource();
     }

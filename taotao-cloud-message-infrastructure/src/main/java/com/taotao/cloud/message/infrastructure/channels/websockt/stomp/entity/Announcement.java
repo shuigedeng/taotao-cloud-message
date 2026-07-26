@@ -55,25 +55,70 @@ public class Announcement extends BaseSenderEntity {
     @Column(name = "content", columnDefinition = "TEXT")
     private String content;
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getAnnouncementId() {
         return announcementId;
     }
+
+    /**
+     * 设置
+     *
+     * @param announcementId announcementId
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setAnnouncementId(String announcementId) {
         this.announcementId = announcementId;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getTitle() {
         return title;
     }
+
+    /**
+     * 设置
+     *
+     * @param title title
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setTitle(String title) {
         this.title = title;
     }
 
+    /**
+     * 获取
+     *
+     * @return 字符串
+     * @since 2022.03
+     */
+
     public String getContent() {
         return content;
     }
+
+    /**
+     * 设置
+     *
+     * @param content content
+     * @return 无返回值
+     * @since 2022.03
+     */
 
     public void setContent(String content) {
         this.content = content;

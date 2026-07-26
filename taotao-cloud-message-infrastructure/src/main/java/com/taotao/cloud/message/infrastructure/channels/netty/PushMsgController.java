@@ -40,11 +40,29 @@ public class PushMsgController {
     PushMsgService pushMsgService;
 
     @RequestMapping("/pushOne")
+
+    /**
+     * pushOne 方法
+     *
+     * @param dataContent 数据内容
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void pushOne( DataContent dataContent ) {
         pushMsgService.pushMsgToOne(dataContent);
     }
 
     @RequestMapping("/pushAll")
+
+    /**
+     * pushAll 方法
+     *
+     * @param dataContent 数据内容
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void pushAll( DataContent dataContent ) {
         pushMsgService.pushMsgToAll(dataContent);
     }

@@ -91,9 +91,28 @@ public class DialogueContactService extends BaseService<DialogueContact, String>
         return this.findByPage(specification, pageable);
     }
 
+
+    /**
+     * 删除
+     *
+     * @param dialogueId dialogueId
+     * @return 无返回值
+     * @since 2022.03
+     */
+
     public void deleteByDialogueId(String dialogueId) {
         dialogueContactRepository.deleteAllByDialogueId(dialogueId);
     }
+
+
+    /**
+     * 根据条件查询
+     *
+     * @param senderId senderId
+     * @param receiverId receiverId
+     * @return DialogueContact
+     * @since 2022.03
+     */
 
     public DialogueContact findBySenderIdAndReceiverId(String senderId, String receiverId) {
         return dialogueContactRepository
