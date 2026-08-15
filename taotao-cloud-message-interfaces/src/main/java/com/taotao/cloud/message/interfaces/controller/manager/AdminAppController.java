@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/app")
 @RequiredArgsConstructor
-public class ManagerAppController extends BusinessController {
+public class AdminAppController extends BusinessController {
 
     //    private final AppService appService;
     //
