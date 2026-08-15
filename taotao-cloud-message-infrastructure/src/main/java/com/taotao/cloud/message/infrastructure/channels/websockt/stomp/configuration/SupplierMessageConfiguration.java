@@ -46,15 +46,15 @@ public class SupplierMessageConfiguration {
 
     private static final Logger log = LoggerFactory.getLogger(SupplierMessageConfiguration.class);
 
-    @PostConstruct
-
     /**
      * postConstruct 方法
      *
      * @return 无返回值
      * @since 2022.03
      */
+    @PostConstruct
     public void postConstruct() {
         log.debug("[Herodotus] |- SDK [Supplier Message] Auto Configure.");
     }
 }
+

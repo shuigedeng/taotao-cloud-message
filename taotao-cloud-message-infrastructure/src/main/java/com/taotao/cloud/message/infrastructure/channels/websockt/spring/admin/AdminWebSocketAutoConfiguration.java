@@ -40,21 +40,17 @@ import org.springframework.web.socket.server.HandshakeInterceptor;
 @RequiredArgsConstructor
 public class AdminWebSocketAutoConfiguration {
 
-    @Bean
-    @ConditionalOnMissingBean(UserAttributeHandshakeInterceptor.class)
-
     /**
      * authenticationHandshakeInterceptor 方法
      *
      * @return HandshakeInterceptor
      * @since 2022.03
      */
+    @Bean
+    @ConditionalOnMissingBean(UserAttributeHandshakeInterceptor.class)
     public HandshakeInterceptor authenticationHandshakeInterceptor() {
         return new UserAttributeHandshakeInterceptor();
     }
-
-    @Bean
-    @ConditionalOnMissingBean(SessionKeyGenerator.class)
 
     /**
      * 用户SessionKeyGenerator
@@ -62,7 +58,10 @@ public class AdminWebSocketAutoConfiguration {
      * @return SessionKeyGenerator
      * @since 2022.03
      */
+    @Bean
+    @ConditionalOnMissingBean(SessionKeyGenerator.class)
     public SessionKeyGenerator userSessionKeyGenerator() {
         return new UserSessionKeyGenerator();
     }
 }
+

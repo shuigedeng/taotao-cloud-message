@@ -55,8 +55,6 @@ public class DemoController {
         return ResponseEntity.ok("MSG SEND SUCCESS");
     }
 
-    @GetMapping("/close")
-
     /**
      * 关闭
      *
@@ -64,12 +62,11 @@ public class DemoController {
      * @return 字符串
      * @since 2022.03
      */
+    @GetMapping("/close")
     public String close( String userId ) {
         com.taotao.cloud.sys.infrastructure.channels.websockt.netty.NettyWebSocket.close(userId);
         return "ok";
     }
-
-    @GetMapping("/getOnlineUser")
 
     /**
     /**
@@ -78,6 +75,7 @@ public class DemoController {
      * @return Map
      * @since 2022.03
      */
+    @GetMapping("/getOnlineUser")
     public Map getOnlineUser() {
         return NettyWebSocket.getOnlineUser();
     }
@@ -101,3 +99,4 @@ public class DemoController {
         return ResponseEntity.ok(list);
     }
 }
+

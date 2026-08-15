@@ -65,8 +65,6 @@ public class WebSseController {
 
     @Autowired private SseService sseService;
 
-    @RequestMapping(value = "/send")
-
     /**
      * 发送
      *
@@ -75,6 +73,7 @@ public class WebSseController {
      * @return 无返回值
      * @since 2022.03
      */
+    @RequestMapping(value = "/send")
     public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel send(
             @RequestBody
                     com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO<String> messageDTO,
@@ -94,8 +93,6 @@ public class WebSseController {
         return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.ok();
     }
 
-    @GetMapping(value = "/subscribe", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-
     /**
      * to 方法
      *
@@ -103,6 +100,7 @@ public class WebSseController {
      * @return SseEmitter
      * @since 2022.03
      */
+    @GetMapping(value = "/subscribe", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public SseEmitter to(HttpServletRequest request) {
         String userName = (String) request.getSession().getAttribute("userName");
         // 超时时间设置为3分钟
@@ -115,8 +113,6 @@ public class WebSseController {
         return sseEmitter;
     }
 
-    @RequestMapping(value = "/setUser")
-
     /**
     /**
      * 设置
@@ -124,6 +120,7 @@ public class WebSseController {
      * @return 无返回值
      * @since 2022.03
      */
+    @RequestMapping(value = "/setUser")
     public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel setUser(
             @RequestParam("userName") String userName, HttpServletRequest request) {
         logger.info("设置用户[{}]", userName);
@@ -135,8 +132,6 @@ public class WebSseController {
         return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.ok();
     }
 
-    @RequestMapping(value = "/user")
-
     /**
      * 用户
      *
@@ -144,6 +139,7 @@ public class WebSseController {
      * @return 无返回值
      * @since 2022.03
      */
+    @RequestMapping(value = "/user")
     public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel user(
             HttpServletRequest request) {
         Object userName = request.getSession().getAttribute("userName");
@@ -153,20 +149,17 @@ public class WebSseController {
         return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.ok(userName);
     }
 
-    @RequestMapping(value = "/userList")
-
     /**
      * 用户列表
      *
      * @return 无返回值
      * @since 2022.03
      */
+    @RequestMapping(value = "/userList")
     public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel userList() {
         return com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel.ok(
                 com.taotao.cloud.sys.infrastructure.channels.sse.WebSSEUser.getUserList());
     }
-
-    @RequestMapping(value = "/fileUpload")
 
     /**
      * 文件Upload
@@ -174,6 +167,7 @@ public class WebSseController {
      * @return 无返回值
      * @since 2022.03
      */
+    @RequestMapping(value = "/fileUpload")
     public com.taotao.cloud.sys.infrastructure.channels.sse.ResultModel fileUpload(
             @RequestParam("userName") String userName,
             @RequestParam MultipartFile[] myfiles,
@@ -216,7 +210,6 @@ public class WebSseController {
     @GetMapping(
             value = "test/{clientId}",
             produces = {MediaType.TEXT_EVENT_STREAM_VALUE})
-    @ApiOperation(value = " 建立连接")
 
     /**
      * test 方法
@@ -224,6 +217,7 @@ public class WebSseController {
      * @return SseEmitter
      * @since 2022.03
      */
+    @ApiOperation(value = " 建立连接")
     public SseEmitter test(@PathVariable("clientId") @ApiParam("客户端 id") String clientId) {
         final SseEmitter emitter = sseService.getConn(clientId);
         CompletableFuture.runAsync(
@@ -245,3 +239,4 @@ public class WebSseController {
         return Result.success("连接已关闭");
     }
 }
+

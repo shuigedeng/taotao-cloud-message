@@ -39,8 +39,6 @@ public class PushMsgController {
     @Autowired
     PushMsgService pushMsgService;
 
-    @RequestMapping("/pushOne")
-
     /**
      * pushOne 方法
      *
@@ -48,11 +46,10 @@ public class PushMsgController {
      * @return 无返回值
      * @since 2022.03
      */
+    @RequestMapping("/pushOne")
     public void pushOne( DataContent dataContent ) {
         pushMsgService.pushMsgToOne(dataContent);
     }
-
-    @RequestMapping("/pushAll")
 
     /**
      * pushAll 方法
@@ -61,7 +58,9 @@ public class PushMsgController {
      * @return 无返回值
      * @since 2022.03
      */
+    @RequestMapping("/pushAll")
     public void pushAll( DataContent dataContent ) {
         pushMsgService.pushMsgToAll(dataContent);
     }
 }
+

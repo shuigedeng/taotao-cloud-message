@@ -39,15 +39,15 @@ public class SystemWebsocketEventListenerConfiguration {
         this.messageDistributor = messageDistributor;
     }
 
-    @Bean
-
     /**
      * systemWebsocketEventListener 方法
      *
      * @return SystemWebsocketEventListener
      * @since 2022.03
      */
+    @Bean
     public SystemWebsocketEventListener systemWebsocketEventListener() {
         return new SystemWebsocketEventListener(messageDistributor);
     }
 }
+

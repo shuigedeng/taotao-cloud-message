@@ -38,9 +38,6 @@ import org.springframework.context.annotation.Bean;
 @ConditionalOnProperty(prefix = SmsWebmvcProperties.PREFIX, name = "enable", havingValue = "true")
 public class SmsWebmvcAutoConfiguration {
 
-    @Bean
-    @ConditionalOnMissingBean(com.taotao.cloud.sys.infrastructure.channels.sms.SmsController.class)
-
     /**
      * smsController 方法
      *
@@ -49,8 +46,11 @@ public class SmsWebmvcAutoConfiguration {
      * @return 无返回值
      * @since 2022.03
      */
+    @Bean
+    @ConditionalOnMissingBean(com.taotao.cloud.sys.infrastructure.channels.sms.SmsController.class)
     public com.taotao.cloud.sys.infrastructure.channels.sms.SmsController smsController(
             VerificationCodeService verificationCodeService, NoticeService noticeService) {
         return new SmsController(verificationCodeService, noticeService);
     }
 }
+

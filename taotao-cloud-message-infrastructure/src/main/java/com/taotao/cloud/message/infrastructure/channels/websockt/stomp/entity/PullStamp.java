@@ -60,16 +60,15 @@ public class PullStamp extends AbstractEntity {
     @Column(name = "source", length = 50)
     private String source;
 
-    @Schema(title = "上次拉取时间")
-    @Column(name = "latest_pull_time", updatable = false)
-    @JsonFormat(pattern = DefaultConstants.DATE_TIME_FORMAT)
-
     /**
      * 日期
      *
      * @return 无返回值
      * @since 2022.03
      */
+    @Schema(title = "上次拉取时间")
+    @Column(name = "latest_pull_time", updatable = false)
+    @JsonFormat(pattern = DefaultConstants.DATE_TIME_FORMAT)
     private Date latestPullTime = new Date();
 
     /**
@@ -174,3 +173,4 @@ public class PullStamp extends AbstractEntity {
                 .toString();
     }
 }
+
