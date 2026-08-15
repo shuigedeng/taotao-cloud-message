@@ -92,7 +92,6 @@ public class DialogueDetailController extends BaseWriteableRestController<Dialog
         return result(pages);
     }
 
-    @Idempotent
     @Operation(
             summary = "根据dialogueId删除私信整个对话",
             description = "根据实体dialogueId删除私信整个对话，包括相关联的关联数据",
@@ -104,6 +103,7 @@ public class DialogueDetailController extends BaseWriteableRestController<Dialog
                         description = "操作消息",
                         content = @Content(mediaType = "application/json"))
             })
+    @Idempotent
     @Parameters({
         @Parameter(
                 name = "id",

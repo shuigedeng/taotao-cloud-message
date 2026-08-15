@@ -47,17 +47,17 @@ public class UserAnnouncementController {
      * @param userAnnouncementQO 用户公告表查询对象
      * @return R 通用返回体
      */
-    @GetMapping("/page")
-    @PreAuthorize("@per.hasPermission('notify:userannouncement:read')")
     @Operation(summary = "分页查询", description = "分页查询")
+    @PreAuthorize("@per.hasPermission('notify:userannouncement:read')")
+    @GetMapping("/page")
     public R<PageResult<UserAnnouncementPageVO>> getUserAnnouncementPage(
             @Validated PageParam pageParam, UserAnnouncementQO userAnnouncementQO) {
         return R.ok(userAnnouncementService.queryPage(pageParam, userAnnouncementQO));
     }
 
-    @PatchMapping("/read/{announcementId}")
-    @PreAuthorize("@per.hasPermission('notify:userannouncement:read')")
     @Operation(summary = "用户公告已读上报", description = "用户公告已读上报")
+    @PreAuthorize("@per.hasPermission('notify:userannouncement:read')")
+    @PatchMapping("/read/{announcementId}")
     public R<Void> readAnnouncement(@PathVariable("announcementId") Long announcementId) {
         Integer userId = SecurityUtils.getUser().getUserId();
         userAnnouncementService.readAnnouncement(userId, announcementId);
