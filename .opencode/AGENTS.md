@@ -6,7 +6,7 @@
 
 ## OVERVIEW
 
-消息领域 DDD 单体服务，基于 Spring Boot 4.1.0 / JDK 25 / Gradle 9.5。
+消息领域 DDD 单体服务，基于 Spring Boot 4.1.1 / JDK 25 / Gradle 9.5。
 严格遵循六边形架构 + 领域驱动设计。项目属于 taotao-cloud-project 生态的消息模块。
 
 ## STRUCTURE
@@ -253,7 +253,7 @@ gradlew :taotao-cloud-message-domain:test  # 指定模块测试
 |-----------|---------|
 | JDK | 25 (预览特性，--enable-preview) |
 | Gradle | 9.7.0 |
-| Spring Boot | 4.1.0 |
+| Spring Boot | 4.1.1 |
 | Spring Cloud | 2025.1.1 |
 | Spring Cloud Alibaba | 2025.1.0.0 |
 | Spring Security | 7.1.0 |
