@@ -79,7 +79,6 @@ public class DialogueContact extends BaseSenderEntity {
      * 设置
      *
      * @param contactId contactId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setContactId(String contactId) {
@@ -100,7 +99,6 @@ public class DialogueContact extends BaseSenderEntity {
      * 设置
      *
      * @param receiverId receiverId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setReceiverId(String receiverId) {
@@ -116,7 +114,6 @@ public class DialogueContact extends BaseSenderEntity {
      * 设置
      *
      * @param dialogue dialogue
-     * @return 无返回值
      * @since 2022.03
      */
     public void setDialogue(Dialogue dialogue) {

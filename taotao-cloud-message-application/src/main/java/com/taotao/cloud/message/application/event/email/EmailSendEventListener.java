@@ -35,7 +35,6 @@ public class EmailSendEventListener {
      * 保存请求日志
      *
      * @param event 事件
-     * @return 无返回值
      * @since 2022.03
      */
     @Async

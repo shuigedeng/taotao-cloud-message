@@ -72,7 +72,6 @@ public class NotificationService extends BaseService<Notification, String> {
      * pullAnnouncements 方法
      *
      * @param userId 用户ID
-     * @return 无返回值
      * @since 2022.03
      */
     public void pullAnnouncements(String userId) {

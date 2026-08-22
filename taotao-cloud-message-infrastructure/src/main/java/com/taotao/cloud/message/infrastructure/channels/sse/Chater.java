@@ -42,7 +42,6 @@ public class Chater {
      * 添加消息
      *
      * @param msg 消息
-     * @return 无返回值
      * @since 2022.03
      */
     public void addMsg( com.taotao.cloud.sys.infrastructure.channels.sse.MessageDTO<?> msg ) {
@@ -73,7 +72,6 @@ public class Chater {
      * 设置
      *
      * @param userName userName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setUserName( String userName ) {
@@ -96,7 +94,6 @@ public class Chater {
      * 设置
      *
      * @param sseEmitter sseEmitter
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSseEmitter( SseEmitter sseEmitter ) {

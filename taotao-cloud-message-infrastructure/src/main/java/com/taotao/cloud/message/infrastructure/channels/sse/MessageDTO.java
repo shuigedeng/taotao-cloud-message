@@ -44,7 +44,6 @@ public class MessageDTO<T> {
      * 设置
      *
      * @param fromUserName fromUserName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setFromUserName( String fromUserName ) {
@@ -65,7 +64,6 @@ public class MessageDTO<T> {
      * 设置
      *
      * @param message message
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMessage( T message ) {
@@ -86,7 +84,6 @@ public class MessageDTO<T> {
      * 设置
      *
      * @param messageType messageType
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMessageType( String messageType ) {
@@ -107,7 +104,6 @@ public class MessageDTO<T> {
      * 设置
      *
      * @param targetUserName targetUserName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setTargetUserName( String targetUserName ) {
@@ -138,7 +134,6 @@ public class MessageDTO<T> {
          * 设置
          *
          * @param messageType messageType
-         * @return 无返回值
          * @since 2022.03
          */
         public void setMessageType( String messageType ) {

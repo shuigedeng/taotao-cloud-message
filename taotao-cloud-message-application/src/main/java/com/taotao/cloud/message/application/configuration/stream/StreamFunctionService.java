@@ -48,7 +48,6 @@ public class StreamFunctionService {
     /**
      * 发送
      *
-     * @return 无返回值
      * @since 2022.03
      */
     public void sendRocketmqExample() {
@@ -59,7 +58,6 @@ public class StreamFunctionService {
     /**
      * 发送
      *
-     * @return 无返回值
      * @since 2022.03
      */
     public void sendRocketmqDemo() throws Exception {
@@ -77,7 +75,6 @@ public class StreamFunctionService {
     /**
      * 发送
      *
-     * @return 无返回值
      * @since 2022.03
      */
     public void sendRocketmqTest() throws Exception {
@@ -96,7 +93,6 @@ public class StreamFunctionService {
      * 发送
      *
      * @param content 内容
-     * @return 无返回值
      * @since 2022.03
      */
     public void sendKafka(String content) {
@@ -108,7 +104,6 @@ public class StreamFunctionService {
      * 发送
      *
      * @param content 内容
-     * @return 无返回值
      * @since 2022.03
      */
     public void sendRabbit(String content) {
@@ -120,7 +115,6 @@ public class StreamFunctionService {
      * 发送
      *
      * @param content 内容
-     * @return 无返回值
      * @since 2022.03
      */
     public void sendRocketmq(String content) {

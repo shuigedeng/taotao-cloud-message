@@ -86,7 +86,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * 设置
      *
      * @param detailId detailId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setDetailId(String detailId) {
@@ -107,7 +106,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * 设置
      *
      * @param receiverId receiverId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setReceiverId(String receiverId) {
@@ -128,7 +126,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * 设置
      *
      * @param receiverName receiverName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setReceiverName(String receiverName) {
@@ -149,7 +146,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * 设置
      *
      * @param receiverAvatar receiverAvatar
-     * @return 无返回值
      * @since 2022.03
      */
     public void setReceiverAvatar(String receiverAvatar) {
@@ -170,7 +166,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * 设置
      *
      * @param content content
-     * @return 无返回值
      * @since 2022.03
      */
     public void setContent(String content) {
@@ -191,7 +186,6 @@ public class DialogueDetail extends BaseSenderEntity {
      * 设置
      *
      * @param dialogueId dialogueId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setDialogueId(String dialogueId) {

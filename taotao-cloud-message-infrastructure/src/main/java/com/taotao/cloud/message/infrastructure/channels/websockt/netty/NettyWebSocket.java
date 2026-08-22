@@ -395,7 +395,6 @@ public class NettyWebSocket {
      *
      * @param userId 用户ID
      * @param message 消息
-     * @return 无返回值
      * @since 2022.03
      */
     public static void sendInfo(String userId, String message) {

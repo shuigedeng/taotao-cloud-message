@@ -95,7 +95,6 @@ public class DialogueContactService extends BaseService<DialogueContact, String>
      * 删除
      *
      * @param dialogueId dialogueId
-     * @return 无返回值
      * @since 2022.03
      */
     public void deleteByDialogueId(String dialogueId) {

@@ -132,7 +132,6 @@ public class DialogueDetailService extends BaseService<DialogueDetail, String> {
      * 删除
      *
      * @param dialogueId dialogueId
-     * @return 无返回值
      * @since 2022.03
      */
     @Transactional

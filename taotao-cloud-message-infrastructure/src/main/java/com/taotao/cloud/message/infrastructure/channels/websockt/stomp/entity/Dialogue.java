@@ -67,7 +67,6 @@ public class Dialogue extends BaseEntity {
      * 设置
      *
      * @param dialogueId dialogueId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setDialogueId(String dialogueId) {
@@ -88,7 +87,6 @@ public class Dialogue extends BaseEntity {
      * 设置
      *
      * @param latestNews latestNews
-     * @return 无返回值
      * @since 2022.03
      */
     public void setLatestNews(String latestNews) {

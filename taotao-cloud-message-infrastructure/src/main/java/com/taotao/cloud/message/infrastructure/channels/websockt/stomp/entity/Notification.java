@@ -82,7 +82,6 @@ public class Notification extends BaseSenderEntity {
      * 设置
      *
      * @param queueId queueId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setQueueId(String queueId) {
@@ -103,7 +102,6 @@ public class Notification extends BaseSenderEntity {
      * 设置
      *
      * @param read read
-     * @return 无返回值
      * @since 2022.03
      */
     public void setRead(Boolean read) {
@@ -124,7 +122,6 @@ public class Notification extends BaseSenderEntity {
      * 设置
      *
      * @param userId userId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setUserId(String userId) {
@@ -145,7 +142,6 @@ public class Notification extends BaseSenderEntity {
      * 设置
      *
      * @param content content
-     * @return 无返回值
      * @since 2022.03
      */
     public void setContent(String content) {
@@ -166,7 +162,6 @@ public class Notification extends BaseSenderEntity {
      * 设置
      *
      * @param category category
-     * @return 无返回值
      * @since 2022.03
      */
     public void setCategory(NotificationCategory category) {

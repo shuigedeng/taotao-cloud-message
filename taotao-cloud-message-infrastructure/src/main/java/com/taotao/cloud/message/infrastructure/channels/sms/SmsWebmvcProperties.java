@@ -63,7 +63,6 @@ public class SmsWebmvcProperties {
      * 设置
      *
      * @param enable enable
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEnable(boolean enable) {
@@ -84,7 +83,6 @@ public class SmsWebmvcProperties {
      * 设置
      *
      * @param basePath basePath
-     * @return 无返回值
      * @since 2022.03
      */
     public void setBasePath(String basePath) {
@@ -105,7 +103,6 @@ public class SmsWebmvcProperties {
      * 设置
      *
      * @param enableSend enableSend
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEnableSend(boolean enableSend) {
@@ -126,7 +123,6 @@ public class SmsWebmvcProperties {
      * 设置
      *
      * @param enableGet enableGet
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEnableGet(boolean enableGet) {
@@ -147,7 +143,6 @@ public class SmsWebmvcProperties {
      * 设置
      *
      * @param enableVerify enableVerify
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEnableVerify(boolean enableVerify) {
@@ -168,7 +163,6 @@ public class SmsWebmvcProperties {
      * 设置
      *
      * @param enableNotice enableNotice
-     * @return 无返回值
      * @since 2022.03
      */
     public void setEnableNotice(boolean enableNotice) {

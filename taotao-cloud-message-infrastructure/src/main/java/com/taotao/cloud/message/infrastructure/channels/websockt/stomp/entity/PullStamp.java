@@ -63,7 +63,6 @@ public class PullStamp extends AbstractEntity {
     /**
      * 日期
      *
-     * @return 无返回值
      * @since 2022.03
      */
     @Schema(title = "上次拉取时间")
@@ -87,7 +86,6 @@ public class PullStamp extends AbstractEntity {
      * 设置
      *
      * @param stampId stampId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setStampId(String stampId) {
@@ -110,7 +108,6 @@ public class PullStamp extends AbstractEntity {
      * 设置
      *
      * @param userId userId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setUserId(String userId) {
@@ -133,7 +130,6 @@ public class PullStamp extends AbstractEntity {
      * 设置
      *
      * @param source source
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSource(String source) {
@@ -156,7 +152,6 @@ public class PullStamp extends AbstractEntity {
      * 设置
      *
      * @param latestPullTime latestPullTime
-     * @return 无返回值
      * @since 2022.03
      */
     public void setLatestPullTime(Date latestPullTime) {

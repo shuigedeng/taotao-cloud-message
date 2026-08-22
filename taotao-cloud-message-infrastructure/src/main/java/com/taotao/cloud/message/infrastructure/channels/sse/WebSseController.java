@@ -70,7 +70,6 @@ public class WebSseController {
      *
      * @param messageDTO 消息DTO
      * @param request 请求
-     * @return 无返回值
      * @since 2022.03
      */
     @RequestMapping(value = "/send")
@@ -117,7 +116,6 @@ public class WebSseController {
     /**
      * 设置
      *
-     * @return 无返回值
      * @since 2022.03
      */
     @RequestMapping(value = "/setUser")
@@ -136,7 +134,6 @@ public class WebSseController {
      * 用户
      *
      * @param request 请求
-     * @return 无返回值
      * @since 2022.03
      */
     @RequestMapping(value = "/user")
@@ -152,7 +149,6 @@ public class WebSseController {
     /**
      * 用户列表
      *
-     * @return 无返回值
      * @since 2022.03
      */
     @RequestMapping(value = "/userList")
@@ -164,7 +160,6 @@ public class WebSseController {
     /**
      * 文件Upload
      *
-     * @return 无返回值
      * @since 2022.03
      */
     @RequestMapping(value = "/fileUpload")

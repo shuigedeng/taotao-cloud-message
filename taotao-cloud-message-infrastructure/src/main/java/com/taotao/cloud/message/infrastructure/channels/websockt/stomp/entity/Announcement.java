@@ -69,7 +69,6 @@ public class Announcement extends BaseSenderEntity {
      * 设置
      *
      * @param announcementId announcementId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setAnnouncementId(String announcementId) {
@@ -90,7 +89,6 @@ public class Announcement extends BaseSenderEntity {
      * 设置
      *
      * @param title title
-     * @return 无返回值
      * @since 2022.03
      */
     public void setTitle(String title) {
@@ -111,7 +109,6 @@ public class Announcement extends BaseSenderEntity {
      * 设置
      *
      * @param content content
-     * @return 无返回值
      * @since 2022.03
      */
     public void setContent(String content) {

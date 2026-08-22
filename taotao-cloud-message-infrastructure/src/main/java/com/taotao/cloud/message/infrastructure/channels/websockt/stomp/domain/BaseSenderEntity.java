@@ -56,7 +56,6 @@ public abstract class BaseSenderEntity extends BaseEntity {
      * 设置
      *
      * @param senderId senderId
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSenderId(String senderId) {
@@ -77,7 +76,6 @@ public abstract class BaseSenderEntity extends BaseEntity {
      * 设置
      *
      * @param senderName senderName
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSenderName(String senderName) {
@@ -98,7 +96,6 @@ public abstract class BaseSenderEntity extends BaseEntity {
      * 设置
      *
      * @param senderAvatar senderAvatar
-     * @return 无返回值
      * @since 2022.03
      */
     public void setSenderAvatar(String senderAvatar) {

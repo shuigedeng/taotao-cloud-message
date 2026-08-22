@@ -37,7 +37,6 @@ public class HeartBeatHandler extends ChannelInboundHandlerAdapter {
      *
      * @param ctx ctx
      * @param evt evt
-     * @return 无返回值
      * @since 2022.03
      */
     public void userEventTriggered( ChannelHandlerContext ctx, Object evt ) throws Exception {

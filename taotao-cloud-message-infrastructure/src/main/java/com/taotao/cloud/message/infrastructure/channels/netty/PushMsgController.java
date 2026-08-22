@@ -43,7 +43,6 @@ public class PushMsgController {
      * pushOne 方法
      *
      * @param dataContent 数据内容
-     * @return 无返回值
      * @since 2022.03
      */
     @RequestMapping("/pushOne")
@@ -55,7 +54,6 @@ public class PushMsgController {
      * pushAll 方法
      *
      * @param dataContent 数据内容
-     * @return 无返回值
      * @since 2022.03
      */
     @RequestMapping("/pushAll")

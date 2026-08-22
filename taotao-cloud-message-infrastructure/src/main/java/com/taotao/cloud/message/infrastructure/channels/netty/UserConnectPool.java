@@ -48,7 +48,6 @@ public class UserConnectPool {
     /**
      * Object 方法
      *
-     * @return 无返回值
      * @since 2022.03
      */
     private static final Object lock2 = new Object();

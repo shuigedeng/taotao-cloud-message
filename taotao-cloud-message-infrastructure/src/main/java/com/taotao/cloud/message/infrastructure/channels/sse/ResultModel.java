@@ -52,7 +52,6 @@ public class ResultModel {
      * seterrorCode 方法
      *
      * @param errorCode 错误编码
-     * @return 无返回值
      * @since 2022.03
      */
     public void seterrorCode(String errorCode) {
@@ -75,7 +74,6 @@ public class ResultModel {
      * 设置
      *
      * @param message message
-     * @return 无返回值
      * @since 2022.03
      */
     public void setMessage(String message) {
@@ -98,7 +96,6 @@ public class ResultModel {
      * 设置
      *
      * @param data data
-     * @return 无返回值
      * @since 2022.03
      */
     public void setData(Object data) {
