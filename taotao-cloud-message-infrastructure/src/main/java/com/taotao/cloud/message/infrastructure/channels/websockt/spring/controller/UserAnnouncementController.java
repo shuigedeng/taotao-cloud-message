@@ -51,7 +51,7 @@ public class UserAnnouncementController {
     @PreAuthorize("@per.hasPermission('notify:userannouncement:read')")
     @GetMapping("/page")
     public R<PageResult<UserAnnouncementPageVO>> getUserAnnouncementPage(
-            @Validated PageParam pageParam, UserAnnouncementQO userAnnouncementQO) {
+            @Valid PageParam pageParam, UserAnnouncementQO userAnnouncementQO) {
         return R.ok(userAnnouncementService.queryPage(pageParam, userAnnouncementQO));
     }
 

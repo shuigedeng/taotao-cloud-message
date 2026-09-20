@@ -44,7 +44,7 @@ public class BrandPageParam extends PageQuery {
      * @return 品牌页码参数Builder
      * @since 2022.03
      */
-    public static BrandPageParamBuilder builder() {
+    public static BrandPageParamBuilder paramBuilder() {
         return new BrandPageParamBuilder();
     }
 
