@@ -33,7 +33,7 @@ import lombok.experimental.*;
  * @author shuigedeng 2020-12-15 17:01:15
  */
 @Data
-@Schema(title = "公告信息分页VO")
+@Schema(title = "公告信息分页响应对象")
 public class AnnouncementPageVO {
 
     private static final long serialVersionUID = 1L;

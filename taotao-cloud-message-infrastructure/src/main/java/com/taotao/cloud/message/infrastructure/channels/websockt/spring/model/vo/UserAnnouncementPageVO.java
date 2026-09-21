@@ -27,7 +27,7 @@ import lombok.experimental.*;
  * @author shuigedeng 2020-12-25 08:04:53
  */
 @Data
-@Schema(title = "用户公告分页VO")
+@Schema(title = "用户公告分页响应对象")
 public class UserAnnouncementPageVO {
 
     private static final long serialVersionUID = 1L;
