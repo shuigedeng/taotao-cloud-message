@@ -59,7 +59,6 @@ public class ResultModel {
     }
 
     /**
-    /**
      * 获取
      *
      * @return 字符串
@@ -69,7 +68,6 @@ public class ResultModel {
         return message;
     }
 
-    /**
     /**
      * 设置
      *
@@ -81,7 +79,6 @@ public class ResultModel {
     }
 
     /**
-    /**
      * 获取
      *
      * @return Object
@@ -91,7 +88,6 @@ public class ResultModel {
         return data;
     }
 
-    /**
     /**
      * 设置
      *

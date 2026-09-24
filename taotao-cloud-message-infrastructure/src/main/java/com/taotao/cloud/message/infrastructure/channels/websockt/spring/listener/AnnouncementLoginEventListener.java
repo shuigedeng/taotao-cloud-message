@@ -90,7 +90,6 @@ public class AnnouncementLoginEventListener {
     }
 
     /**
-    /**
      * 获取
      *
      * @param user user

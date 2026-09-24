@@ -57,7 +57,6 @@ public class Chater {
     }
 
     /**
-    /**
      * 获取
      *
      * @return 字符串
@@ -67,7 +66,6 @@ public class Chater {
         return userName;
     }
 
-    /**
     /**
      * 设置
      *
@@ -79,7 +77,6 @@ public class Chater {
     }
 
     /**
-    /**
      * 获取
      *
      * @return SseEmitter
@@ -89,7 +86,6 @@ public class Chater {
         return sseEmitter;
     }
 
-    /**
     /**
      * 设置
      *

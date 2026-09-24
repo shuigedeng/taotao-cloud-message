@@ -71,7 +71,6 @@ public class PullStamp extends AbstractEntity {
     private Date latestPullTime = new Date();
 
     /**
-    /**
      * 获取
      *
      * @return 字符串
@@ -81,7 +80,6 @@ public class PullStamp extends AbstractEntity {
         return stampId;
     }
 
-    /**
     /**
      * 设置
      *
@@ -93,7 +91,6 @@ public class PullStamp extends AbstractEntity {
     }
 
     /**
-    /**
      * 获取
      *
      * @return 字符串
@@ -103,7 +100,6 @@ public class PullStamp extends AbstractEntity {
         return userId;
     }
 
-    /**
     /**
      * 设置
      *
@@ -115,7 +111,6 @@ public class PullStamp extends AbstractEntity {
     }
 
     /**
-    /**
      * 获取
      *
      * @return 字符串
@@ -125,7 +120,6 @@ public class PullStamp extends AbstractEntity {
         return source;
     }
 
-    /**
     /**
      * 设置
      *
@@ -137,7 +131,6 @@ public class PullStamp extends AbstractEntity {
     }
 
     /**
-    /**
      * 获取
      *
      * @return Date
@@ -147,7 +140,6 @@ public class PullStamp extends AbstractEntity {
         return latestPullTime;
     }
 
-    /**
     /**
      * 设置
      *

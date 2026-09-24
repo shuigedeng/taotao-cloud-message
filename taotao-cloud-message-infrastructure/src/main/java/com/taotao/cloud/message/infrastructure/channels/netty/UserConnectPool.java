@@ -53,7 +53,6 @@ public class UserConnectPool {
     private static final Object lock2 = new Object();
 
     /**
-    /**
      * 获取
      *
      * @return ChannelGroup
@@ -81,7 +80,6 @@ public class UserConnectPool {
         return channelMap;
     }
 
-    /**
     /**
      * 获取
      *
