@@ -14,18 +14,18 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.inner.request;
+package com.taotao.cloud.message.api.internal.response;
 
-import com.taotao.boot.common.model.ddd.types.Command;
-import com.taotao.boot.common.model.ddd.types.MarkerRequest;
+import com.taotao.boot.common.model.ddd.types.MarkerResponse;
+import com.taotao.boot.common.model.ddd.types.MarkerResult;
 
 /**
- * NoticeMessageApiRequest
+ * StoreMessageApiResponse
  *
  * @author shuigedeng
  * @version 2026.04
  * @since 2025-12-19 09:30:45
  */
-public class NoticeMessageApiRequest implements Command {
+public class StoreMessageApiResponse implements MarkerResult {
 
 }

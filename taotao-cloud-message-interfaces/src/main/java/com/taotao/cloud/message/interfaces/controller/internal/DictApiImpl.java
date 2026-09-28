@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.interfaces.controller.inner;
+package com.taotao.cloud.message.interfaces.controller.internal;
 
 
-import com.taotao.boot.webagg.controller.InnerController;
+import com.taotao.boot.webagg.controller.InternalController;
 import com.taotao.cloud.message.application.service.DictService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping
-public class DictApiImpl extends InnerController {
+public class DictApiImpl extends InternalController {
 
     @Autowired private DictService dictService;
 //

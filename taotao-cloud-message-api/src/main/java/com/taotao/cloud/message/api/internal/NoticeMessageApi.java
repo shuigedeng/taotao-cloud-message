@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-package com.taotao.cloud.message.api.inner;
+package com.taotao.cloud.message.api.internal;
 
-import com.taotao.boot.common.constant.ServiceNameConstants;
-import com.taotao.boot.common.model.ddd.query.PageQuery;
-import com.taotao.boot.common.model.result.PageResult;
-import com.taotao.cloud.message.api.inner.response.StoreMessageApiResponse;
+import com.taotao.cloud.message.api.internal.request.NoticeMessageApiRequest;
 import org.springframework.web.service.annotation.GetExchange;
 import org.springframework.web.service.annotation.HttpExchange;
 
@@ -30,8 +27,31 @@ import org.springframework.web.service.annotation.HttpExchange;
  * @since 2020/5/2 16:42
  */
 @HttpExchange
-public interface StoreMessageApi {
+public interface NoticeMessageApi {
 
-    @GetExchange(value = "/message/getPage")
-    PageResult<StoreMessageApiResponse> getPage(PageQuery PageQuery);
+    @GetExchange(value = "/noticeMessage/sms")
+    void noticeMessage( NoticeMessageApiRequest noticeMessageDTO);
+
+    @GetExchange(value = "/message/sms")
+    boolean sendSms();
+
+    /**
+     * 站内信
+     *
+     * @return
+     */
+    @GetExchange(value = "/message/message")
+    boolean sendMessage();
+
+    @GetExchange(value = "/message/dingtalk")
+    boolean sendDingtalk();
+
+    @GetExchange(value = "/message/wechat")
+    boolean sendWechat();
+
+    @GetExchange(value = "/message/email")
+    boolean sendEmail();
+
+    @GetExchange(value = "/message/store")
+    boolean sendStoreMessage();
 }
