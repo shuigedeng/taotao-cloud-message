@@ -79,7 +79,7 @@ public class AnnouncementServiceImpl extends ExtendServiceImpl<AnnouncementMappe
      * @return boolean
      */
     @Override
-    @Transactional(rollbackFor = Exception.class)
+    
     public boolean addAnnouncement(AnnouncementDTO announcementDTO) {
         Announcement announcement = AnnouncementConverter.INSTANCE.dtoToPo(announcementDTO);
         announcement.setId(null);
@@ -101,7 +101,7 @@ public class AnnouncementServiceImpl extends ExtendServiceImpl<AnnouncementMappe
      * @return boolean
      */
     @Override
-    @Transactional(rollbackFor = Exception.class)
+    
     public boolean updateAnnouncement(AnnouncementDTO announcementDTO) {
         Announcement oldAnnouncement = baseMapper.selectById(announcementDTO.getId());
         if (oldAnnouncement.getStatus() != AnnouncementStatusEnum.UNPUBLISHED.getValue()) {
@@ -131,7 +131,7 @@ public class AnnouncementServiceImpl extends ExtendServiceImpl<AnnouncementMappe
      * @return boolean
      */
     @Override
-    @Transactional(rollbackFor = Exception.class)
+    
     public boolean publish(Long announcementId) {
         Announcement announcement = baseMapper.selectById(announcementId);
         if (announcement.getStatus() != AnnouncementStatusEnum.UNPUBLISHED.getValue()) {
