@@ -17,7 +17,7 @@
 package com.taotao.cloud.message.infrastructure.channels.sse;
 
 /**
- * @author cff
+ * @author shuigedeng
  */
 public class ResultModel {
 

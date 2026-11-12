@@ -28,7 +28,7 @@ import org.springframework.stereotype.Component;
 /**
  * 公告通知消息处理器
  *
- * @author huyuanzhi
+ * @author shuigedeng
  */
 @Component
 @RequiredArgsConstructor

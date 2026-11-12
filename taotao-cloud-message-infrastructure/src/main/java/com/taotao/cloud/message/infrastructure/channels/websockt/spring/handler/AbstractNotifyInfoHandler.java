@@ -29,7 +29,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * 公告通知
  *
- * @author huyuanzhi
+ * @author shuigedeng
  * @param <T>event消息对象
  * @param <M> websocket发送消息对象
  */

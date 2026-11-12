@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * event消息处理接口
  *
- * @author huyuanzhi
+ * @author shuigedeng
  */
 public interface NotifyInfoHandler<T extends NotifyInfo> {
 

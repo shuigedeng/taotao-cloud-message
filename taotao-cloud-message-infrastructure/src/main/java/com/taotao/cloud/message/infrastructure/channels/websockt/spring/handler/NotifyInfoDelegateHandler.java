@@ -31,7 +31,7 @@ import org.springframework.util.Assert;
 /**
  * 消息处理代理
  *
- * @author huyuanzhi
+ * @author shuigedeng
  * @param <T> 消息类型
  */
 @Slf4j
