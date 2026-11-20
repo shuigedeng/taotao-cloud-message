@@ -6,7 +6,7 @@
 |------|------|
 | JDK | 25（预览特性，`--enable-preview`） |
 | Gradle | 9.9.1 |
-| Spring Boot | 4.1.2 |
+| Spring Boot | 4.2.0 |
 | Spring Cloud Alibaba | 2025.1.0.0 |
 | Spring Security | 7.1.0 |
 | MyBatis-Plus | 3.5.16 |
